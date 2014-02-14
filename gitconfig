@@ -1,1 +1,19 @@
-/home/zach/dev/dotfiles/gitconfig.sym
+[user]
+	name = Zach Latta
+	email = zach@zachlatta.com
+[core]
+	excludesfile = $HOME/.gitignore_global
+	autocrlf = false
+[github]
+	user = zachlatta
+[alias]
+	d = difftool
+  st = status
+  mt = mergetool
+  co = checkout
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=21600
+[push]
+	default = simple
