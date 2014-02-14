@@ -1,0 +1,1 @@
+/home/zach/dev/dotfiles/vimrc.sym
