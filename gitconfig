@@ -2,7 +2,7 @@
 	name = Zach Latta
 	email = zach@zachlatta.com
 [core]
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	autocrlf = false
 [github]
 	user = zachlatta
