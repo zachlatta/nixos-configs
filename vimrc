@@ -1,3 +1,6 @@
+" Because Fish
+set shell=/bin/sh
+
 set nocompatible               " be iMproved
 filetype on                    " if it's already off
 filetype off                   " required!
