@@ -1,5 +1,6 @@
 # Go
 set -x GOROOT $HOME/dev/go
+set PATH $PATH $HOME/dev/go/bin
 set -x GOPATH $HOME/go
 set PATH $PATH $HOME/go/bin
 
@@ -11,6 +12,18 @@ if [ (uname) = 'Darwin' ]
   # Go App Engine
   set -x PATH $PATH $HOME/go_appengine
 end
+
+# Linux specific config
+if [ (uname) = 'Linux' ]
+  # Go App Engine
+  set -x PATH $PATH $HOME/dev/go_appengine
+
+  # Fix vim color woes
+  set -x TERM xterm-256color
+end
+
+# Misc config
+set -x EDITOR vim
 
 . $HOME/.config/fish/aliases.fish
 . $HOME/.config/fish/solarized.fish

@@ -59,9 +59,8 @@ else
 endif
 
 " Solarized config
-syntax enable
+syntax on
 set background=dark
-let g:solarized_termtrans = 1
 colorscheme solarized
 
 " .layout files should be highlighted as xml files
