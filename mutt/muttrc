@@ -1,0 +1,80 @@
+source "gpg2 -dq $HOME/.my-pwds.gpg |"
+
+set imap_user=zach@zachlatta.com
+set imap_pass=$my_pw_personal
+set folder=imaps://plato.zachlatta.com:993/
+set spoolfile=+INBOX
+set record=+Sent
+set imap_check_subscribed
+
+set realname = "Zach Latta"
+set from = zach@zachlatta.com
+set signature = "~/.signature"
+set use_from = yes
+set smtp_url=smtp://$imap_user:$imap_pass@plato.zachlatta.com:25/
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# Press G to fetch new mail
+bind index G imap-fetch-mail
+
+# Store message headers locally to speed things up.
+set header_cache = "~/.cache/mutt"
+
+# Store messages locally to speed things up, like searching message bodies.
+set message_cachedir = "~/.cache/mutt"
+
+# Set where to save and/or look for postponed messages.
+set postponed = +Drafts
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+
+# Keep IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 300
+
+# How often to check for new mail (time in seconds).
+set mail_check = 30
+
+# Allow us to view HTML emails.
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
+
+# Save certificates in ~/.mutt/certs
+set certificate_file=~/.mutt/certs
+
+# Goobook config #
+##################
+
+# Goobook query (google contacts)
+set query_command="goobook query '%s'"
+bind editor \t complete-query ## tab completion for contacts :)
+
+# Add contacts to google
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+
+# Reload goobook db
+macro index,pager gr "!goobook reload\n" "Goobook reload"
+
+# GPG Config #
+##############
+
+#source /etc/Muttrc.gpg.dist
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xB5D9D60E -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xB5D9D60E -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_sign_as=0xB5D9D60E
+set pgp_autosign=yes
+set pgp_replyencrypt=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: Good signature from"
+message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
