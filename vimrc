@@ -30,6 +30,7 @@ Bundle 'ledger/vim-ledger'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'jamessan/vim-gnupg'
 
 filetype plugin indent on
 

@@ -4,6 +4,10 @@ set PATH $PATH $HOME/dev/go/bin
 set -x GOPATH $HOME/go
 set PATH $PATH $HOME/go/bin
 
+# Rbenv
+set PATH $PATH $HOME/.rbenv/bin
+status --is-interactive; and . (rbenv init -|psub)
+
 # Mac specific config
 if [ (uname) = 'Darwin' ]
   # Docker
