@@ -31,6 +31,7 @@ Bundle 'Blackrush/vim-gocode'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'jdonaldson/vaxe'
+Bundle 'jamessan/vim-gnupg'
 
 filetype plugin indent on
 
