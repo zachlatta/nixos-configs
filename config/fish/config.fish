@@ -13,7 +13,6 @@ if [ (uname) = 'Darwin' ]
   set -x PATH $PATH $HOME/go_appengine
 
   # Haxe
-  set -x HAXEPATH /usr/local/Cellar/haxe/3.1.0
   set -x HAXE_STD_PATH /usr/local/lib/haxe/std
 end
 
