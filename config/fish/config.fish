@@ -13,6 +13,9 @@ if [ (uname) = 'Darwin' ]
 
   # Go App Engine
   set -x PATH $PATH $HOME/go_appengine
+
+  # Haxe
+  set -x HAXE_STD_PATH /usr/local/lib/haxe/std
 end
 
 # Linux specific config
