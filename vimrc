@@ -23,14 +23,15 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'elzr/vim-json'
 Bundle 'tpope/vim-liquid'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'chrisbra/csv.vim'
 Bundle 'bling/vim-airline'
 Bundle 'ledger/vim-ledger'
-Bundle 'Blackrush/vim-gocode'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'jamessan/vim-gnupg'
+Bundle 'fatih/vim-go'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'jdonaldson/vaxe'
 
 filetype plugin indent on
 
@@ -75,9 +76,6 @@ au BufRead,BufNewFile .fish set filetype=fish
 " .ledger file = ledger
 au BufRead,BufNewFile .ledger set filetype=ledger
 
-" auto format go source files on save
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
 " Syntastic config
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
@@ -88,6 +86,3 @@ augroup END
 
 " Omnifunc Autocomplete
 set omnifunc=syntaxcomplete#Complete
-
-" GoImport
-let g:gofmt_command = "goimports"

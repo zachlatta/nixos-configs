@@ -1,6 +1,4 @@
 # Go
-set -x GOROOT $HOME/dev/go
-set PATH $PATH $HOME/dev/go/bin
 set -x GOPATH $HOME/go
 set PATH $PATH $HOME/go/bin
 
