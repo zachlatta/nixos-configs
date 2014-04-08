@@ -33,6 +33,8 @@ Bundle 'jamessan/vim-gnupg'
 Bundle 'fatih/vim-go'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'jdonaldson/vaxe'
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/javascript-libraries-syntax.vim'
 
 filetype plugin indent on
 
@@ -76,6 +78,9 @@ au BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 au BufRead,BufNewFile .fish set filetype=fish
 " .ledger file = ledger
 au BufRead,BufNewFile .ledger set filetype=ledger
+
+" Use AngularJS syntax by default for Javascript projects
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 
 " Syntastic config
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
