@@ -35,6 +35,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'jdonaldson/vaxe'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'dag/vim-fish'
 
 filetype plugin indent on
 
