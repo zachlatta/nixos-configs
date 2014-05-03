@@ -2,6 +2,9 @@
 set -x GOPATH $HOME/go
 set PATH $PATH $HOME/go/bin
 
+# Go App Engine
+set -x PATH $PATH /opt/google-appengine-go
+
 # Rbenv
 set PATH $PATH $HOME/.rbenv/bin
 status --is-interactive; and . (rbenv init -|psub)
