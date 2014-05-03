@@ -5,37 +5,37 @@ set nocompatible               " be iMproved
 filetype on                    " if it's already off
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rvm'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'terhechte/syntastic'
-Bundle 'b4winckler/vim-objc'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'elzr/vim-json'
-Bundle 'tpope/vim-liquid'
-Bundle 'chrisbra/csv.vim'
-Bundle 'bling/vim-airline'
-Bundle 'ledger/vim-ledger'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'jdonaldson/vaxe'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'fatih/vim-go'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'jdonaldson/vaxe'
-Bundle 'pangloss/vim-javascript'
-Bundle 'othree/javascript-libraries-syntax.vim'
+Plugin 'gmarik/vundle'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rvm'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'terhechte/syntastic'
+Plugin 'b4winckler/vim-objc'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-liquid'
+Plugin 'chrisbra/csv.vim'
+Plugin 'bling/vim-airline'
+Plugin 'ledger/vim-ledger'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'jdonaldson/vaxe'
+Plugin 'jamessan/vim-gnupg'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
+call vundle#end()            " required
 filetype plugin indent on
 
 " Show sidebar signs
