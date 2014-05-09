@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles ![Analytics](https://ga-beacon.appspot.com/UA-34529482-6/dotfiles/readme?pixel)
 
 Hi! I'm Zach's dotfiles. He uses [rcm](https://github.com/thoughtbot/rcm) to
 manage me. I probably won't be much use to you, but I definitely am to him!
