@@ -34,6 +34,7 @@ Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'dag/vim-fish'
 
 call vundle#end()            " required
 filetype plugin indent on
