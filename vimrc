@@ -37,6 +37,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'dag/vim-fish'
 Plugin 'peterhoeg/vim-qml'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 call vundle#end()            " required
 filetype plugin indent on
