@@ -56,6 +56,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Incremental search
+set incsearch
+set hlsearch
+
 " Ctrl-P shortcuts
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
