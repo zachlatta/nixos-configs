@@ -38,6 +38,7 @@ Plugin 'dag/vim-fish'
 Plugin 'peterhoeg/vim-qml'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'jceb/vim-orgmode'
 
 call vundle#end()            " required
 filetype plugin indent on
