@@ -36,6 +36,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'dag/vim-fish'
 Plugin 'peterhoeg/vim-qml'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'jceb/vim-orgmode'
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -53,6 +56,10 @@ nnoremap <silent> ` :Errors<CR>
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Incremental search
+set incsearch
+set hlsearch
 
 " Ctrl-P shortcuts
 let g:ctrlp_map = '<c-p>'
