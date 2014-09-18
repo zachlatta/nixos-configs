@@ -9,6 +9,9 @@ set -x PATH $PATH /opt/google-appengine-go
 set PATH $PATH $HOME/.rbenv/bin
 status --is-interactive; and . (rbenv init -|psub)
 
+# Maven
+set -x M2_HOME /opt/maven
+
 # Mac specific config
 if [ (uname) = 'Darwin' ]
   # Docker
