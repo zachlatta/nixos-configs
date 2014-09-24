@@ -28,9 +28,6 @@ if [ (uname) = 'Linux' ]
 
   # Fix vim color woes
   set -x TERM xterm-256color
-
-  # Set path to Chrome for Karma
-  set -x CHROME_BIN (which google-chrome-stable)
 end
 
 # Misc config
