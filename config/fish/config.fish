@@ -9,26 +9,11 @@ set -x PATH $PATH /opt/google-appengine-go
 set PATH $PATH $HOME/.rbenv/bin
 status --is-interactive; and . (rbenv init -|psub)
 
-# Mac specific config
-if [ (uname) = 'Darwin' ]
-  # Docker
-  set -x DOCKER_HOST tcp://
+# Go App Engine
+set -x PATH $PATH $HOME/dev/go_appengine
 
-  # Go App Engine
-  set -x PATH $PATH $HOME/go_appengine
-
-  # Haxe
-  set -x HAXE_STD_PATH /usr/local/lib/haxe/std
-end
-
-# Linux specific config
-if [ (uname) = 'Linux' ]
-  # Go App Engine
-  set -x PATH $PATH $HOME/dev/go_appengine
-
-  # Fix vim color woes
-  set -x TERM xterm-256color
-end
+# Fix vim color woes
+set -x TERM xterm-256color
 
 # Misc config
 set -x EDITOR vim
