@@ -1,6 +1,8 @@
 # Go
+set -x GOROOT /opt/go
+set -x PATH $PATH $GOROOT/bin
 set -x GOPATH $HOME/go
-set PATH $PATH $HOME/go/bin
+set -x PATH $PATH $GOPATH/bin
 
 # Go App Engine
 set -x PATH $PATH /opt/google-appengine-go
