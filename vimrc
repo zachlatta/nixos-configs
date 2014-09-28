@@ -65,9 +65,6 @@ set hlsearch
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" :noh to clear highlighting
-nnoremap <esc> :noh<return><esc>
-
 " 80 columns or else
 if exists('+colorcolumn')
   set colorcolumn=80
