@@ -58,3 +58,6 @@ pyvenv.cfg
 !.svg
 
 phantomjsdriver.log
+
+# LibreOffice Lock Files
+.~lock*
