@@ -149,6 +149,9 @@ bar {
         status_command i3status
 }
 
+# Bind Snippy Meta+Shift+s
+bindsym $mod+Shift+s exec "$HOME/.local/bin/snippy"
+
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
