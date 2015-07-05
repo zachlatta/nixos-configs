@@ -3,6 +3,11 @@
 Hi! I'm Zach's dotfiles. He uses [rcm](https://github.com/thoughtbot/rcm) to
 manage me. I probably won't be much use to you, but I certainly am to him!
 
+## Installation
+
+    $ git clone git@github.com:zachlatta/dotfiles.git ~/.dotfiles
+    $ rcup -v
+
 ## LICENSE
 
 The MIT License (MIT)
