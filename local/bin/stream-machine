@@ -45,7 +45,7 @@ vnc() {
   local ip_address=$(aws ec2 describe-instances --region $ZONE --instance-ids $INSTANCE_ID |
                         jq -r .Reservations[0].Instances[0].NetworkInterfaces[0].Association.PublicIp)
 
-  vncviewer $ip_address >> /dev/null
+  vncviewer $ip_address
 }
 
 handle_command_line() {
