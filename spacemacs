@@ -158,6 +158,8 @@ layers configuration."
 
   (setq
    js-indent-level 2
+   sh-basic-offset 2
+   sh-indentation 2
    )
 )
 
