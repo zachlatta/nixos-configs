@@ -5,7 +5,7 @@ ZONE=${STREAM_MACHINE_ZONE:?"Need to set."}
 
 show_help() {
   cat <<EOF
-Usage: stream-machine [command]
+Usage: streamctl [command]
 
 Available commands:
 
