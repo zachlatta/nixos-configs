@@ -1,0 +1,78 @@
+#!/bin/sh
+
+INSTANCE_ID=${STREAM_MACHINE_ID:?"Need to set."}
+ZONE=${STREAM_MACHINE_ZONE:?"Need to set."}
+
+show_help() {
+  cat <<EOF
+Usage: stream-machine [command]
+
+Available commands:
+
+	start	starts the stream machine
+	stop	stops the stream machine
+	state	shows the state of the stream machine
+	vnc	starts a vnc session with the stream machine
+
+EOF
+
+  exit 1
+}
+
+start() {
+  echo "Starting the Stream Machine..."
+  aws ec2 start-instances --region $ZONE --instance-ids $INSTANCE_ID >> /dev/null
+}
+
+stop() {
+  echo "Stopping the Stream Machine..."
+  aws ec2 stop-instances --region $ZONE --instance-ids $INSTANCE_ID >> /dev/null
+}
+
+state() {
+  aws ec2 describe-instances --region $ZONE --instance-ids $INSTANCE_ID |
+    jq -r .Reservations[0].Instances[0].State.Name
+}
+
+vnc() {
+  local state=$(state)
+
+  if [ "$state" != "running" ]; then
+    echo "Stream Machine must be running. Current state: $state."
+    exit 1
+  fi
+
+  local ip_address=$(aws ec2 describe-instances --region $ZONE --instance-ids $INSTANCE_ID |
+                        jq -r .Reservations[0].Instances[0].NetworkInterfaces[0].Association.PublicIp)
+
+  vncviewer $ip_address >> /dev/null
+}
+
+handle_command_line() {
+  local cmd=$1
+  local args="${*:2}"
+
+  case $cmd in
+    "start")
+      start $args
+      ;;
+    "stop")
+      stop $args
+      ;;
+    "state")
+      state $args
+      ;;
+    "vnc")
+      vnc $args
+      ;;
+    *)
+      show_help
+      ;;
+  esac
+}
+
+if [ $# -eq 0 ]; then
+  show_help
+fi
+
+handle_command_line "$@"
