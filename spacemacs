@@ -17,11 +17,11 @@
                       auto-completion-enable-sort-by-usage t)
      dockerfile
      emacs-lisp
+     finance
+     floobits
      games
      git
      github
-     finance
-     floobits
      html
      markdown
      org
@@ -156,6 +156,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
+  ;; Indent two spaces
   (setq
    js-indent-level 2
    sh-basic-offset 2
