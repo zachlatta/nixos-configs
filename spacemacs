@@ -24,7 +24,8 @@
      github
      html
      markdown
-     org
+     (org :variables
+          org-enable-github-support t)
      rails
      shell
      shell-scripts
