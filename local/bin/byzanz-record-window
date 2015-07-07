@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Original version from http://askubuntu.com/questions/107726/how-to-create-animated-gif-images-of-a-screencast
 
 # Delay before starting
 DELAY=10
