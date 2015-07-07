@@ -109,7 +109,7 @@ before layers configuration."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil ;; to boost the loading time.
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up.
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -150,19 +150,18 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setq-default
+   ;; Indent two spaces
+   js-indent-level 2
+   sh-basic-offset 2
+   sh-indentation 2
+   )
   )
 
 (defun dotspacemacs/config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-
-  ;; Indent two spaces
-  (setq
-   js-indent-level 2
-   sh-basic-offset 2
-   sh-indentation 2
-   )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
