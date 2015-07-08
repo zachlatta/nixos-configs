@@ -162,6 +162,62 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+
+  ;;
+  ;; org mode config
+  ;;
+
+  ;; agenda setup
+  (setq org-agenda-files (quote ("~/dev/org")))
+
+  ;; todo keywords
+  (setq org-todo-keywords
+        (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+
+  ;; todo state triggers
+  ;;
+  ;; - Moving a task to CANCELLED adds a CANCELLED tag
+  ;; - Moving a task to WAITING adds a WAITING tag
+  ;; - Moving a task to HOLD adds WAITING and HOLD tags
+  ;; - Moving a task to a done state removes WAITING and HOLD tags
+  ;; - Moving a task to TODO removes WAITING, CANCELLED, and HOLD tags
+  ;; - Moving a task to NEXT removes WAITING, CANCELLED, and HOLD tags
+  ;; - Moving a task to DONE removes WAITING, CANCELLED, and HOLD tags
+  (setq org-todo-state-tags-triggers
+        (quote (("CANCELLED" ("CANCELLED" . t))
+                ("WAITING" ("WAITING" . t))
+                ("HOLD" ("WAITING") ("HOLD" . t))
+                (done ("WAITING") ("HOLD"))
+                ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+                ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+                ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
+
+  ;; org-capture
+  (setq org-directory "~/dev/org")
+  (setq org-default-notes-file "~/dev/org/refile.org")
+
+  (setq org-capture-templates
+        (quote (("t" "todo" entry (file org-default-notes-file)
+                 "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+                ("r" "respond" entry (file org-default-notes-file)
+                 "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+                ("n" "note" entry (file org-default-notes-file)
+                 "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+                ("j" "Journal" entry (file+datetree "~/dev/org/journal.org")
+                 "* %?\n%U\n" :clock-in t :clock-resume t)
+                ("m" "Meeting" entry (file org-default-notes-file)
+                 "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t))))
+
+  ;; refile setup
+  ;;
+
+  ;; targets include this file and any file contributing to the agenda, up to 9 levels deep
+  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                   (org-agenda-files :maxlevel . 9))))
+
+  ;; use full outline paths for refile targets
+  (setq org-refile-use-outline-path t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
