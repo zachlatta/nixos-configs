@@ -22,6 +22,7 @@
      games
      git
      github
+     go
      html
      markdown
      (org :variables
