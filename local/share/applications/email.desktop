@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Email
-Exec=/opt/google/chrome/google-chrome "--app=https://beta.fastmail.com/mail/Inbox/?u=31b44114"
+Exec=/opt/google/chrome/google-chrome "--app=https://mail.google.com"
 Icon=chrome-https___beta.fastmail.com_mail_Inbox__u=31b44114
 StartupWMClass=beta.fastmail.com__mail_Inbox
