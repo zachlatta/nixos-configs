@@ -27,6 +27,8 @@
      markdown
      (org :variables
           org-enable-github-support t)
+     (perspectives :variables
+                   perspective-enable-persp-projectile t)
      rails
      react
      shell
