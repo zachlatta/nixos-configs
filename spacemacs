@@ -17,6 +17,7 @@
                       auto-completion-enable-sort-by-usage t)
      dockerfile
      emacs-lisp
+     eyebrowse
      finance
      floobits
      games
@@ -27,8 +28,6 @@
      markdown
      (org :variables
           org-enable-github-support t)
-     (perspectives :variables
-                   perspective-enable-persp-projectile t)
      rails
      react
      shell
