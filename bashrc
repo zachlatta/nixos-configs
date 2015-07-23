@@ -10,3 +10,7 @@ export STREAM_MACHINE_ZONE=us-west-1
 
 # SSH Agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# Editor setup
+export EDITOR="emacsclient -c"
+alias e="$EDITOR"
