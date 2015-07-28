@@ -97,3 +97,7 @@ phantomjsdriver.log
 
 # LibreOffice Lock Files
 .~lock*
+
+.env
+.floo
+.flooignore
