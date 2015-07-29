@@ -215,7 +215,8 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
   ;;
 
   ;; agenda setup
-  (setq org-agenda-files (quote ("~/dev/org")))
+  (setq org-agenda-files (quote ("~/dev/org"
+                                 "~/dev/org/hackedu")))
 
   ;; todo keywords
   (setq org-todo-keywords
