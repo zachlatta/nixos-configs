@@ -170,6 +170,47 @@ before layers configuration."
 layers configuration."
 
   ;;
+  ;; markdown-mode config
+  ;;
+
+  ;; Enable org's table editor in markdown mode
+  (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+
+  ;; Format for this function from http://ergoemacs.org/emacs/elisp_command_working_on_string_or_region.html
+  (defun markdown-fmt-orgtbl (string &optional from to)
+    "Formats Org-mode style tables as GitHub Markdown Tables.
+
+When called interactively, work on the current paragraph or text selection.
+
+When called in Lisp code, if STRING is non-nil, returns a changed string.
+If STRING is nil, change the text in the region between positions FROM,  TO."
+    (interactive
+     (if (use-region-p)
+         (list nil (region-beginning) (region-end))
+       (let ((bds (bounds-of-thing-at-point 'paragraph)))
+         (list nil (car bds) (cdr bds)))))
+    (let* ((work-on-string-p (if string t nil))
+           (result (if work-on-string-p
+                       string
+                     (buffer-substring-no-properties from to)))
+           (case-fold-search t)
+           (replace-pairs '(("-|"    . " |")
+                            ("|-"    . "| ")
+                            ("-\\+-" . " | "))))
+      (dolist (pair replace-pairs)
+        (setq result (replace-regexp-in-string (car pair) (cdr pair) result)))
+      (if work-on-string-p
+          result
+        (save-excursion
+          (delete-region from to)
+          (goto-char from)
+          (insert result)))))
+
+  ;; bind table formatter to <SPC> m t
+  (evil-leader/set-key-for-mode 'markdown-mode
+    "mt" 'markdown-fmt-orgtbl)
+
+  ;;
   ;; org mode config
   ;;
 
