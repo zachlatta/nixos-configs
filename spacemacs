@@ -170,6 +170,14 @@ before layers configuration."
 layers configuration."
 
   ;;
+  ;; user keybindings
+  ;;
+
+  (evil-leader/set-key
+    "oc" 'org-capture
+    "own" 'make-frame-command)
+
+  ;;
   ;; markdown-mode config
   ;;
 
@@ -207,8 +215,7 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
           (insert result)))))
 
   ;; bind table formatter to <SPC> m t
-  (evil-leader/set-key-for-mode 'markdown-mode
-    "mt" 'markdown-fmt-orgtbl)
+  (evil-leader/set-key-for-mode 'markdown-mode "mt" 'markdown-fmt-orgtbl)
 
   ;;
   ;; org mode config
