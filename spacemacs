@@ -273,6 +273,18 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
 
   ;; use full outline paths for refile targets
   (setq org-refile-use-outline-path t)
+
+  ;;
+  ;; misc
+  ;;
+
+  ;; use chrome as default browser
+  (setq
+   browse-url-browser-function 'browse-url-generic
+   browse-url-generic-program "google-chrome-stable")
+
+  ;; add newline at end of file
+  (setq require-final-newline 'visit-save)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
