@@ -1,0 +1,95 @@
+#!/bin/sh
+
+show_help() {
+  cat <<EOF
+Usage: receiptctl [command]
+
+Available commands:
+
+	process [from_dir] [dest_dir]	processes the receipts
+EOF
+
+  exit 1
+}
+
+rename_file() {
+  local dest="$1"
+  local file="$2"
+  local filename=$(basename "$file")
+  local extension="${filename##*.}"
+  local filename="${filename%.*}"
+
+  local hash=$(md5sum "$file" |awk '{print $1}')
+
+  local new_location="$dest/$hash.$extension"
+
+  echo "Moving $file to $new_location"
+  mv "$file" "$new_location"
+}
+
+process_file() {
+  local dest="$1"
+  local file="$2"
+
+  echo "Processing $file..."
+  $EDITOR "$file"
+  cat <<EOF
+Commands:
+
+	r: rename
+	s: skip
+	q: quit
+
+EOF
+  printf "Option: "
+  read -n 1 cmd
+  printf "\n"
+
+  case $cmd in
+    "r")
+      rename_file "$dest" "$file"
+      ;;
+    "s")
+      echo "Skipping..."
+      ;;
+    "q")
+      exit 1
+      ;;
+    *)
+      echo "Invalid command. Skipping..."
+      ;;
+  esac
+}
+
+process() {
+  local from=$1
+  local dest=$2
+
+  OIFS="$IFS"
+  IFS=$'\n'
+  for file in `find $from -type f`
+  do
+    process_file "$dest" "$file"
+  done
+  IFS="$OIFS"
+}
+
+handle_command_line() {
+  local cmd=$1
+  local args="${*:2}"
+
+  case $cmd in
+    "process")
+      process $args
+      ;;
+    *)
+      show_help
+      ;;
+  esac
+}
+
+if [ $# -eq 0 ]; then
+  show_help
+fi
+
+handle_command_line "$@"
