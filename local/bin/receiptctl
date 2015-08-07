@@ -19,12 +19,15 @@ rename_file() {
   local extension="${filename##*.}"
   local filename="${filename%.*}"
 
-  local hash=$(md5sum "$file" |awk '{print $1}')
+  local hash=$(md5sum "$file" | awk '{print $1}')
 
   local new_location="$dest/$hash.$extension"
 
-  echo "Moving $file to $new_location"
+  echo "Moving to $new_location..."
   mv "$file" "$new_location"
+
+  printf "\n    ; Receipt: $hash.$extension\n" | xsel -b
+  echo "Copied receipt line, ready for pasting, to clipboard..."
 }
 
 process_file() {
@@ -32,12 +35,13 @@ process_file() {
   local file="$2"
 
   echo "Processing $file..."
-  $EDITOR "$file"
+  xdg-open "$file"
   cat <<EOF
 Commands:
 
 	r: rename
 	s: skip
+	d: delete
 	q: quit
 
 EOF
@@ -51,6 +55,10 @@ EOF
       ;;
     "s")
       echo "Skipping..."
+      ;;
+    "d")
+      echo "Deleting file..."
+      rm "$file"
       ;;
     "q")
       exit 1
