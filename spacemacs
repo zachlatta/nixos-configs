@@ -231,25 +231,26 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
   ;; todo keywords
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "MOVED(m@/!)" "PHONE" "MEETING"))))
 
   ;; todo state triggers
   ;;
+  ;; - Moving a task to MOVED adds a MOVED tag
   ;; - Moving a task to CANCELLED adds a CANCELLED tag
   ;; - Moving a task to WAITING adds a WAITING tag
   ;; - Moving a task to HOLD adds WAITING and HOLD tags
   ;; - Moving a task to a done state removes WAITING and HOLD tags
-  ;; - Moving a task to TODO removes WAITING, CANCELLED, and HOLD tags
-  ;; - Moving a task to NEXT removes WAITING, CANCELLED, and HOLD tags
-  ;; - Moving a task to DONE removes WAITING, CANCELLED, and HOLD tags
+  ;; - Moving a task to TODO removes WAITING, CANCELLED, MOVED, and HOLD tags
+  ;; - Moving a task to NEXT removes WAITING, CANCELLED, MOVED, and HOLD tags
+  ;; - Moving a task to DONE removes WAITING, CANCELLED, MOVED, and HOLD tags
   (setq org-todo-state-tags-triggers
         (quote (("CANCELLED" ("CANCELLED" . t))
                 ("WAITING" ("WAITING" . t))
                 ("HOLD" ("WAITING") ("HOLD" . t))
                 (done ("WAITING") ("HOLD"))
-                ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
-                ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
-                ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
+                ("TODO" ("WAITING") ("CANCELLED") ("MOVED") ("HOLD"))
+                ("NEXT" ("WAITING") ("CANCELLED") ("MOVED") ("HOLD"))
+                ("DONE" ("WAITING") ("CANCELLED") ("MOVED") ("HOLD")))))
 
   ;; org-capture
   (setq org-directory "~/dev/org")
