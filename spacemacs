@@ -228,6 +228,12 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
   (setq org-agenda-files (quote ("~/dev/org"
                                  "~/dev/org/hackedu")))
 
+  ;; auto save agenda
+  (add-hook 'org-agenda-mode-hook
+            (lambda ()
+              (add-hook 'auto-save-hook 'org-save-all-org-buffers nil t)
+              (auto-save-mode)))
+
   ;; todo keywords
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
@@ -277,6 +283,12 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
 
   ;; use full outline paths for refile targets
   (setq org-refile-use-outline-path t)
+
+  ;; auto save on refile
+  (add-hook 'org-after-refile-insert-hook
+            (lambda ()
+              (add-hook 'auto-save-hook 'org-save-all-org-buffers nil t)
+              (auto-save-mode)))
 
   ;;
   ;; misc
