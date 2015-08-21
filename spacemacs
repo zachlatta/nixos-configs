@@ -263,16 +263,16 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
   (setq org-default-notes-file "~/dev/org/refile.org")
 
   (setq org-capture-templates
-        (quote (("t" "todo" entry (file org-default-notes-file)
-                 "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+        (quote (("t" "todo" entry (file "~/dev/org/TODO.org")
+                 "* TODO %?\n%T\n" :clock-in t :clock-resume t)
                 ("r" "respond" entry (file org-default-notes-file)
-                 "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+                 "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n" :clock-in t :clock-resume t :immediate-finish t)
                 ("n" "note" entry (file org-default-notes-file)
-                 "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+                 "* %? :NOTE:\n%T\n" :clock-in t :clock-resume t)
                 ("j" "Journal" entry (file+datetree "~/dev/org/journal.org")
-                 "* %?\n%U\n" :clock-in t :clock-resume t)
+                 "* %?\n%T\n" :clock-in t :clock-resume t)
                 ("m" "Meeting" entry (file org-default-notes-file)
-                 "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t))))
+                 "* MEETING with %? :MEETING:\n%T" :clock-in t :clock-resume t))))
 
   ;; refile setup
   ;;
