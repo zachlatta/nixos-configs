@@ -290,6 +290,36 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
               (add-hook 'auto-save-hook 'org-save-all-org-buffers nil t)
               (auto-save-mode)))
 
+  ;; original version from http://emacs.stackexchange.com/questions/10597/how-to-refile-into-a-datetree
+  (defun org-refile-to-datetree (&optional file)
+    "Refile a subtree to a datetree corresponding to its timestamp.
+
+The current time is used if the entry has no timestamp. If FILE
+is nil, refile in the current file."
+    (interactive "f")
+    (let* ((datetree-date (or (org-entry-get nil "TIMESTAMP" t)
+                              (org-read-date t nil "now")))
+           (date (org-date-to-gregorian datetree-date))
+           )
+      (save-excursion
+        (with-current-buffer (current-buffer)
+          (org-cut-subtree)
+          (if file (find-file file))
+          (org-datetree-find-date-create date)
+          (org-narrow-to-subtree)
+          (show-subtree)
+          (org-end-of-subtree t)
+          (newline)
+          (goto-char (point-max))
+          (org-paste-subtree 4)
+          (widen)
+          ))
+      )
+    )
+
+  (evil-leader/set-key-for-mode 'org-mode
+    "mr" 'org-refile-to-datetree)
+
   ;;
   ;; magit config
   ;;
