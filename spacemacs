@@ -29,7 +29,7 @@
      markdown
      (org :variables
           org-enable-github-support t)
-     rails
+     ruby
      react
      shell
      shell-scripts
@@ -162,6 +162,8 @@ before layers configuration."
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
    web-mode-code-indent-offet 2
+   ;; Enable rails
+   ruby-enable-ruby-on-rails-support t
    )
   )
 
