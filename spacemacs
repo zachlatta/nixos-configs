@@ -316,6 +316,7 @@ is nil, refile in the current file."
           (org-paste-subtree 4)
           (widen)
           ))
+      (switch-to-buffer (other-buffer))
       )
     )
 
