@@ -159,6 +159,7 @@ before layers configuration."
    js-indent-level 2
    sh-basic-offset 2
    sh-indentation 2
+   css-indent-offset 2
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
    web-mode-code-indent-offet 2
