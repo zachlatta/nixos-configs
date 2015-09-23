@@ -42,6 +42,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages
    '(
+     org-plus-contrib
      with-editor
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
