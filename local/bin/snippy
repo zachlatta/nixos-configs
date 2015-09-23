@@ -33,7 +33,7 @@ cd ${DIR}
 
 # Use the filenames in the snippy directory as menu entries.
 # Get the menu selection from the user.
-FILE=`find .  -type f | grep -v '^\.$' | sed 's!\.\/!!' | /usr/bin/dmenu ${DMENU_ARGS}`
+FILE=`find -L . -type f | grep -v '^\.$' | sed 's!\.\/!!' | /usr/bin/dmenu ${DMENU_ARGS}`
 
 if [ -f ${DIR}/${FILE} ]; then
   #save old content
