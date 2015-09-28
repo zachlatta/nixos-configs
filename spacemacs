@@ -30,6 +30,7 @@
      (org :variables
           org-enable-github-support t)
      ruby
+     ruby-on-rails
      react
      shell
      shell-scripts
@@ -42,7 +43,6 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages
    '(
-     org-plus-contrib
      with-editor
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -164,8 +164,6 @@ before layers configuration."
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
    web-mode-code-indent-offet 2
-   ;; Enable rails
-   ruby-enable-ruby-on-rails-support t
    )
   )
 
