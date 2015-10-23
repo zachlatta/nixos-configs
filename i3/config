@@ -163,5 +163,5 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
-exec --no-startup-id gnome-sound-applet
+exec --no-startup-id unclutter
 exec --no-startup-id unclutter
