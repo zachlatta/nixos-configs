@@ -28,11 +28,11 @@
      go
      html
      markdown
-     (org :variables
-          org-enable-github-support t)
+     org
+     rcirc
+     react
      ruby
      ruby-on-rails
-     react
      shell
      shell-scripts
      syntax-checking
