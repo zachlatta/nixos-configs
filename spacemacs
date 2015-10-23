@@ -16,6 +16,7 @@
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
      chrome
+     csv
      dockerfile
      emacs-lisp
      eyebrowse
