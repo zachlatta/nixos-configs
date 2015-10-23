@@ -16,6 +16,7 @@
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
      chrome
+     csv
      dockerfile
      emacs-lisp
      eyebrowse
@@ -27,11 +28,11 @@
      go
      html
      markdown
-     (org :variables
-          org-enable-github-support t)
+     org
+     rcirc
+     react
      ruby
      ruby-on-rails
-     react
      shell
      shell-scripts
      syntax-checking
