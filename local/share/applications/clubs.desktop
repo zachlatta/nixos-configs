@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Clubs
+Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app=https://clubs.hackedu.us
+Icon=chrome-bmhjpgdbbfbdemkckmpfmcidhmgedaae-Default
+StartupWMClass=crx_bmhjpgdbbfbdemkckmpfmcidhmgedaae

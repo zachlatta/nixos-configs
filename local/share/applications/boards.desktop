@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Boards
-Exec=/opt/google/chrome/google-chrome "--app=https://github.com/hackedu/hackedu#boards?repos=33744138,35706450,15836199,16757442"
-Icon=chrome-https___github.com_hackedu_hackedu#boards_repos=33744138,35706450,15836199,16757442
-StartupWMClass=github.com__hackedu_hackedu
+Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app=https://github.com/hackedu/hackedu#boards?repos=16757442,35706450,33744138,15836199,30138951,28125688,28832278,42498117,40752003,44640473
+Icon=chrome-fdfmmlofppbjobfjojhfinicjndeabme-Default
+StartupWMClass=crx_fdfmmlofppbjobfjojhfinicjndeabme
