@@ -45,6 +45,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages
    '(
+     coffee-mode
      with-editor
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
