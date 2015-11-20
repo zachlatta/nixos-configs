@@ -17,6 +17,7 @@
                       auto-completion-enable-sort-by-usage t)
      chrome
      csv
+     clojure
      dockerfile
      emacs-lisp
      eyebrowse
