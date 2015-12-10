@@ -22,8 +22,11 @@ values."
      emacs-lisp
      finance
      git
+     github
+     javascript
      markdown
      org
+     shell
      spell-checking
      syntax-checking
      yaml
@@ -190,6 +193,15 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  ;;
+  ;; two space indent
+  ;;
+  (setq-default tab-width 2)
+  (setq-default
+   sh-basic-offset tab-width
+   sh-indentation tab-width
+   )
 
   ;;
   ;; user keybindings
