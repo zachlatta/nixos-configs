@@ -203,6 +203,8 @@ layers configuration. You are free to put any user code."
   ;;
   (setq-default tab-width 2)
   (setq-default
+   js2-basic-offset tab-width
+   js2-indent-level tab-width
    sh-basic-offset tab-width
    sh-indentation tab-width
    web-mode-code-indent-offset tab-width
