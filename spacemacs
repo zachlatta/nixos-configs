@@ -35,7 +35,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     haxe-mode
+     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -376,6 +379,14 @@ is nil, refile in the current file."
   (eval-after-load 'magit
     '(define-key magit-mode-map "p"
        #'visit-pull-request-url))
+
+  ;;
+  ;; haxe
+  ;;
+  (use-package haxe-mode
+    :defer t
+    :mode ("\\.\\(hx\\|hxml\\)\\'" . haxe-mode)
+    )
 
   ;;
   ;; misc
