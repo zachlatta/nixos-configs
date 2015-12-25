@@ -26,6 +26,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# open the scratch buffer in emacs
+bindsym $mod+Shift+Return exec "$HOME/.local/bin/scratch"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
