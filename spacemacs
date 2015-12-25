@@ -23,6 +23,7 @@ values."
      finance
      git
      github
+     html
      javascript
      markdown
      org
@@ -204,6 +205,9 @@ layers configuration. You are free to put any user code."
   (setq-default
    sh-basic-offset tab-width
    sh-indentation tab-width
+   web-mode-code-indent-offset tab-width
+   web-mode-css-indent-offset tab-width
+   web-mode-markup-indent-offset tab-width
    )
 
   ;;
