@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# My system update script
+
+run() {
+  echo ""
+  echo "> $@"
+  echo ""
+  $@
+}
+
+update_dotfiles() {
+  echo "Updating dotfiles..."
+
+  run pushd $HOME/.dotfiles
+  run git pull
+  run rcup -v
+  run popd
+}
+
+update_org() {
+  "Updating org files..."
+
+  run pushd $HOME/dev/org
+  run git pull
+  run popd
+}
+
+run_updates() {
+  update_dotfiles
+  update_org
+}
+
+run_updates
