@@ -379,7 +379,7 @@ is nil, refile in the current file."
               (magit-get "remote"
                          (magit-get-remote)
                          "url"))
-             (cdr (or (magit-split-branch-name (magit-get-tracked-branch))
+             (cdr (or (magit-split-branch-name (magit-get-upstream-branch))
                       (user-error "No remote branch"))))))
 
   (eval-after-load 'magit
