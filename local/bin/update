@@ -19,7 +19,7 @@ update_dotfiles() {
 }
 
 update_org() {
-  "Updating org files..."
+  echo "Updating org files..."
 
   run pushd $HOME/dev/org
   run git pull
