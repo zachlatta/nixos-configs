@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Proxies commands to scrot. If no arguments are given, it takes a screenshot to
+# /tmp/tmp.png
+
+DEFAULT_LOCATION=/tmp/tmp.png
+
+if [ "$#" -eq 0 ]; then
+  scrot -s $DEFAULT_LOCATION
+else
+  scrot "$@"
+fi
