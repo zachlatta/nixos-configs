@@ -376,10 +376,11 @@ is nil, refile in the current file."
      (format "https://github.com/%s/pull/new/%s"
              (replace-regexp-in-string
               "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
-              (magit-get "remote"
-                         (magit-get-remote)
-                         "url"))
-             (cdr (or (magit-split-branch-name (magit-get-upstream-branch))
+              (let ((pushRemote (magit-get "branch"
+                                           (magit-get-current-branch)
+                                           "pushRemote")))
+                (magit-get "remote" pushRemote "url")))
+             (cdr (or (magit-split-branch-name (magit-get-push-branch))
                       (user-error "No remote branch"))))))
 
   (eval-after-load 'magit
