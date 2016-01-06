@@ -459,7 +459,7 @@ Version 2015-05-07"
                       [" From " " from "]
                       ["'S " "'s "]
                       ]))
-      (save-excursion 
+      (save-excursion
         (save-restriction
           (narrow-to-region begin end)
           (upcase-initials-region (point-min) (point-max))
