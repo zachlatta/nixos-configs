@@ -164,6 +164,10 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
+# Set background to black
+exec --no-startup-id xsetroot -solid "#000"
+
+# Startup programs
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id unclutter
