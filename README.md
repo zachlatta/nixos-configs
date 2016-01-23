@@ -54,3 +54,8 @@ Params:
 
 _Note: haven't entirely figured out voice messages yet. This is just for text
 messages._
+
+## License
+
+Huckleberry is licensed under the MIT License (see [`LICENSE`](LICENSE) for the
+full text).
