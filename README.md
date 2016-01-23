@@ -1,7 +1,9 @@
 # Huckleberry
 
-A super simple, super barebones command-line client for
-[Fin](https://getfin.com).
+Huckleberry is a barebones command-line client for [Fin](https://getfin.com).
+Just run `huckleberry 'Do the things'` and Fin'll get 'em done (and, unlike
+emailing your request in, you'll see requests made through Huckleberry in the
+app).
 
 ## Usage
 
