@@ -1,0 +1,42 @@
+#!/bin/sh
+
+TOKEN=${FIN_TOKEN:?"FIN_TOKEN is blank. Must be set!"}
+USER_AGENT="Fin/3.1.1 (iPhone; iOS 9.2.1; Scale/2.00)"
+BASE_URL="https://www.getfin.com/api"
+NEW_MSG_URL="$BASE_URL/messages"
+
+show_help() {
+  cat <<EOF
+
+Usage: huckleberry [request]
+
+Examples:
+
+  $ huckleberry 'How old is Barack Obama?'
+  $ huckleberry 'How many miles is NYC from SF?'
+  $ huckleberry 'What is the wait for two at Ippudo Westside?'
+
+EOF
+
+  exit 1
+}
+
+if [ $# -eq 0 ]; then
+  show_help
+fi
+
+# Current local time in ISO 8601 ready for Fin to gobble up
+local_time=$(date '+%Y-%m-%dT%H:%M:%S%z')
+
+curl -s -X POST \
+     -A "$USER_AGENT" \
+     -d abbreviated="0" \
+     -d local_time="$local_time" \
+     -d text="$@" \
+     -d thread_id="0" \
+     -d token="$TOKEN" \
+     "$NEW_MSG_URL" >> /dev/null
+
+if [ 0 -eq $? ]; then
+  echo "Sent!"
+fi;

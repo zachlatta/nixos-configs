@@ -1,8 +1,32 @@
 # Huckleberry
 
-CLI client for Fin (https://getfin.com)
+A super simple, super barebones command-line client for
+[Fin](https://getfin.com).
 
-## API
+## Usage
+
+Using Huckleberry is as simple as it gets. Take the script in
+[`bin/huckleberry`](bin/huckleberry) and put it somewhere in your `PATH`. Once
+you've done that, set `FIN_TOKEN` to your Fin token in your `.bashrc` (I
+personally have a `~/.finrc` file that's sourced by `~/.bashrc` when launched).
+You can get your Fin token by proxying requests while the Fin app is open
+through something like [Charles](https://www.charlesproxy.com/). And that's all!
+Just run `huckleberry` followed by your request to Fin.
+
+```
+Usage: huckleberry [request]
+
+Examples:
+
+  $ huckleberry 'How old is Barack Obama?'
+  $ huckleberry 'How many miles is NYC from SF?'
+  $ huckleberry 'What is the wait for two at Ippudo Westside?'
+```
+
+## API Docs
+
+This contains (very) preliminary documentation for Fin's API, primarily for
+personal reference.
 
 You should use this user agent, but it's not required: `Fin/3.1.1 (iPhone; iOS
 9.2.1; Scale/2.00)`
@@ -13,14 +37,17 @@ You should use this user agent, but it's not required: `Fin/3.1.1 (iPhone; iOS
 
 Params:
 
-| Name           | Purpose                        | Default       | Optional |
-| -------------- | ------------------------------ | ------------- | -------- |
-| `abbreviated`  | Unknown                        | `0`           | True     |
-| `cu_id`        | Unknown                        | N/A           | True     |
-| `lat`          | Latitude                       | N/A           | True     |
-| `lon`          | Longitude                      | N/A           | True     |
-| `local_time`   | Current time in ISO 8601       | N/A           | True     |
-| `text`         | Text of the message to send    | N/A           | False    |
-| `thread_cu_id` | Unknown                        | N/A           | True     |
-| `thread_id`    | ID of thread to add message to | `0` to create | Depends  |
-| `token`        | Authentication token           | N/A           | True     |
+| Name           | Purpose                        | Default       | Optional? |
+| -------------- | ------------------------------ | ------------- | --------  |
+| `abbreviated`  | Whether message was dictated   | N/A           | Optional  |
+| `cu_id`        | Unknown                        | N/A           | Optional  |
+| `lat`          | Latitude                       | N/A           | Optional  |
+| `lon`          | Longitude                      | N/A           | Optional  |
+| `local_time`   | Current time in ISO 8601       | N/A           | Optional  |
+| `text`         | Text of the message to send    | N/A           | Required  |
+| `thread_cu_id` | Unknown                        | N/A           | Optional  |
+| `thread_id`    | ID of thread to add message to | `0` to create | Depends   |
+| `token`        | Authentication token           | N/A           | Required  |
+
+_Note: haven't entirely figured out voice messages yet. This is just for text
+messages._
