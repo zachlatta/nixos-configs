@@ -6,12 +6,15 @@ A super simple, super barebones command-line client for
 ## Usage
 
 Using Huckleberry is as simple as it gets. Take the script in
-[`bin/huckleberry`](bin/huckleberry) and put it somewhere in your `PATH`. Once
-you've done that, set `FIN_TOKEN` to your Fin token in your `.bashrc` (I
+[`bin/huckleberry`](bin/huckleberry) and put it somewhere in your `PATH`.
+
+Once you've done that, set `FIN_TOKEN` to your Fin token in your `.bashrc` (I
 personally have a `~/.finrc` file that's sourced by `~/.bashrc` when launched).
 You can get your Fin token by proxying requests while the Fin app is open
-through something like [Charles](https://www.charlesproxy.com/). And that's all!
-Just run `huckleberry` followed by your request to Fin.
+through something like [Charles](https://www.charlesproxy.com/).
+
+Now just run `huckleberry` followed by your request to Fin. Finntastic! (please
+excuse the bad pun)
 
 ```
 Usage: huckleberry [request]
