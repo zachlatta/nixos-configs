@@ -1,0 +1,3 @@
+#!/bin/sh
+
+source $HOME/.huckleberryrc && ./huckleberry/bin/huckleberry "$@"
