@@ -1,4 +1,4 @@
-# huckleberry
+# Huckleberry
 
 CLI client for Fin (https://getfin.com)
 
