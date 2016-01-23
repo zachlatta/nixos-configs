@@ -14,7 +14,7 @@ You should use this user agent, but it's not required: `Fin/3.1.1 (iPhone; iOS
 Params:
 
 | Name           | Purpose                        | Default       | Optional |
-|----------------+--------------------------------+---------------+----------|
+| -------------- | ------------------------------ | ------------- | -------- |
 | `abbreviated`  | Unknown                        | `0`           | True     |
 | `cu_id`        | Unknown                        | N/A           | True     |
 | `lat`          | Latitude                       | N/A           | True     |
