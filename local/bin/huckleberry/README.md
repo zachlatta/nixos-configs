@@ -45,12 +45,12 @@ Params:
 | Name           | Purpose                        | Default       | Optional? |
 | -------------- | ------------------------------ | ------------- | --------  |
 | `abbreviated`  | Whether message was dictated   | N/A           | Optional  |
-| `cu_id`        | Unknown                        | N/A           | Optional  |
+| `cu_id`        | Client unique ID               | N/A           | Optional  |
 | `lat`          | Latitude                       | N/A           | Optional  |
 | `lon`          | Longitude                      | N/A           | Optional  |
 | `local_time`   | Current time in ISO 8601       | N/A           | Optional  |
 | `text`         | Text of the message to send    | N/A           | Required  |
-| `thread_cu_id` | Unknown                        | N/A           | Optional  |
+| `thread_cu_id` | Client unique ID for thread    | N/A           | Optional  |
 | `thread_id`    | ID of thread to add message to | `0` to create | Depends   |
 | `token`        | Authentication token           | N/A           | Required  |
 
