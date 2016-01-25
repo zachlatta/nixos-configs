@@ -33,8 +33,8 @@ Examples:
 This contains (very) preliminary documentation for Fin's API, primarily for
 personal reference.
 
-You should use this user agent, but it's not required: `Fin/3.1.1 (iPhone; iOS
-9.2.1; Scale/2.00)`
+The current user agent (as of 01.25.16) for the iPhone app is `Fin/3.1.1
+(iPhone; iOS 9.2.1; Scale/2.00)`. Huckleberry uses the user agent `Huckleberry`.
 
 #### Create new message
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TOKEN=${FIN_TOKEN:?"FIN_TOKEN is blank. Must be set!"}
-USER_AGENT="Fin/3.1.1 (iPhone; iOS 9.2.1; Scale/2.00)"
+USER_AGENT="Huckleberry"
 BASE_URL="https://www.getfin.com/api"
 NEW_MSG_URL="$BASE_URL/messages"
 
