@@ -1,6 +1,8 @@
 #!/bin/sh
 
-xrandr --output DVI-D-0 --mode 1920x1080 --pos 0x232 --rotate left --dpi 95.78 \
-       --output HDMI-0 --primary --mode 2560x1440 --pos 1080x0 --rotate left --dpi 108.79 \
-       --output DVI-I-1 --off --output DVI-I-0 --off --output DP-1 --off \
-       --output DP-0 --mode 1920x1080 --pos 2520x232 --rotate right --dpi 95.78
+xrandr --output DP-3 --off --output DVI-I-0 --off \
+       --output HDMI-0 --primary --mode 2560x1440 --pos 1440x72 --rotate left \
+       --output DP-5 --off --output DP-4 --mode 2560x1440 --pos 0x0 \
+         --rotate right \
+       --output DVI-I-1 --off --output DP-2 --off --output DP-1 --off \
+         --output DP-0 --mode 2560x1440 --pos 2880x0 --rotate right
