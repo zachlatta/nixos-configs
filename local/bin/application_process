@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# This script processes Hack Club applications and prepares them to be copied
+# and pasted into our spreadsheet of applications.
+
+application=$(xsel -b)
+
+
+get_application_field() {
+  echo "$application" | grep "$1" | sed "s/$1//"
+}
+
+name=$(get_application_field "Name: ")
+high_school=$(get_application_field "High school: ")
+year=$(get_application_field "Year: ")
+email=$(get_application_field "Email: ")
+github=$(get_application_field "GitHub: ")
+twitter=$(get_application_field "Twitter: ")
+
+if [ "$name" = "" ]; then
+  echo "Application not currently in clipboard."
+  exit 1
+fi
+
+echo -e "$name\t$high_school\t$year\t$email\t$github\t$twitter" | xsel -b
+
+echo "Copied processed application into clipboard and ready to paste!"
