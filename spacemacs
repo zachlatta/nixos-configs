@@ -22,6 +22,7 @@ values."
      emacs-lisp
      finance
      git
+     lua
      github
      html
      javascript
