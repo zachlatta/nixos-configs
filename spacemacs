@@ -23,6 +23,7 @@ values."
      finance
      git
      github
+     go
      html
      javascript
      markdown
