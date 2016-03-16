@@ -450,11 +450,6 @@ is nil, refile in the current file."
   ;; add newline at end of file
   (setq require-final-newline 'visit-save)
 
-  ;; make lines over 80 characters stand out
-  (setq whitespace-style '(face empty tabs lines-tail trailing))
-  (setq whitespace-line-column 80)
-  (global-whitespace-mode t)
-
   ;; titlecase function
   ;; original version: http://ergoemacs.org/emacs/elisp_title_case_text.html
   (defun title-case-region-or-line (begin end)
