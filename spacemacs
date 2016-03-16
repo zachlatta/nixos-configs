@@ -312,7 +312,7 @@ If STRING is nil, change the text in the region between positions FROM,  TO."
 
   ;; agenda setup
   (setq org-agenda-files (quote ("~/dev/org"
-                                 "~/dev/org/hackedu")))
+                                 "~/dev/org/hackclub")))
 
   ;; auto save agenda
   (add-hook 'org-agenda-mode-hook
