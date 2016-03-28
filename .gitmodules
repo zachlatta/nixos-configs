@@ -1,0 +1,9 @@
+[submodule "lib/bash-sensible"]
+	path = lib/bash-sensible
+	url = https://github.com/mrzool/bash-sensible.git
+[submodule "lib/dircolors-solarized"]
+	path = lib/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
