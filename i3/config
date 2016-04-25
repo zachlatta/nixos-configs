@@ -171,3 +171,4 @@ exec --no-startup-id xsetroot -solid "#000"
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id unclutter
+exec --no-startup-id rescuetime
