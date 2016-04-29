@@ -30,6 +30,11 @@ export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/.local/share/go
 export PATH=$PATH:$GOPATH/bin
 
+# Ruby gems
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export GEM_PATH=$GEM_HOME
+export PATH=$PATH:$PATH:$GEM_HOME/bin
+
 # Stream Machine
 export STREAM_MACHINE_ID=i-49f7b28b
 export STREAM_MACHINE_ZONE=us-west-1
