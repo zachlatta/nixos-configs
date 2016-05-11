@@ -155,6 +155,9 @@ bar {
 # Bind Snippy Meta+Shift+s
 bindsym $mod+Shift+s exec "$HOME/.local/bin/snippy"
 
+# Bind Fin Meta+Shift+f
+bindsym $mod+Shift+f exec "$HOME/.local/bin/fin_dmenu"
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% #decrease sound volume
