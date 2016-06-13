@@ -51,18 +51,18 @@ alias dokku='ssh dokku@apps.zachlatta.com'
 
 # Utility functions
 function reimburse() {
-  local inbox_location="$HOME/Dropbox/hackclub/docs/receipts/zach_reimbursements_inbox/"
+  local inbox_location="$HOME/Dropbox/hackclub/docs/receipts/zach_reimbursements_inbox"
   local file_path="$1"
   local file_name=$(basename "$file_path")
 
-  if [ -z "$file_path" ]; then
+  if [[ -z "$file_path" ]]; then
     >&2 echo "Receipt to reimburse must be provided"
     return
   fi
 
-  if [ -f "$inbox_location/$file_name" ]; then
+  if [[ -f "$inbox_location/$file_name" ]]; then
     >&2 echo "$file_name already exists in reimbursement inbox"
   else
-    mv "$file" "$inbox_location"
+    mv "$file_path" "$inbox_location"
   fi
 }
