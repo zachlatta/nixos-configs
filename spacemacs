@@ -252,10 +252,16 @@ layers configuration. You are free to put any user code."
    js2-indent-level tab-width
    sh-basic-offset tab-width
    sh-indentation tab-width
-   web-mode-code-indent-offset tab-width
-   web-mode-css-indent-offset tab-width
-   web-mode-markup-indent-offset tab-width
    )
+
+  (defun web-mode-indentation ()
+    (setq
+     web-mode-code-indent-offset tab-width
+     web-mode-css-indent-offset tab-width
+     web-mode-markup-indent-offset tab-width
+     )
+    )
+  (add-hook 'web-mode-hook 'web-mode-indentation)
 
   ;;
   ;; user keybindings
