@@ -2,67 +2,18 @@
 
 export DOTFILES=$HOME/.dotfiles
 
-# Set 256 color profile where possible
-if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-  export TERM=gnome-256color
-elif infocmp xterm-256color >/dev/null 2>&1; then
-  export TERM=xterm-256color
-fi
-
-# bash-completion
-if [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]]; then
-  . /usr/share/bash-completion/bash_completion
-else
-  echo "bash-completion is not installed, not everything may work as expected!"
-fi
-
-# Sensible Bash (https://github.com/mrzool/bash-sensible)
-source $DOTFILES/lib/bash-sensible/sensible.bash
-
-# Solarized dircolors
-eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
-alias ls='ls -F --color'
+# Editor setup
+export EDITOR="e"
 
 # Put local/bin into the PATH
 export PATH=$PATH:$HOME/.local/bin
-
-# Go
-export GOPATH=$HOME/.local/share/go
-export PATH=$PATH:$GOPATH/bin
-
-# Ruby gems
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export GEM_PATH=$GEM_HOME
-export PATH=$PATH:$PATH:$GEM_HOME/bin
-
-# Stream Machine
-export STREAM_MACHINE_ID=i-49f7b28b
-export STREAM_MACHINE_ZONE=us-west-1
-
-# SSH Agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# Editor setup
-export EDITOR="e"
 
 # Aliases galore!
 alias markcop='docker pull hackclub/markcop:latest && docker run -v $(pwd):/app hackclub/markcop:latest'
 alias dokku='ssh dokku@apps.zachlatta.com'
 
-# Utility functions
-function reimburse() {
-  local inbox_location="$HOME/Dropbox/hackclub/docs/receipts/zach_reimbursements_inbox"
-  local file_path="$1"
-  local file_name=$(basename "$file_path")
-
-  if [[ -z "$file_path" ]]; then
-    >&2 echo "Receipt to reimburse must be provided"
-    return
-  fi
-
-  if [[ -f "$inbox_location/$file_name" ]]; then
-    >&2 echo "$file_name already exists in reimbursement inbox"
-  else
-    mv "$file_path" "$inbox_location"
-  fi
-}
+if [ "$(uname)" == "Darwin" ]; then
+  . "$DOTFILES/bashrc_darwin"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  . "$DOTFILES/bashrc_linux"
+fi
