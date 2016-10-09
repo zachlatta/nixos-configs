@@ -248,8 +248,6 @@ layers configuration. You are free to put any user code."
   ;;
   (setq-default tab-width 2)
   (setq-default
-   js2-basic-offset tab-width
-   js2-indent-level tab-width
    sh-basic-offset tab-width
    sh-indentation tab-width
    )
@@ -272,6 +270,10 @@ layers configuration. You are free to put any user code."
     "own" 'make-frame-command
     "ot" 'title-case-region-or-line
     )
+
+  ;;
+  ;; js2-mode config
+  (setq-default js2-strict-missing-semi-warning nil)
 
   ;;
   ;; markdown-mode config
@@ -517,6 +519,15 @@ Version 2015-05-07"
                  (replace-match (aref x 1) 'FIXEDCASE 'LITERAL)))
              strPairs))))))
   )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js-indent-level 2))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
