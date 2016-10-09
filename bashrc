@@ -8,6 +8,10 @@ export EDITOR="e"
 # Put local/bin into the PATH
 export PATH=$PATH:$HOME/.local/bin
 
+# Go
+export GOPATH=$HOME/.local/share/go
+export PATH=$PATH:$GOPATH/bin
+
 # Aliases galore!
 alias markcop='docker pull hackclub/markcop:latest && docker run -v $(pwd):/app hackclub/markcop:latest'
 alias dokku='ssh dokku@apps.zachlatta.com'
