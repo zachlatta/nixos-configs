@@ -22,13 +22,14 @@ values."
      emacs-lisp
      finance
      git
-     lua
      github
      go
      html
      javascript
+     lua
      markdown
      org
+     react
      shell
      spell-checking
      syntax-checking
