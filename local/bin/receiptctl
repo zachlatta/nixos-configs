@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
+LINUX="LINUX"
+MAC_OS="MAC_OS"
 
 show_help() {
   cat <<EOF
@@ -30,12 +33,34 @@ rename_file() {
   echo "Copied receipt line, ready for pasting, to clipboard..."
 }
 
+platform() {
+  if [ "$(uname)" == "Darwin" ]; then
+    echo "$MAC_OS"
+  elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    echo "$LINUX"
+  else
+    (>&2 echo "Platform not recognized")
+    exit 1
+  fi
+}
+
+view_receipt() {
+  local platform="$(platform)"
+
+  if [ "$platform" == "$LINUX" ]; then
+    xdg-open $@
+  elif [ "$platform" == "$MAC_OS" ]; then
+    open $@
+  fi
+
+}
+
 process_file() {
   local dest="$1"
   local file="$2"
 
   echo "Processing $file..."
-  xdg-open "$file"
+  view_receipt "$file"
   cat <<EOF
 Commands:
 
