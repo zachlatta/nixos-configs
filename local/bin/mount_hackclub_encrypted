@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DROPBOX="$HOME/Dropbox (Hack Club)"
+
+ENCFS_LOCATION="$DROPBOX/docs/_encrypted"
+MOUNT_LOCATION="$DROPBOX/docs/_encrypted_mount"
+
+PASSWORD="$(lpass show encfs-dropbox-hackclub --password)"
+
+echo "$PASSWORD" | encfs -S "$ENCFS_LOCATION" "$MOUNT_LOCATION"
