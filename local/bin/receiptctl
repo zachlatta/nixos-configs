@@ -15,6 +15,26 @@ EOF
   exit 1
 }
 
+hash() {
+  local platform="$(platform)"
+
+  if [ "$platform" == "$LINUX" ]; then
+    md5sum "$@" | awk '{print $1}'
+  elif [ "$platform" == "$MAC_OS" ]; then
+    md5 -q "$@"
+  fi
+}
+
+copy() {
+  local platform="$(platform)"
+
+  if [ "$platform" == "$LINUX" ]; then
+    xsel -b
+  elif [ "$platform" == "$MAC_OS" ]; then
+    pbcopy
+  fi
+}
+
 rename_file() {
   local dest="$1"
   local file="$2"
@@ -22,14 +42,14 @@ rename_file() {
   local extension="${filename##*.}"
   local filename="${filename%.*}"
 
-  local hash=$(md5sum "$file" | awk '{print $1}')
+  local hash=$(hash "$file")
 
   local new_location="$dest/$hash.$extension"
 
   echo "Moving to $new_location..."
   mv "$file" "$new_location"
 
-  printf "\n    ; Receipt: $hash.$extension\n" | xsel -b
+  printf "\n    ; Receipt: $hash.$extension\n" | copy
   echo "Copied receipt line, ready for pasting, to clipboard..."
 }
 
