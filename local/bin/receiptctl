@@ -95,12 +95,12 @@ EOF
 }
 
 process() {
-  local from=$1
-  local dest=$2
+  local from="$1"
+  local dest="$2"
 
   OIFS="$IFS"
   IFS=$'\n'
-  for file in `find $from -type f`
+  for file in `find "$from" -type f`
   do
     process_file "$dest" "$file"
   done
@@ -108,12 +108,11 @@ process() {
 }
 
 handle_command_line() {
-  local cmd=$1
-  local args="${*:2}"
+  local cmd="$1"
 
   case $cmd in
     "process")
-      process $args
+      process "${@:2}"
       ;;
     *)
       show_help
