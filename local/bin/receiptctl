@@ -55,9 +55,30 @@ view_receipt() {
 
 }
 
+array_contains() {
+  local array="$1[@]"
+  local seeking="$2"
+  local in=1
+  for element in "${!array}"; do
+    if [[ "$element" == "$seeking" ]]; then
+      in=0
+      break
+    fi
+  done
+  return $in
+}
+
 process_file() {
+  FILES_TO_IGNORE=(".dropbox" '.~lock..dropbox#')
+
   local dest="$1"
   local file="$2"
+  local base_filename=$(basename "$file")
+
+  # Skip the file if it's in FILES_TO_IGNORE
+  array_contains FILES_TO_IGNORE "$base_filename" &&
+    echo "Skipping $base_filename because it's in the ignore list..." &&
+    return
 
   echo "Processing $file..."
   view_receipt "$file"
