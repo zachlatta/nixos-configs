@@ -1,5 +1,6 @@
 #!/bin/sh
 
+PROJECT_DIR="$HOME/dev/hackclub/api"
 NGROK_SUBDOMAIN="hackclub"
 
 debug() {
@@ -26,6 +27,10 @@ launch_docker_tab() {
   launch_new_tab 'eval $(docker-machine env) && '"${1}"
 }
 
+debug "Switching to hackclub/api directory..."
+
+cd "$PROJECT_DIR"
+
 debug "Starting Docker Machine..."
 
 docker-machine start
@@ -44,4 +49,4 @@ write_current_tab 'rails jobs:work'
 
 debug "Starting ngrok..."
 
-launch_new_tab 'ngrok http -subdomain $NGROK_SUBDOMAIN $(docker-machine ip):3000'
+launch_new_tab 'ngrok http -subdomain '"$NGROK_SUBDOMAIN"' $(docker-machine ip):3000'
