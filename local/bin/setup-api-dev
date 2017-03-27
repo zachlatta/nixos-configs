@@ -47,6 +47,16 @@ launch_docker_tab 'docker-compose run web /bin/bash'
 sleep 10
 write_current_tab 'rails jobs:work'
 
+debug "Starting console..."
+
+launch_docker_tab 'docker-compose run web /bin/bash'
+sleep 10
+write_current_tab 'rails console'
+
+debug "Starting bash..."
+
+launch_docker_tab 'docker-compose run web /bin/bash'
+
 debug "Starting ngrok..."
 
 launch_new_tab 'ngrok http -subdomain '"$NGROK_SUBDOMAIN"' $(docker-machine ip):3000'
