@@ -13,7 +13,7 @@ export GOPATH=$HOME/.local/share/go
 export PATH=$PATH:$GOPATH/bin
 
 # Aliases galore!
-alias markcop='docker pull hackclub/markcop:latest && docker run -v $(pwd):/app hackclub/markcop:latest'
+alias markcop='docker pull hackclub/markcop:latest && docker run --rm -v $(pwd):/app hackclub/markcop:latest'
 alias dokku='ssh dokku@apps.zachlatta.com'
 
 if [ "$(uname)" == "Darwin" ]; then
