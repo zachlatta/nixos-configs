@@ -19,6 +19,8 @@ values."
    dotspacemacs-configuration-layers
    '(
      chrome
+     csv
+     docker
      emacs-lisp
      finance
      git
@@ -29,7 +31,9 @@ values."
      lua
      markdown
      org
+     python
      react
+     ruby
      shell
      spell-checking
      syntax-checking
