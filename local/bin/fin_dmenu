@@ -1,5 +1,0 @@
-#!/bin/sh
-
-input=$(echo '' | dmenu -p 'Fin')
-
-fin "$input"
