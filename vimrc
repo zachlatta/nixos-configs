@@ -17,7 +17,7 @@ set shiftwidth=2
 set softtabstop=2
 
 " 80 character line wrap
-set tw=80 " automatically wrap lines at 80 characters
+set textwidth=80 " automatically wrap lines at 80 characters
 set colorcolumn=81 " draw a column at 81 chars to visually show line limit
 
 " configure settings for editing text files
