@@ -3,7 +3,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # Editor setup
-export EDITOR="e"
+export EDITOR="vim"
 
 # Put local/bin into the PATH
 export PATH=$PATH:$HOME/.local/bin

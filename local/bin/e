@@ -1,6 +1,0 @@
-#!/bin/sh
-#
-# Open the file in a frame of the existing Emacs session. If there isn't one,
-# start one.
-
-emacsclient -a 'emacs' -c $@
