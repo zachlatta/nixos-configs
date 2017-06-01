@@ -9,14 +9,8 @@ run() {
   $@
 }
 
-update_pacman() {
-  echo "Updating pacman..."
-
-  run pacman -Syu --noconfirm
-}
-
-update_pacaur() {
-  echo "Updating pacaur..."
+update_system() {
+  echo "Updating pacman and AUR..."
 
   run pacaur -Syu --noconfirm
 }
@@ -39,8 +33,7 @@ update_brain() {
 }
 
 run_updates() {
-  update_pacman
-  update_pacaur
+  update_system
   update_dotfiles
   update_brain
 }
