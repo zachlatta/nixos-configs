@@ -26,8 +26,16 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export GEM_PATH=$GEM_HOME
 export PATH=$PATH:$PATH:$GEM_HOME/bin
 
-# SSH Agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# Start a ssh-agent session if there isn't already one running and save its output.
+#
+# If there is already a session running, load its cached output to set the
+# required environment variables for it to work.
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-cache
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-cache)"
+fi
 
 # Utility functions
 function reimburse() {
