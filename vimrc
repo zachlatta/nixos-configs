@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
