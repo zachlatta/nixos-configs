@@ -9,6 +9,18 @@ run() {
   $@
 }
 
+update_pacman() {
+  echo "Updating pacman..."
+
+  run pacman -Syu --noconfirm
+}
+
+update_pacaur() {
+  echo "Updating pacaur..."
+
+  run pacaur -Syu --noconfirm
+}
+
 update_dotfiles() {
   echo "Updating dotfiles..."
 
@@ -18,17 +30,19 @@ update_dotfiles() {
   run popd
 }
 
-update_org() {
-  echo "Updating org files..."
+update_brain() {
+  echo "Updating brain..."
 
-  run pushd $HOME/dev/org
+  run pushd $HOME/dev/brain
   run git pull
   run popd
 }
 
 run_updates() {
+  update_pacman
+  update_pacaur
   update_dotfiles
-  update_org
+  update_brain
 }
 
 run_updates
