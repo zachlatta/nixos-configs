@@ -19,6 +19,10 @@ set softtabstop=2
 set tw=80 " automatically wrap lines at 80 characters
 set colorcolumn=81 " draw a column at 81 chars to visually show line limit
 
+" setup spellcheck
+set spell spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
 syntax enable
 set background=dark
 colorscheme solarized
