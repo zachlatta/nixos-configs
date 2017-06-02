@@ -9,6 +9,13 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/goyo.vim'
 
+" handle js and jsx well
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" apply jsx logic to .js files in addition to .jsx files
+let g:jsx_ext_required=0
+
 call vundle#end()
 filetype plugin indent on
 
