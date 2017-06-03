@@ -8,6 +8,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/goyo.vim'
+Plugin 'plasticboy/vim-markdown'
 
 " handle js and jsx well
 Plugin 'pangloss/vim-javascript'
