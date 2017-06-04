@@ -9,6 +9,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/goyo.vim'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-fugitive'
 
 " handle js and jsx well
 Plugin 'pangloss/vim-javascript'
