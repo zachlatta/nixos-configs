@@ -42,6 +42,9 @@ function SetTextEditingConfig()
   " wrap at words, not at characters
   set linebreak
 
+  " open all folds by default
+  set nofoldenable
+
   " turn on Goyo
   Goyo
 
