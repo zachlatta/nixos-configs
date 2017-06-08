@@ -8,8 +8,11 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/goyo.vim'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
+
+" make markdown a breeze (and easily follow markdown links in gollum repos)
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_no_extensions_in_markdown = 1
 
 " handle js and jsx well
 Plugin 'pangloss/vim-javascript'
