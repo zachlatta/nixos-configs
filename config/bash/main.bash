@@ -18,5 +18,5 @@ export GEM_PATH=$GEM_HOME
 export PATH=$PATH:$PATH:$GEM_HOME/bin
 
 # Load other config
-source 'shell_utils.bash'
-source 'helpers.bash'
+source "$DOTFILES/config/bash/shell_utils.bash"
+source "$DOTFILES/config/bash/helpers.bash"
