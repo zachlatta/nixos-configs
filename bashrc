@@ -12,6 +12,11 @@ export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/.local/share/go
 export PATH=$PATH:$GOPATH/bin
 
+# Use user directory for Ruby gems
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export GEM_PATH=$GEM_HOME
+export PATH=$PATH:$PATH:$GEM_HOME/bin
+
 # Aliases galore!
 alias markcop='docker pull hackclub/markcop:latest && docker run --rm -v $(pwd):/app hackclub/markcop:latest'
 alias dokku='ssh dokku@apps.zachlatta.com'
