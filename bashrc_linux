@@ -7,9 +7,6 @@ else
   echo "bash-completion is not installed, not everything may work as expected!"
 fi
 
-# Sensible Bash (https://github.com/mrzool/bash-sensible)
-source $DOTFILES/lib/bash-sensible/sensible.bash
-
 # Solarized dircolors
 eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
 alias ls='ls -F --color'
