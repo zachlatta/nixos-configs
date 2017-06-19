@@ -7,3 +7,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "lib/bash-completion"]
+	path = lib/bash-completion
+	url = https://github.com/scop/bash-completion

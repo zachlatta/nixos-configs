@@ -3,12 +3,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # bash-completion
-if [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]]; then
-  . /usr/share/bash-completion/bash_completion
-else
-  echo "bash-completion is not installed, not everything may work as
-  expected!"
-fi
+source "$DOTFILES/lib/bash-completion/bash_completion"
 
 # Solarized dircolors
 eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
