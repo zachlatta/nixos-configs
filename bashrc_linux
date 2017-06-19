@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Any Linux specific config goes here.
 
 # bash-completion
 if [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]]; then
