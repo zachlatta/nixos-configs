@@ -1,7 +1,6 @@
 [user]
 	name = Zach Latta
 	email = zach@zachlatta.com
-	signingkey = B5D9D60E
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = false
@@ -13,8 +12,6 @@
 	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 [color]
 	ui = true
-[commit]
-	gpgsign = true
 [credential]
 	helper = cache --timeout=21600
 [push]
