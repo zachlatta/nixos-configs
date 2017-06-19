@@ -1,35 +1,11 @@
 #!/bin/bash
 
-export DOTFILES=$HOME/.dotfiles
+# laod main config
+source "$HOME/.config/bash/main.bash"
 
-# bash-completion
-source "$DOTFILES/lib/bash-completion/bash_completion"
-
-# Solarized dircolors
-eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
-alias ls='ls -F --color'
-
-# Editor setup
-export EDITOR="vim"
-
-# Put local/bin into the PATH
-export PATH=$PATH:$HOME/.local/bin
-
-# Go
-export GOPATH=$HOME/.local/share/go
-export PATH=$PATH:$GOPATH/bin
-
-# Use user directory for Ruby gems
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export GEM_PATH=$GEM_HOME
-export PATH=$PATH:$PATH:$GEM_HOME/bin
-
-# Aliases galore!
-alias markcop='docker pull hackclub/markcop:latest && docker run --rm -v $(pwd):/app hackclub/markcop:latest'
-alias dokku='ssh dokku@apps.zachlatta.com'
-
+# load os-specific config
 if [ "$(uname)" == "Darwin" ]; then
-  . "$DOTFILES/bashrc_darwin"
+  . "$HOME/.config/bash/main_darwin.bash"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  . "$DOTFILES/bashrc_linux"
+  . "$HOME/.config/bash/main_linux.bash"
 fi
