@@ -32,6 +32,11 @@ set softtabstop=2
 set textwidth=80 " automatically wrap lines at 80 characters
 set colorcolumn=81 " draw a column at 81 chars to visually show line limit
 
+" Use one space after sentences, not two.
+"
+" See https://stackoverflow.com/a/4760477 for context.
+set nojoinspaces
+
 " configure settings for editing text files
 function SetTextEditingConfig()
   " setup spell checking
