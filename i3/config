@@ -160,7 +160,7 @@ bar {
   position bottom
   font pango: Source Code Pro Regular 11px
   status_command i3blocks
-  tray_output none
+  tray_output primary
 
   colors {
     statusline  $gray
