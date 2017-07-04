@@ -52,6 +52,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
+# lock the computer
+bindsym Mod1+l exec i3lock
+
 # --------------
 # i3 keybindings
 # --------------
