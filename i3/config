@@ -23,10 +23,10 @@ set $cyan     #2AA198
 set $dark     #00252E
 
 # class                 border  backgr. text    indicator
-client.focused          $dark   $dark   $dark    $dark
-client.unfocused        $dark   $dark   $white   $white
-client.focused_inactive $dark   $dark   $white   $dark
-client.urgent           $orange $orange $dark    $white
+client.focused          $black  $black  $white  $dark
+client.unfocused        $dark   $dark   $white  $white
+client.focused_inactive $dark   $dark   $white  $dark
+client.urgent           $orange $orange $dark   $white
 
 # principal mod key
 set $mod Mod4
@@ -175,7 +175,7 @@ bar {
 }
 
 # set background to solarized dark background
-exec --no-startup-id xsetroot -solid "#000000"
+exec --no-startup-id xsetroot -solid "$dark"
 
 # Startup programs
 exec --no-startup-id gnome-settings-daemon
