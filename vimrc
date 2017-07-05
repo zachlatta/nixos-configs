@@ -9,6 +9,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ledger/vim-ledger'
 
 " make markdown a breeze (and easily follow markdown links in gollum repos)
 Plugin 'plasticboy/vim-markdown'
