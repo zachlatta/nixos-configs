@@ -31,8 +31,8 @@ client.urgent           $orange $orange $dark   $white
 # principal mod key
 set $mod Mod4
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+Mod1 to drag floating windows to their wanted position
+floating_modifier Mod1
 
 # start a terminal
 bindsym $mod+Return exec termite
