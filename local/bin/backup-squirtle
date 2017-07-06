@@ -1,0 +1,25 @@
+#!/bin/sh
+
+DEST="b2:squirtle-backup"
+DIRS=(
+  "/mnt/external"
+  "/home"
+  "/etc"
+  "/opt"
+  "/usr"
+  "/var"
+)
+
+sync_dir() {
+  local dir="$1"
+  local full_dir=$(realpath "$dir")
+
+  rclone sync "$dir" "$DEST""$full_dir" \
+    --transfers 8 \
+    --verbose
+}
+
+for dir in "${DIRS[@]}"
+do
+  sync_dir "$dir"
+done
