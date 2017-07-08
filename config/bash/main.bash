@@ -17,6 +17,14 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export GEM_PATH=$GEM_HOME
 export PATH=$PATH:$PATH:$GEM_HOME/bin
 
+# If there's a file called .bashrc in the current directory and we're not in the
+# home directory, execute it!
+if [ ! "$(pwd)" == "$HOME" ]; then
+  if [ -f .bashrc ]; then
+    source .bashrc
+  fi
+fi
+
 # Load other config
 source "$DOTFILES/config/bash/shell_utils.bash"
 source "$DOTFILES/config/bash/helpers.bash"
