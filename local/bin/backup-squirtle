@@ -16,7 +16,7 @@ sync_dir() {
 
   rclone sync "$dir" "$DEST""$full_dir" \
     --transfers 8 \
-    --bwlimit "01:00,off 08:00,1.5M" # limit bandwidth to 1.5mb/s from 8am - 1am
+    --bwlimit "1M" # limit bandwidth to 1mb/s
     --verbose
 }
 
