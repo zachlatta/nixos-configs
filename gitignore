@@ -101,3 +101,7 @@ phantomjsdriver.log
 .flooignore
 
 vendor/bundle
+
+# zrl-specific thing. This file can exist in directories specifying commands to
+# run when a new bash shell is spawned in it.
+.bashrc
