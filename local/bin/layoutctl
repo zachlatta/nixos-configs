@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# CLI utility for managing desktop monitor configuration.
+
+show_help() {
+  cat <<EOF
+Usage: layoutctl [layout]
+
+Available layouts:
+
+  default - main monitor horizontal, side monitor vertical
+  writing - both monitors vertical
+EOF
+
+  exit 1
+}
+
+default() {
+  # generated using arandr
+  xrandr --output DP-3 --off --output DVI-I-0 --off --output HDMI-0 --primary --mode 2560x1440 --pos 0x464 --rotate normal --output DP-5 --off --output DP-4 --off --output DVI-I-1 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 2560x1440 --pos 2560x0 --rotate left
+}
+
+writing() {
+  # also generated using arandr
+  xrandr --output DP-3 --off --output DVI-I-0 --off --output HDMI-0 --primary --mode 2560x1440 --pos 0x0 --rotate left --output DP-5 --off --output DP-4 --off --output DVI-I-1 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 2560x1440 --pos 1440x0 --rotate left
+}
+
+handle_cli() {
+  local layout="$1"
+
+  case "$layout" in
+    "default")
+      default
+      ;;
+    "writing")
+      writing
+      ;;
+    *)
+      show_help
+      ;;
+  esac
+}
+
+if [ "$#" -eq 0 ]; then
+  show_help
+fi
+
+handle_cli "$@"
