@@ -8,7 +8,10 @@
 # If there is already a session running, load its cached output to set the
 # required environment variables for it to work.
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-cache
+  # the head-n-1 removes the last line from ssh-agent's output, which is an echo
+  # statement saying something like "Agent pid 22408". try running ssh-agent and
+  # looking at the raw output to see what i mean.
+  ssh-agent | head -n-1> ~/.ssh-agent-cache
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-cache)"
