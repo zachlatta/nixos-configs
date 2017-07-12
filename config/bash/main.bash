@@ -26,5 +26,4 @@ if [ ! "$(pwd)" == "$HOME" ]; then
 fi
 
 # Load other config
-source "$DOTFILES/config/bash/shell_utils.bash"
 source "$DOTFILES/config/bash/helpers.bash"
