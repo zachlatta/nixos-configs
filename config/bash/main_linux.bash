@@ -16,3 +16,7 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-cache)"
 fi
+
+# Make ls nice and pretty
+eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
+alias ls='ls -F --color'
