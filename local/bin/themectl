@@ -36,6 +36,11 @@ switch_mode() {
 
   # Reload i3 if it's installed
   [ -x "$(command -v i3)" ] && i3-msg restart
+
+  # If we're on squirtle, then also run this command on charmander.
+  if [ "$(hostname)" = "squirtle" ]; then
+    echo "themectl $mode" | ssh -T zrl@charmander.zachlatta.com
+  fi
 }
 
 handle_command_line() {
