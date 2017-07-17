@@ -28,8 +28,8 @@ switch_mode() {
   # Reload tmux config
   tmux source-file ~/.tmux.conf
 
-  # Reload Termite config
-  killall -USR1 termite
+  # Reload Termite config if it's installed
+  [ -x "$(command -v termite)" ] && killall -USR1 termite
 
   # Reload .Xresources if xrdb is installed
   [ -x "$(command -v xrdb)" ] && xrdb -load ~/.Xresources
