@@ -10,23 +10,34 @@ gaps inner 7
 gaps outer 0
 
 # hybrid colors
-set $black    #002B36
-set $white    #839496
 set $gray     #CCCCCC
-set $darkgray #666666
-set $green    #799F26
-set $blue     #4D73AA
-set $purple   #8473A7
-set $red      #B58900
-set $orange   #E59847
-set $cyan     #2AA198
-set $dark     #00252E
+
+# official solarized colors
+set $base03 #002b36
+set $base02 #073642
+set $base01 #586e75
+set $base00 #657b83
+set $base0 #839496
+set $base1 #93a1a1
+set $base2 #eee8d5
+set $base3 #fdf6e3
+set $yellow #b58900
+set $orange #cb4b16
+set $red #dc322f
+set $magenta #d33682
+set $violet #6c71c4
+set $blue #268bd2
+set $cyan #2aa198
+set $green #859900
+
+# my custom solarized extensions
+set $base04 #00252E # extra dark
 
 # class                 border  backgr. text    indicator
-client.focused          $black  $black  $white  $dark
-client.unfocused        $dark   $dark   $white  $white
-client.focused_inactive $dark   $dark   $white  $dark
-client.urgent           $orange $orange $dark   $white
+client.focused          $base03  $base03  $base0  $base03
+client.unfocused        $base03   $base03   $base0  $base0
+client.focused_inactive $base03   $base03   $base0  $base03
+client.urgent           $orange $orange $base03   $base0
 
 # principal mod key
 set $mod Mod4
@@ -167,18 +178,18 @@ bar {
 
   colors {
     statusline  $gray
-    background  $black
+    background  $base03
 
     # colors            border    backgr.   text
-    focused_workspace   $white    $white    $black
-    active_workspace    #073642   #073642   #696f89
-    inactive_workspace  #073642   #073642   $white
-    urgent_workspace    $orange   $orange   $dark
+    focused_workspace   $base02   $base02   $base1
+    active_workspace    $base02   $base02   $base01
+    inactive_workspace  $base02   $base02   $base01
+    urgent_workspace    $orange   $orange   $base03
   }
 }
 
 # set background to solarized dark background
-exec --no-startup-id xsetroot -solid "$dark"
+exec --no-startup-id xsetroot -solid "$base04"
 
 # Startup programs
 exec --no-startup-id gnome-settings-daemon
