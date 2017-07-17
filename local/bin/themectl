@@ -31,11 +31,11 @@ switch_mode() {
   # Reload Termite config
   killall -USR1 termite
 
-  # Reload .Xresources
-  xrdb -load ~/.Xresources
+  # Reload .Xresources if xrdb is installed
+  [ -x "$(command -v xrdb)" ] && xrdb -load ~/.Xresources
 
-  # Reload i3
-  i3-msg restart
+  # Reload i3 if it's installed
+  [ -x "$(command -v i3)" ] && i3-msg restart
 }
 
 handle_command_line() {
