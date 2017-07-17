@@ -66,5 +66,5 @@ endfunction
 autocmd BufRead,BufNewFile md,markdown,*.md call SetTextEditingConfig()
 
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized

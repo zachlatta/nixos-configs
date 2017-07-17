@@ -6,11 +6,8 @@ new_window pixel 3
 focus_follows_mouse yes
 
 # gaps
-gaps inner 7
+gaps inner 2
 gaps outer 0
-
-# hybrid colors
-set $gray     #CCCCCC
 
 # official solarized colors
 set $base03 #002b36
@@ -32,6 +29,19 @@ set $green #859900
 
 # my custom solarized extensions
 set $base04 #00252E # extra dark
+set $base4 #fffdeb # extra light
+
+# invert base colors for solarized light
+set $base4 #00252E
+set $base3 #002b36
+set $base2 #073642
+set $base1 #586e75
+set $base0 #657b83
+set $base00 #839496
+set $base01 #93a1a1
+set $base02 #eee8d5
+set $base03 #fdf6e3
+set $base04 #fffdeb
 
 # class                 border  backgr. text    indicator
 client.focused          $base03  $base03  $base0  $base03
@@ -177,7 +187,7 @@ bar {
   tray_output primary
 
   colors {
-    statusline  $gray
+    statusline  $base0
     background  $base03
 
     # colors            border    backgr.   text
@@ -189,7 +199,7 @@ bar {
 }
 
 # set background to solarized dark background
-exec --no-startup-id xsetroot -solid "$base04"
+exec --no-startup-id xsetroot -solid "$base1"
 
 # Startup programs
 exec --no-startup-id gnome-settings-daemon

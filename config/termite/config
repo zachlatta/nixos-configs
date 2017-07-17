@@ -3,12 +3,12 @@ font = Source Code Pro Regular 13px
 
 # Solarized dark (from https://github.com/alpha-omega/termite-colors-solarized)
 [colors]
-foreground = #839496
-foreground_bold = #eee8d5
-foreground_dim = #888888
-background = #002b36
-cursor = #93a1a1
+foreground = #657b83
+foreground_bold = #073642
+background = #fdf6e3
+cursor = #586e75
 
+# colors from color0 to color254 can be set
 color0 = #073642
 color1 = #dc322f
 color2 = #859900

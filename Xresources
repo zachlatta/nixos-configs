@@ -9,23 +9,34 @@
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-! Dark
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
+! Base colors
+!#define S_base03        #002b36
+!#define S_base02        #073642
+!#define S_base01        #586e75
+!#define S_base00        #657b83
+!#define S_base0         #839496
+!#define S_base1         #93a1a1
+!#define S_base2         #eee8d5
+!#define S_base3         #fdf6e3
+
+! Flipping colors for Solarized Light
+#define S_base3 #002b36
+#define S_base2 #073642
+#define S_base1 #586e75
+#define S_base0 #657b83
+#define S_base00 #839496
+#define S_base01 #93a1a1
+#define S_base02 #eee8d5
+#define S_base03 #fdf6e3
 
 ! Rofi config
-!                  bg         border   separator
-rofi.color-window: #dd002b36, #002b36, #dd073642
-!                  bg         fg       altbg      hlbg       hlfg
-rofi.color-normal: #dd002b36, #839496, #00002b36, #dd073642, #859900
-rofi.color-active: #dd002b36, #268bd2, #00002b36, #dd073642, #268bd2
-rofi.color-urgent: #dd002b36, #d33682, #00002b36, #dd073642, #d33682
+rofi.color-enabled: true
+!                  bg        border    separator
+rofi.color-window: S_base03, S_base1, S_base01
+!                  bg        fg        alt bg    hi bg     hi fg
+rofi.color-normal: S_base03, S_base0,  S_base03, S_base02, S_base1
+rofi.color-active: S_base03, S_blue,   S_base02, S_blue,   S_base03
+rofi.color-urgent: S_base03, S_red,    S_base02, S_red,    S_base03
 
 ! -------------------------
 ! Other config goes here...
