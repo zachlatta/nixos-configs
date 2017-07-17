@@ -1,0 +1,5 @@
+# ignore symlinks for theming
+Xresources.d/colors
+config/termite/config
+tmux.color.conf
+vim/color/set-background-vim
