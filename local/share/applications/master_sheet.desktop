@@ -1,9 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Terminal=false
-Type=Application
-Name=Master Sheet - Google Sheets
-Exec=/opt/google/chrome/google-chrome "--app=https://docs.google.com/spreadsheets/d/1zJB6mdrR_SlEcCfLmyXr_073kaX1rVgF2n-b1dY86eM/edit#gid=44867408"
-Icon=chrome-https___docs.google.com_spreadsheets_d_1zJB6mdrR_SlEcCfLmyXr_073kaX1rVgF2n-b1dY86eM_edit#gid=44867408
-StartupWMClass=docs.google.com__spreadsheets_d_1zJB6mdrR_SlEcCfLmyXr_073kaX1rVgF2n-b1dY86eM_edit

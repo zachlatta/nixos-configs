@@ -1,9 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Terminal=false
-Type=Application
-Name=Calendar
-Exec=/opt/google/chrome/google-chrome "--app=https://www.google.com/calendar/render"
-Icon=chrome-https___www.fastmail.com_calendar__u=77944114
-StartupWMClass=www.fastmail.com__calendar

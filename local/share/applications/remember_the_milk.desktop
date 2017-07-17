@@ -1,9 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Terminal=false
-Type=Application
-Name=Remember the Milk
-Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app=https://www.rememberthemilk.com/
-Icon=chrome-fdfmmlofppbjobfjojhfinicjndeabme-Default
-StartupWMClass=crx_fdfmmlofppbjobfjojhfinicjndeabme
