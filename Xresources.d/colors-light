@@ -1,0 +1,10 @@
+#include "colors-shared"
+
+#define S_base3 #002b36
+#define S_base2 #073642
+#define S_base1 #586e75
+#define S_base0 #657b83
+#define S_base00 #839496
+#define S_base01 #93a1a1
+#define S_base02 #eee8d5
+#define S_base03 #fdf6e3

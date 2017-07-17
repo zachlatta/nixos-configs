@@ -1,0 +1,1 @@
+/home/zrl/.dotfiles/vim/color/set-background-dark.vim

@@ -1,30 +1,20 @@
-# official solarized colors
-set $base03 #002b36
-set $base02 #073642
-set $base01 #586e75
-set $base00 #657b83
-set $base0 #839496
-set $base1 #93a1a1
-set $base2 #eee8d5
-set $base3 #fdf6e3
-set $yellow #b58900
-set $orange #cb4b16
-set $red #dc322f
-set $magenta #d33682
-set $violet #6c71c4
-set $blue #268bd2
-set $cyan #2aa198
-set $green #859900
-
-# invert base colors for solarized light
-set $base3 #002b36
-set $base2 #073642
-set $base1 #586e75
-set $base0 #657b83
-set $base00 #839496
-set $base01 #93a1a1
-set $base02 #eee8d5
-set $base03 #fdf6e3
+# load solarized colors from the X resource database
+set_from_resource $base03 i3wm.base03 #002b36
+set_from_resource $base02 i3wm.base02 #073642
+set_from_resource $base01 i3wm.base01 #586e75
+set_from_resource $base00 i3wm.base00 #657b83
+set_from_resource $base0 i3wm.base0 #839496
+set_from_resource $base1 i3wm.base1 #93a1a1
+set_from_resource $base2 i3wm.base2 #eee8d5
+set_from_resource $base3 i3wm.base3 #fdf6e3
+set_from_resource $yellow i3wm.yellow #b58900
+set_from_resource $orange i3wm.orange #cb4b16
+set_from_resource $red i3wm.red #dc322f
+set_from_resource $magenta i3wm.magenta #d33682
+set_from_resource $violet i3wm.violet #6c71c4
+set_from_resource $blue i3wm.blue #268bd2
+set_from_resource $cyan i3wm.cyan #2aa198
+set_from_resource $green i3wm.green #859900
 
 # font
 font pango: Source Code Pro Regular 13px

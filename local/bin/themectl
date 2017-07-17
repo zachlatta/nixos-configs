@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# Color scheme manager.
+
+show_help() {
+  cat <<EOF
+Switch theme mode to light or dark.
+
+Usage: themectl [light|dark]
+EOF
+
+  exit 1
+}
+
+switch_mode() {
+  local mode="$1"
+
+  # Update symlinks
+  ln -sf "$DOTFILES/tmux.color-$mode.conf" \
+    "$DOTFILES/tmux.color.conf"
+  ln -sf "$DOTFILES/vim/color/set-background-$mode.vim" \
+    "$DOTFILES/vim/color/set-background.vim"
+  ln -sf "$DOTFILES/config/termite/config-$mode" \
+    "$DOTFILES/config/termite/config"
+  ln -sf "$DOTFILES/Xresources.d/colors-$mode" \
+    "$DOTFILES/Xresources.d/colors"
+
+  # Reload tmux config
+  tmux source-file ~/.tmux.conf
+
+  # Reload Termite config
+  killall -USR1 termite
+
+  # Reload .Xresources
+  xrdb -load ~/.Xresources
+
+  # Reload i3
+  i3-msg restart
+}
+
+handle_command_line() {
+  local theme="$1"
+
+  case "$theme" in
+    "light")
+      switch_mode "light"
+      ;;
+    "dark")
+      switch_mode "dark"
+      ;;
+    *)
+      show_help
+      ;;
+  esac
+}
+
+if [ "$#" -eq 0 ]; then
+  show_help
+fi
+
+handle_command_line "$@"

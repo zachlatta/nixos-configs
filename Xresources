@@ -1,33 +1,33 @@
-! Solarized theme
-! Common
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+! -------------------------
+! Solarized colors
+! -------------------------
 
-! Base colors
-!#define S_base03        #002b36
-!#define S_base02        #073642
-!#define S_base01        #586e75
-!#define S_base00        #657b83
-!#define S_base0         #839496
-!#define S_base1         #93a1a1
-!#define S_base2         #eee8d5
-!#define S_base3         #fdf6e3
+#include ".Xresources.d/colors"
 
-! Flipping colors for Solarized Light
-#define S_base3 #002b36
-#define S_base2 #073642
-#define S_base1 #586e75
-#define S_base0 #657b83
-#define S_base00 #839496
-#define S_base01 #93a1a1
-#define S_base02 #eee8d5
-#define S_base03 #fdf6e3
+! Export colors to prevent the need to define them in multiple places
+*base03: S_base03
+*base02: S_base02
+*base01: S_base01
+*base00: S_base00
+*base0: S_base0
+*base1: S_base1
+*base2: S_base2
+*base3: S_base3
+
+*yellow: S_yellow
+*orange: S_orange
+*red: S_red
+*magenta: S_magenta
+*violet: S_violet
+*blue: S_blue
+*cyan: S_cyan
+*green: S_green
+
+! -------------------------
+! Other config goes here...
+! -------------------------
+
+Xcursor.size: 16
 
 ! Rofi config
 rofi.color-enabled: true
@@ -37,9 +37,3 @@ rofi.color-window: S_base03, S_base1, S_base01
 rofi.color-normal: S_base03, S_base0,  S_base03, S_base02, S_base1
 rofi.color-active: S_base03, S_blue,   S_base02, S_blue,   S_base03
 rofi.color-urgent: S_base03, S_red,    S_base02, S_red,    S_base03
-
-! -------------------------
-! Other config goes here...
-! -------------------------
-
-Xcursor.size: 16

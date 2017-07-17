@@ -66,5 +66,7 @@ endfunction
 autocmd BufRead,BufNewFile md,markdown,*.md call SetTextEditingConfig()
 
 syntax enable
-set background=light
 colorscheme solarized
+
+" dynamically set the background using the symlink at vimrc_background
+runtime color/set-background.vim
