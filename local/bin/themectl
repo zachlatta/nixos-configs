@@ -25,8 +25,8 @@ switch_mode() {
   ln -sf "$DOTFILES/Xresources.d/colors-$mode" \
     "$DOTFILES/Xresources.d/colors"
 
-  # Reload tmux config
-  tmux source-file ~/.tmux.conf
+  # Reload tmux config if it's installed
+  [ -x "$(command -v tmux)" ] && tmux source-file ~/.tmux.conf
 
   # Reload Termite config if it's installed
   [ -x "$(command -v termite)" ] && killall -USR1 termite
