@@ -21,5 +21,5 @@ fi
 source "$DOTFILES/lib/bash-completion/bash_completion"
 
 # Make ls nice and pretty
-eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-light)
+eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
 alias ls='ls -F --color'
