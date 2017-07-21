@@ -185,5 +185,5 @@ exec --no-startup-id xsetroot -solid "$base03"
 # Startup programs
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
-exec --no-startup-id unclutter
+exec --no-startup-id xbanish
 exec --no-startup-id rescuetime
