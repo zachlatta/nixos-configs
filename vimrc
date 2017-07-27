@@ -11,6 +11,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ledger/vim-ledger'
 Plugin 'chr4/nginx.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
 
 " Ctrl+P to quickly open project files
 Plugin 'ctrlpvim/ctrlp.vim'
