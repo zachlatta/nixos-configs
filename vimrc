@@ -38,6 +38,7 @@ filetype plugin indent on
 " Two space indent
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
 set expandtab
 
 " 80 character line wrap
