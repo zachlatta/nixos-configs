@@ -13,6 +13,10 @@ Plugin 'chr4/nginx.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 
+" Go development support
+Plugin 'fatih/vim-go'
+let g:go_fmt_command = 'goimports' " use goimports instead of gofmt
+
 " Ctrl+P to quickly open project files
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " use .gitignore
