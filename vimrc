@@ -5,13 +5,21 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ledger/vim-ledger'
 Plugin 'chr4/nginx.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+
+" Go development support
+Plugin 'fatih/vim-go'
+let g:go_fmt_command = 'goimports' " use goimports instead of gofmt
+
+" Ctrl+P to quickly open project files
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " use .gitignore
 
 " make markdown a breeze (and easily follow markdown links in gollum repos)
 Plugin 'plasticboy/vim-markdown'
@@ -30,6 +38,8 @@ filetype plugin indent on
 " Two space indent
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
+set expandtab
 
 " 80 character line wrap
 set textwidth=80 " automatically wrap lines at 80 characters
