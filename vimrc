@@ -16,9 +16,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = 'goimports' " use goimports instead of gofmt
 
-" Ctrl+O to open NERDTree
+" Ctrl+o to open NERDTree
 Plugin 'scrooloose/nerdtree'
-map <C-O> :NERDTreeToggle<CR>
+map <C-o> :NERDTreeToggle<CR>
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
