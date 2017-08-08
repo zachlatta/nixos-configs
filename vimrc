@@ -10,12 +10,17 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ledger/vim-ledger'
 Plugin 'chr4/nginx.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 
 " Go development support
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = 'goimports' " use goimports instead of gofmt
+
+" Ctrl+O to open NERDTree
+Plugin 'scrooloose/nerdtree'
+map <C-O> :NERDTreeToggle<CR>
+" close vim if NERDTree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Ctrl+P to quickly open project files
 Plugin 'ctrlpvim/ctrlp.vim'
