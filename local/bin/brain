@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mosh zrl@charmander.zachlatta.com -- sh -c 'tmux attach -t brain'
