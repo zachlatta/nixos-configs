@@ -40,6 +40,10 @@ let g:jsx_ext_required=0
 call vundle#end()
 filetype plugin indent on
 
+" UTF-8 all the things, required for NERDTree arrows to work
+scriptencoding utf-8
+set encoding=utf-8
+
 " Two space indent
 set shiftwidth=2
 set softtabstop=2
