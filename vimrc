@@ -6,7 +6,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ledger/vim-ledger'
 Plugin 'chr4/nginx.vim'
@@ -27,6 +26,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " use .gitignore
 
 " make markdown a breeze (and easily follow markdown links in gollum repos)
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_no_extensions_in_markdown = 1
 
@@ -70,12 +70,6 @@ function SetTextEditingConfig()
 
   " open all folds by default
   set nofoldenable
-
-  " turn on Goyo
-  Goyo
-
-  " quit the buffer when we quit Goyo (so when the user presses :q or :wq)
-  autocmd! User GoyoLeave nested quit
 endfunction
 
 autocmd BufRead,BufNewFile md,markdown,*.md call SetTextEditingConfig()
