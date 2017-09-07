@@ -16,8 +16,8 @@ sync_dir() {
 
   rclone sync "$dir" "$DEST""$full_dir" \
     --transfers 8 \
-    --bwlimit "1M" # limit bandwidth to 1mb/s
-    --verbose
+    --bwlimit "1M" \
+    -vvv
 }
 
 for dir in "${DIRS[@]}"
