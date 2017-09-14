@@ -2,6 +2,10 @@
 #
 # Any Linux specific config goes here.
 
+# Override the terminal emulator's default TERM for backwards compatibility
+# (termite has a habit of setting this to xterm-termite).
+export TERM=xterm-256color
+
 # Start a ssh-agent session if there isn't already one running and save its
 # output.
 #
