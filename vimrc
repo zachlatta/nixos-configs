@@ -13,10 +13,21 @@ Plugin 'tpope/vim-commentary'
 
 " vimiwiki!
 Plugin 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/dev/brain/',
-                     \ 'index': 'Home',
-                     \ 'syntax': 'markdown',
-                     \ 'ext': '.md'}]
+let g:vimwiki_list = [
+  \{
+    \'path': '~/dev/brain/',
+    \'index': 'Home',
+    \'syntax': 'markdown',
+    \'ext': '.md'
+  \},
+  \{
+    \'path': '~/dev/hackclub/hackclub/',
+    \'index': 'README',
+    \'syntax': 'markdown',
+    \'ext': '.md'
+  \}
+\]
+let g:vimwiki_folding = 'list'
 
 " Go development support
 Plugin 'fatih/vim-go'
