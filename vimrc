@@ -89,7 +89,23 @@ function SetTextEditingConfig()
   set nofoldenable
 endfunction
 
-autocmd BufRead,BufNewFile md,markdown,*.md call SetTextEditingConfig()
+function UnsetTextEditingConfig()
+  " disable spell checking
+  set nospell
+
+  " re-enable line wrapping & color column
+  set textwidth=80
+  set colorcolumn=81
+
+  " revert to regular line wrapping
+  set nolinebreak
+
+  " re-enable folds
+  set foldenable
+endfunction
+
+autocmd BufEnter md,markdown,*.md call SetTextEditingConfig()
+autocmd BufLeave md,markdown,*.md call UnsetTextEditingConfig()
 
 syntax enable
 colorscheme solarized
