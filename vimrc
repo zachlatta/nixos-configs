@@ -43,11 +43,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " use .gitignore
 
-" make markdown a breeze (and easily follow markdown links in gollum repos)
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-let g:vim_markdown_no_extensions_in_markdown = 1
-
 " handle js and jsx well
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
