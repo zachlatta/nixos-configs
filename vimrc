@@ -1,6 +1,12 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" Set up leader key use. Space to trigger, show commands when using.
+let mapleader=" "
+set showcmd
+
+" Let the Vundle begin!
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -11,7 +17,9 @@ Plugin 'ledger/vim-ledger'
 Plugin 'chr4/nginx.vim'
 Plugin 'tpope/vim-commentary'
 
+"
 " vimiwiki!
+"
 Plugin 'vimwiki/vimwiki'
 let g:vimwiki_list = [
   \{
@@ -27,7 +35,15 @@ let g:vimwiki_list = [
     \'ext': '.md'
   \}
 \]
-let g:vimwiki_folding = 'expr'
+
+" use leader + key for interacting with links
+nmap <Leader>wf <Plug>VimwikiFollowLink
+nmap <Leader>wg <Plug>VimwikiTabnewLink
+nmap <Leader>we <Plug>VimwikiSplitLink
+nmap <Leader>wq <Plug>VimwikiVSplitLink
+nmap <Leader>wb <Plug>VimwikiGoBackLink
+nmap <Leader>wn <Plug>VimwikiNextLink
+nmap <Leader>wp <Plug>VimwikiPrevLink
 
 " Go development support
 Plugin 'fatih/vim-go'
