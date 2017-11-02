@@ -51,7 +51,7 @@ let g:go_fmt_command = 'goimports' " use goimports instead of gofmt
 
 " Ctrl+o to open NERDTree
 Plugin 'scrooloose/nerdtree'
-map <C-o> :NERDTreeToggle<CR>
+nmap <Leader>ft :NERDTreeToggle<CR>
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
