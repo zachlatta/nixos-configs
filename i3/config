@@ -17,7 +17,7 @@ set_from_resource $cyan i3wm.cyan #2aa198
 set_from_resource $green i3wm.green #859900
 
 # font
-font pango: Source Code Pro Regular 13px
+font pango: Source Code Pro Regular 12px
 
 # look
 new_window pixel 1

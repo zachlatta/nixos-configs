@@ -1,5 +1,5 @@
 [options]
-font = Source Code Pro Regular 13px
+font = Source Code Pro Regular 12px
 
 # Solarized Dark (from https://github.com/alpha-omega/termite-colors-solarized)
 [colors]
