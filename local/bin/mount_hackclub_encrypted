@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DROPBOX="$HOME/Dropbox (Hack Club)"
+DROPBOX="$HOME/dropbox_work"
 
 ENCFS_LOCATION="$DROPBOX/docs/_encrypted"
 MOUNT_LOCATION="$DROPBOX/docs/_encrypted_mount"
