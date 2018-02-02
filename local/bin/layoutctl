@@ -8,8 +8,7 @@ Usage: layoutctl [layout]
 
 Available layouts:
 
-  default - main monitor horizontal, side monitor vertical
-  writing - both monitors vertical
+  default - both monitors horizontal
 EOF
 
   exit 1
@@ -17,12 +16,7 @@ EOF
 
 default() {
   # generated using arandr
-  xrandr --output DP-3 --off --output DVI-I-0 --off --output HDMI-0 --primary --mode 2560x1440 --pos 0x464 --rotate normal --output DP-5 --off --output DP-4 --off --output DVI-I-1 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 2560x1440 --pos 2560x0 --rotate left
-}
-
-writing() {
-  # also generated using arandr
-  xrandr --output DP-3 --off --output DVI-I-0 --off --output HDMI-0 --primary --mode 2560x1440 --pos 0x0 --rotate left --output DP-5 --off --output DP-4 --off --output DVI-I-1 --off --output DP-2 --off --output DP-1 --off --output DP-0 --mode 2560x1440 --pos 1440x0 --rotate left
+  xrandr --output DP-3 --off --output DVI-I-0 --off --output HDMI-0 --mode 2560x1440 --pos 2560x0 --rotate normal --output DP-5 --off --output DP-4 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DVI-I-1 --off --output DP-2 --off --output DP-1 --off --output DP-0 --off
 }
 
 handle_cli() {
@@ -31,9 +25,6 @@ handle_cli() {
   case "$layout" in
     "default")
       default
-      ;;
-    "writing")
-      writing
       ;;
     *)
       show_help
