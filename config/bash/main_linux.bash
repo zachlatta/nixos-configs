@@ -27,3 +27,6 @@ source "$DOTFILES/lib/bash-completion/bash_completion"
 # Make ls nice and pretty
 eval $(dircolors $DOTFILES/lib/dircolors-solarized/dircolors.ansi-universal)
 alias ls='ls -F --color'
+
+# Assumes the z package is installed on Arch - needed to include it in shell
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
