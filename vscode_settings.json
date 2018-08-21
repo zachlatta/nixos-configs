@@ -4,5 +4,6 @@
   "workbench.colorTheme": "Solarized Dark",
   "editor.tabSize": 2,
   "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false
+  "telemetry.enableTelemetry": false,
+  "git.autofetch": true
 }
