@@ -1,0 +1,8 @@
+{
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "workbench.colorTheme": "Solarized Dark",
+  "editor.tabSize": 2,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false
+}
