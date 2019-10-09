@@ -6,7 +6,7 @@ show_help() {
   cat <<EOF
 Switch theme mode to light or dark.
 
-Usage: themectl [light|dark]
+Usage: themectl [light|dark|current]
 EOF
 
   exit 1
@@ -43,15 +43,33 @@ switch_mode() {
   fi
 }
 
-handle_command_line() {
-  local theme="$1"
+print_current_mode() {
+  local vim_color_file="$(
+    greadlink -f "$DOTFILES/vim/color/set-background.vim" | xargs basename
+  )"
 
-  case "$theme" in
+  if [ "$vim_color_file" = "set-background-light.vim" ]; then
+    echo "light"
+  elif [ "$vim_color_file" = "set-background-dark.vim" ]; then
+    echo "dark"
+  else
+    >&2 echo "error! no current theme set"
+    exit 1
+  fi
+}
+
+handle_command_line() {
+  local cmd="$1"
+
+  case "$cmd" in
     "light")
       switch_mode "light"
       ;;
     "dark")
       switch_mode "dark"
+      ;;
+    "current")
+      print_current_mode
       ;;
     *)
       show_help
