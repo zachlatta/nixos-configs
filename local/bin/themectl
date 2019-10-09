@@ -6,7 +6,7 @@ show_help() {
   cat <<EOF
 Switch theme mode to light or dark.
 
-Usage: themectl [light|dark|current]
+Usage: themectl [light|dark|toggle|current]
 EOF
 
   exit 1
@@ -43,6 +43,18 @@ switch_mode() {
   fi
 }
 
+toggle_mode() {
+  if [ "$(print_current_mode)" = "light" ]; then
+    echo "switching from light to dark mode"
+    switch_mode "dark"
+  elif [ "$(print_current_mode)" = "dark" ]; then
+    echo "switching from dark to light mode"
+    switch_mode "light"
+  else
+    >&2 echo "error! weird state, should have never gotten here"
+  fi
+}
+
 print_current_mode() {
   local vim_color_file="$(
     greadlink -f "$DOTFILES/vim/color/set-background.vim" | xargs basename
@@ -67,6 +79,9 @@ handle_command_line() {
       ;;
     "dark")
       switch_mode "dark"
+      ;;
+    "toggle")
+      toggle_mode
       ;;
     "current")
       print_current_mode
