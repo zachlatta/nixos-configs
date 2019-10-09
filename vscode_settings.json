@@ -5,5 +5,8 @@
   "editor.tabSize": 2,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "window.zoomLevel": 0,
+  "editor.minimap.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "never"
 }
