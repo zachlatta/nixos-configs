@@ -59,7 +59,6 @@ cmd + alt - 6 : yabai -m space --focus 6
 cmd + alt - 7 : yabai -m space --focus 7
 cmd + alt - 8 : yabai -m space --focus 8
 cmd + alt - 9 : yabai -m space --focus 9
-cmd + alt - 0 : yabai -m space --focus 10
 
 # send window to desktop and follow focus
 shift + cmd - x : yabai -m window --space recent; yabai -m space --focus recent
