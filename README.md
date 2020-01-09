@@ -1,5 +1,9 @@
 # Dotfiles
 
+_These are my dotfiles as they stood on January 9th, 2020 before I wiped them to start fresh._
+
+---
+
 Hi! I'm Zach's dotfiles. He uses [rcm](https://github.com/thoughtbot/rcm) to
 manage me. I probably won't be much use to you, but I certainly am to him!
 
