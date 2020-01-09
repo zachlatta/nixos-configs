@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Text the phone number in ~/.smsrc using twilio-sms
-
-echo $@ | twilio-sms "$(< ~/.smsrc)"

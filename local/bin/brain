@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ssh zrl@charmander.zachlatta.com -t 'tmux attach -t brain || $(tmux new -s brain -d && tmux send-keys -t brain:0 "cd dev/brain; source bin/activate; shell" C-m && tmux attach -t brain)'

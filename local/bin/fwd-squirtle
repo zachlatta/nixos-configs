@@ -1,4 +1,0 @@
-#!/bin/sh
-
-#   plex                     nzbget                 radarr                 sonarr
-ssh -L 32400:localhost:32400 -L 6789:localhost:6789 -L 7878:localhost:7878 -L 8989:localhost:8989 zrl@squirtle.zachlatta.com
