@@ -17,3 +17,11 @@ Goals for this new set of dotfiles:
   - <2m on a brand new machine
   - Should not leave me reading for VS Code when doing more complicated dev work
 - A shell that I love using, bash or otherwise
+
+---
+
+Ideas:
+
+- Series of compiled executables for quick utilities, written in a fun language - maybe Rust? Better than writing bash.
+  - Ideas for utilities:
+    - Check ~/dev/inbox for existence of files and notify user whenever they open a new shell, much like new mail in CLI mailboxes
