@@ -24,7 +24,9 @@ fun! Start()
         \ norelativenumber
 
     " Now we can just write to the buffer, whatever you want.
-    call append('$', "WARNING: THIS IS REGULAR VIM, NOT NEOVIM")
+    call append('^', "----------------------------------------")
+    call append('^', "WARNING: THIS IS REGULAR VIM, NOT NEOVIM")
+    call append('^', "----------------------------------------")
 
     " No modifications to this buffer
     setlocal nomodifiable nomodified
