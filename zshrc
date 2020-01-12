@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 alias e=nvim
 
 # Add Cargo bin directory to PATH to configure Rust toolchain
