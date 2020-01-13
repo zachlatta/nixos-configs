@@ -1,0 +1,12 @@
+[user]
+	name = Zach Latta
+	email = zach@zachlatta.com
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = false
+[github]
+	user = zachlatta
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=21600
