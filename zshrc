@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Neovim setup
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
