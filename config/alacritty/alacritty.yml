@@ -1,0 +1,143 @@
+#
+# Alacritty config
+#
+# Adapted from https://github.com/smallwat3r/dotfiles/blob/255758cf98f8d5b8b625665421c390ba14db6c38/alacritty/alacritty.yml
+#
+
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 140
+    lines: 50
+
+  padding:
+    x: 10
+    y: 10
+
+  dynamic_padding: true
+  decorations: buttonless
+  startup_mode: Windowed
+
+scrolling:
+  history: 10000
+  multiplier: 3
+  scrolling_multiplier: 3
+  auto_scroll: true
+
+tabspaces: 4
+
+font:
+  normal:
+    family: Menlo
+    style: Regular
+  bold:
+    family: Menlo
+    style: Bold
+  italic:
+    family: Menlo
+    style: Italic
+
+  size: 14.0
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+  use_thin_strokes: true
+
+draw_bold_text_with_bright_colors: true
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '0xffffff'
+
+colors:
+
+  primary:
+    background: '0x0f0c14'
+    foreground: '0xffffff'
+
+  cursor:
+    text:   '0x121212'
+    cursor: '0x00ffff'
+
+  normal:
+    black:   '0x262626'
+    red:     '0xff0410'
+    green:   '0x66ff99'
+    yellow:  '0xFFC620'
+    blue:    '0x1BA6FA'
+    magenta: '0xff00ce'
+    cyan:    '0xff00a7'
+    white:   '0xffffff'
+
+  bright:
+    black:   '0x262626'
+    red:     '0xff0410'
+    green:   '0x66ff99'
+    yellow:  '0xFFC620'
+    blue:    '0x1BA6FA'
+    magenta: '0xff00ce'
+    cyan:    '0xff00a7'
+    white:   '0xffffff'
+
+background_opacity: 1
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hide_when_typing: true
+
+  url:
+    modifiers: None
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: true
+
+dynamic_title: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+live_config_reload: true
+enable_experimental_conpty_backend: false
+
+alt_send_esc: true
+
+debug:
+  render_timer: false
+  persistent_logging: false
+  log_level: Warn
+  print_events: false
+  ref_test: false
+
+key_bindings:
+  - { key: Key0,   mods: Command,         action: ResetFontSize    }
+  - { key: Equals, mods: Command,         action: IncreaseFontSize }
+  - { key: Add,    mods: Command,         action: IncreaseFontSize }
+  - { key: Minus,  mods: Command,         action: DecreaseFontSize }
+  - { key: K,      mods: Command,         action: ClearHistory     }
+  - { key: K,      mods: Command,         chars: "\x0c"            }
+  - { key: V,      mods: Command,         action: Paste            }
+  - { key: C,      mods: Command,         action: Copy             }
+  - { key: H,      mods: Command,         action: Hide             }
+  - { key: Q,      mods: Command,         action: Quit             }
+  - { key: W,      mods: Command,         action: Quit             }
+  - { key: F,      mods: Command|Control, action: ToggleFullscreen }
+    # Fix weird hash key bug not working on MacOS
+  - { key: Key3,   mods: Alt,     chars: "\x23"                    }
+    # Open new window easily
+  - { key: N,      mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"] } }
