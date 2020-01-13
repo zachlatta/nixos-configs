@@ -1,4 +1,7 @@
-alias e=nvim
+# Neovim setup
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+alias e="$VISUAL"
 
 # Add Cargo bin directory to PATH to configure Rust toolchain
 export PATH="$HOME/.cargo/bin:$PATH"
