@@ -13,3 +13,6 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # (requires starship installed) init starship
 eval "$(starship init zsh)"
+
+# check for files present in inbox
+inbox-notifier --dir ~/dev/inbox/
