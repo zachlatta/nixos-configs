@@ -20,6 +20,16 @@ Goals for this new set of dotfiles:
 
 ---
 
+Dependencies:
+
+- Neovim
+- Zsh
+- Rust installed via `rustup`
+- GNU sed installed (assuming machine is on macOS)
+- Starship (the prompt) installed
+
+---
+
 Ideas:
 
 - Series of compiled executables for quick utilities, written in a fun language - maybe Rust? Better than writing bash.
