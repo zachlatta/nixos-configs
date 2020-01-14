@@ -36,9 +36,5 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
     }
 
-    if printed_heading {
-        println!(""); // extra line at end to look nice
-    }
-
     Ok(())
 }
