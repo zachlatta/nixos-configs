@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$EDITOR $(date +%F-%T.txt)

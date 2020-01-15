@@ -5,6 +5,9 @@ export VISUAL="nvim"
 export EDITOR="$VISUAL"
 alias e="$VISUAL"
 
+# Add my scripts to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # Add Cargo bin directory to PATH to configure Rust toolchain
 export PATH="$HOME/.cargo/bin:$PATH"
 
