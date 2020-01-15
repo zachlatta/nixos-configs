@@ -8,6 +8,11 @@ colorscheme lucid
 " When wrapping lines, don't split words in two. Wrap at word end.
 set linebreak
 
+" 2 space indent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 " C-w + hjkl to work nicer in terminal
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
