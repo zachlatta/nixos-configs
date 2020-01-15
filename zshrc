@@ -5,6 +5,9 @@ export VISUAL="nvim"
 export EDITOR="$VISUAL"
 alias e="$VISUAL"
 
+# Other constants setup
+export INBOX="$HOME/dev/inbox"
+
 # Add my scripts to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -18,4 +21,4 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 eval "$(starship init zsh)"
 
 # check for files present in inbox
-inbox-notifier --dir ~/dev/inbox/
+inbox-notifier --dir "$INBOX"
