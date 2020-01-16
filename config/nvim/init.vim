@@ -29,8 +29,10 @@ au TermOpen * setlocal nonumber norelativenumber
 " Run rustfmt automatically when saving files
 let g:rustfmt_autosave = 1
 
+" PLUGGED
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'cespare/vim-toml'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()

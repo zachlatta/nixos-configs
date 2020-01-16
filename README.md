@@ -30,6 +30,7 @@ Dependencies:
 - Starship (the prompt) installed
 - Alacritty (terminal emulator)
 - Fira Code font installed
+- nodejs + npm + yarn installed
 
 ---
 
