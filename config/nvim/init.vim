@@ -1,3 +1,13 @@
+" PLUGGED
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'justinmk/vim-dirvish'
+Plug 'cespare/vim-toml'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+call plug#end()
+
 " Make color schemes work nicely in terminal (must be using an advanced,
 " modern terminal)
 set termguicolors
@@ -29,11 +39,5 @@ au TermOpen * setlocal nonumber norelativenumber
 " Run rustfmt automatically when saving files
 let g:rustfmt_autosave = 1
 
-" PLUGGED
-call plug#begin(stdpath('data') . '/plugged')
-
-Plug 'justinmk/vim-dirvish'
-Plug 'cespare/vim-toml'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
-call plug#end()
+" goimports instead of gofmt on save
+let g:go_fmt_command = "goimports"
