@@ -26,6 +26,7 @@ Dependencies:
 - Zsh
 - Rust installed via `rustup`
 - GNU sed installed (assuming machine is on macOS)
+- GNU coreutils installed (again, assuming machine is on macOS)
 - Starship (the prompt) installed
 - Alacritty (terminal emulator)
 - Fira Code font installed
