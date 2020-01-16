@@ -32,6 +32,7 @@ let g:rustfmt_autosave = 1
 " PLUGGED
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'justinmk/vim-dirvish'
 Plug 'cespare/vim-toml'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
