@@ -20,6 +20,9 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # (macOS only) add gnubin to PATH to make GNU coreutils default
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+# ls with color
+alias ls='ls --color=auto'
+
 # (requires starship installed) init starship
 eval "$(starship init zsh)"
 
