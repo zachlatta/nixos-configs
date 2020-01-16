@@ -28,3 +28,9 @@ au TermOpen * setlocal nonumber norelativenumber
 
 " Run rustfmt automatically when saving files
 let g:rustfmt_autosave = 1
+
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'cespare/vim-toml'
+
+call plug#end()
