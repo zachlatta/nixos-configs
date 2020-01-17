@@ -3,7 +3,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'justinmk/vim-dirvish'
 Plug 'cespare/vim-toml'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
