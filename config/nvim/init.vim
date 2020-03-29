@@ -4,6 +4,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'justinmk/vim-dirvish'
 Plug 'cespare/vim-toml'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
@@ -40,3 +41,6 @@ let g:rustfmt_autosave = 1
 
 " goimports instead of gofmt on save
 let g:go_fmt_command = "goimports"
+
+" Enable GraphQL formatting for .prisma files
+au BufNewFile,BufRead *.prisma setfiletype graphql
