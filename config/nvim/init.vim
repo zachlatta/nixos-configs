@@ -1,7 +1,14 @@
 " PLUGGED
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'justinmk/vim-dirvish'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+Plug 'yuezk/vim-js'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'cespare/vim-toml'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jparise/vim-graphql'
@@ -9,6 +16,7 @@ Plug 'jparise/vim-graphql'
 call plug#end()
 
 " Load color scheme
+syntax enable
 colorscheme lucario
 
 " When wrapping lines, don't split words in two. Wrap at word end.
@@ -40,3 +48,29 @@ let g:go_fmt_command = "goimports"
 
 " Enable GraphQL formatting for .prisma files
 au BufNewFile,BufRead *.prisma setfiletype graphql
+
+" Make JS formatting colorful
+let g:vim_jsx_pretty_colorful_config = 1
+
+"
+" NERDTree Setup
+"
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = []
+let g:NERDTreeStatusline = ''
+
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Toggle with ,ne
+let mapleader = ","
+nnoremap <leader>ne :NERDTreeToggle<CR>
+
+" fzf setup
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+\}
+let $FZF_DEFAULT_COMMAND = 'fd --type f'
