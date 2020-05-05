@@ -42,3 +42,9 @@ Ideas:
       - TODO: Sort by most recently modified
       - Idea: Preview contents of files by showing 1st 15 words or something like that
 - Consider looking into [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to manage symlinks
+
+---
+
+Bookmarks / references:
+
+- https://git.mehalter.com/mehalter/dotfiles
