@@ -41,3 +41,4 @@ Ideas:
     - ~~Check ~/dev/inbox for existence of files and notify user whenever they open a new shell, much like new mail in CLI mailboxes~~
       - TODO: Sort by most recently modified
       - Idea: Preview contents of files by showing 1st 15 words or something like that
+- Consider looking into [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to manage symlinks
