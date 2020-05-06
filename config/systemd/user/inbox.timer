@@ -2,7 +2,7 @@
 Description=Sync ~/dev/inbox/ with GitHub every minute
 
 [Timer]
-OnUnitActiveSec=1m
+OnCalendar=*:0/1
 Persistent=true
 
 [Install]
