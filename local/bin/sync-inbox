@@ -1,6 +1,6 @@
 #!/bin/sh
 
 git add .
-git commit -m "updates"
+git commit -m "sync updates from $(hostname)"
 git pull --rebase
 git push
