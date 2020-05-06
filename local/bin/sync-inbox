@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd ~/dev/inbox/
+
 git add .
 git commit -m "sync updates from $(hostname)"
 git pull --rebase
