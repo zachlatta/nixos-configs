@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync ~/dev/inbox/ with GitHub every minute
+
+[Timer]
+OnUnitActiveSec=1m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

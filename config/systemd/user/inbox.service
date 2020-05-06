@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically syncs ~/dev/inbox with GitHub
+Wants=inbox.timer
+
+[Service]
+ExecStart=/home/zrl/.local/bin/sync-inbox
+WorkingDirectory=/home/zrl/dev/inbox/
+
+[Install]
+WantedBy=default.target
