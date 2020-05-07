@@ -13,6 +13,8 @@ Plug 'cespare/vim-toml'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jparise/vim-graphql'
 
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 " Load color scheme
