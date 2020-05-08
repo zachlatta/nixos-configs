@@ -26,7 +26,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .ok_or("unable to render filename")?;
 
         // Ignore README and .git directory
-        if filename == "README.md" || filename == ".git" || filename == "vip-newsletters-to-open-source" {
+        if filename == "README.md" || filename == ".git" || filename == "to-publish" || filename == vip-newsletters-to-open-source" {
             continue
         }
 
