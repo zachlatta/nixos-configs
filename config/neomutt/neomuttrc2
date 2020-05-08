@@ -39,8 +39,8 @@ macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 
 # Save known names of people
-set alias_file        = '~/.mutt/aliases.txt'
-set display_filter    = '$HOME/.mutt/aliases.sh'
+set alias_file        = '~/.config/neomutt/aliases.txt'
+set display_filter    = '$HOME/.config/neomutt/bin/aliases.sh'
 
 source $alias_file
 
