@@ -34,7 +34,7 @@ unset mark_old # read/new is good enough (?)
 set beep_new # bell on new mails
 set pipe_decode # strip headers and eval mimes when piping
 set thorough_search # strip headers and eval mimes before searching
-set timeout = 0
+set timeout = 5 # attempt to fix slowness
 
 # status bar, date format, foinding stuff etc
 set status_chars = " *%A"
