@@ -1,18 +1,22 @@
 " PLUGGED
 call plug#begin(stdpath('data') . '/plugged')
 
+" base nvim setup
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'tpope/vim-fugitive'
 
+" language specific
 Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'cespare/vim-toml'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jparise/vim-graphql'
 
+" add-on modes
 Plug 'junegunn/goyo.vim'
 
 call plug#end()
