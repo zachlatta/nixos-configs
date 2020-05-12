@@ -47,6 +47,10 @@ bindkey "^?" backward-delete-char # fix vim weirdness
 # Ctrl+R to search through history
 bindkey '^R' history-incremental-pattern-search-backward
 
+# Make Ctrl+A and Ctrl+E work while zsh is in vim mode
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+
 # (requires starship installed) init starship
 eval "$(starship init zsh)"
 
