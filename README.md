@@ -42,6 +42,7 @@ To-Do for `psyduck`:
 - [ ] Get LTE chip working
 - [x] Make audio buttons work
 - [x] Make brightness buttons work
+- [ ] Show battery life in desktop environment
 
 ---
 
