@@ -34,6 +34,17 @@ Dependencies:
 
 ---
 
+To-Do for `psyduck`:
+
+- [ ] Make audio no longer tinny
+- [ ] Properly scale dmenu for HiDPI (or find alternative)
+- [ ] Fix blurry cursor in Xwayland apps
+- [ ] Get LTE chip working
+- [ ] Make audio buttons work
+- [ ] Make brightness buttons work
+
+---
+
 Ideas:
 
 - Series of compiled executables for quick utilities, written in a fun language - maybe Rust? Better than writing bash.
