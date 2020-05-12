@@ -8,7 +8,6 @@ export INBOX="$HOME/dev/inbox"
 # Neovim setup
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-alias e="$VISUAL"
 
 ## Rust Setup ##
 ################
@@ -53,6 +52,14 @@ bindkey "^E" end-of-line
 
 # (requires starship installed) init starship
 eval "$(starship init zsh)"
+
+# Aliases #
+###########
+
+alias reload="source ~/.zshrc"
+alias e="$VISUAL"
+alias d="e ~/.dotfiles"
+alias dr="e ~/.dotfiles/README.md"
 
 # check for files present in inbox
 inbox-notifier --dir "$INBOX"
