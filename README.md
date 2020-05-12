@@ -40,8 +40,8 @@ To-Do for `psyduck`:
 - [ ] Properly scale dmenu for HiDPI (or find alternative)
 - [ ] Fix blurry cursor in Xwayland apps
 - [ ] Get LTE chip working
-- [ ] Make audio buttons work
-- [ ] Make brightness buttons work
+- [x] Make audio buttons work
+- [x] Make brightness buttons work
 
 ---
 
