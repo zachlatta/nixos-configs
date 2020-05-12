@@ -40,6 +40,7 @@ To-Do for `psyduck`:
 - [ ] Properly scale dmenu for HiDPI (or find alternative)
 - [ ] Fix blurry cursor in Xwayland apps
 - [ ] Get LTE chip working
+  - I attempted to do this by converting the PCI device to a USB device, but never got Modem Manager working. Need to figure this out.
 - [x] Make audio buttons work
 - [x] Make brightness buttons work
 - [ ] Show battery life in desktop environment
