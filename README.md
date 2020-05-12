@@ -43,6 +43,7 @@ To-Do for `psyduck`:
 - [x] Make audio buttons work
 - [x] Make brightness buttons work
 - [ ] Show battery life in desktop environment
+- [ ] Fix Secure Boot
 
 ---
 
