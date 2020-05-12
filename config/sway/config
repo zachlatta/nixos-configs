@@ -22,9 +22,6 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -35,7 +32,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output eDP-1 scale 1.5
 
 # Properly work with X apps
-#exec sh -c "swaymsg xwayland scale 2; echo Gdk/WindowScalingFactor 2> ~/.config/xsettingsd/xsettingsd.conf; killall -HUP xsettingsd"
 xwayland scale 2
 exec xsettingsd
 
@@ -224,3 +220,6 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# launch pulseaudio in background for sound
+exec pulseaudio --daemonize
