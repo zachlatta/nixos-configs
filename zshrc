@@ -61,6 +61,8 @@ alias e="$VISUAL"
 alias d="e ~/.dotfiles"
 alias dr="e ~/.dotfiles/README.md"
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
+alias c="wl-copy"
+alias p="wl-paste"
 
 # check for files present in inbox
 inbox-notifier --dir "$INBOX"
