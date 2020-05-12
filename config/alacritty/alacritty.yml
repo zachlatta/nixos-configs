@@ -17,16 +17,13 @@ window:
     y: 10
 
   dynamic_padding: true
-  decorations: buttonless
+  decorations: none
   startup_mode: Windowed
 
 scrolling:
   history: 10000
   multiplier: 3
   scrolling_multiplier: 3
-  auto_scroll: true
-
-tabspaces: 4
 
 font:
   normal:
@@ -39,7 +36,7 @@ font:
     family: Fira Code
     style: Italic
 
-  size: 13.0
+  size: 11.0
 
   offset:
     x: 0
