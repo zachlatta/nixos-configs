@@ -60,6 +60,7 @@ alias reload="source ~/.zshrc"
 alias e="$VISUAL"
 alias d="e ~/.dotfiles"
 alias dr="e ~/.dotfiles/README.md"
+alias battery="cat /sys/class/power_supply/BAT0/capacity"
 
 # check for files present in inbox
 inbox-notifier --dir "$INBOX"
