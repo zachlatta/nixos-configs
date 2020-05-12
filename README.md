@@ -56,6 +56,7 @@ Ideas:
 - Consider looking into [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to manage symlinks
 - Make neomutt colors nicer
 - Make neomutt _way_ faster
+- Break out dotfiles for different systems (ex. psyduck configs vary from zapdos)
 
 ---
 
