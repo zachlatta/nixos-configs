@@ -40,6 +40,10 @@ alias ls='ls --color=auto'
 # z command
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
+# Ctrl+R to search through history
+bindkey -v
+bindkey '^R' history-incremental-pattern-search-backward
+
 # (requires starship installed) init starship
 eval "$(starship init zsh)"
 
