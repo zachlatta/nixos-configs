@@ -5,6 +5,8 @@
 
 export INBOX="$HOME/dev/inbox"
 
+export BROWSER="google-chrome-stable"
+
 # Neovim setup
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
@@ -23,6 +25,9 @@ export PATH="$GOPATH/bin:$PATH"
 
 # Shell Setup #
 ###############
+
+# Add Python Markpress CLI to path
+export PATH="$HOME/.local/app/markpress/bin:$PATH"
 
 # Add my scripts to PATH
 export PATH="$HOME/.local/bin:$PATH"
@@ -63,6 +68,8 @@ alias dr="e ~/.dotfiles/README.md"
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
 alias c="wl-copy"
 alias p="wl-paste"
+alias browser="$BROWSER"
+alias b="$BROWSER"
 
 # check for files present in inbox
 inbox-notifier --dir "$INBOX"
