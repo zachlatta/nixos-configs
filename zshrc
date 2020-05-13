@@ -5,7 +5,7 @@
 
 export INBOX="$HOME/dev/inbox"
 
-export BROWSER="google-chrome-stable"
+export BROWSER="chromium"
 
 # Neovim setup
 export VISUAL="nvim"
