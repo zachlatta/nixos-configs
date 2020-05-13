@@ -34,12 +34,17 @@ Dependencies:
 - nodejs + npm + yarn installed
 - _there are lots more now for Linux, I forget all..._
 
+When logged into a graphical system:
+
+- Sway
+- Wofi
+
 ---
 
 To-Do for `psyduck`:
 
 - [x] Make audio no longer tinny
-- [ ] Properly scale dmenu for HiDPI (or find alternative)
+- [x] Properly scale dmenu for HiDPI (or find alternative) _(using wofi)_
   - Doing it with a terminal: https://medium.com/njiuko/using-fzf-instead-of-dmenu-2780d184753f
 - [ ] Fix blurry cursor in Xwayland apps
 - [ ] Get LTE chip working
