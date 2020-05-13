@@ -38,7 +38,7 @@ Dependencies:
 
 To-Do for `psyduck`:
 
-- [ ] Make audio no longer tinny
+- [x] Make audio no longer tinny
 - [ ] Properly scale dmenu for HiDPI (or find alternative)
 - [ ] Fix blurry cursor in Xwayland apps
 - [ ] Get LTE chip working
