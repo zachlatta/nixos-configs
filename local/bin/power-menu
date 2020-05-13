@@ -9,7 +9,7 @@ fi
 
 if [[ "$action" == "suspend" ]]
 then
-    swaylock && systemctl suspend
+    systemctl suspend && swaylock
 fi
 
 if [[ "$action" == "logout" ]]
