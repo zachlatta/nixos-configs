@@ -1,3 +1,7 @@
 #!/bin/bash
 
-$EDITOR "$INBOX"/"$(date +%F-%T.txt)"
+if [ $# -eq 0 ]; then
+  "$EDITOR" "$INBOX"/"$(date +%F-%T.txt)"
+else
+  "$EDITOR" "$INBOX"/"$*.md"
+fi
