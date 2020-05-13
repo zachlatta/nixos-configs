@@ -70,6 +70,7 @@ Ideas:
 - Break out dotfiles for different systems (ex. psyduck configs vary from zapdos)
 - [x] Good Markdown workflow for publishing to Wordpress
 - Good timelapse CLI workflow
+- Make `publish` script not hardcode `zachinto2020.wordpress.com`
 
 ---
 
