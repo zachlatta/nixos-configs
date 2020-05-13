@@ -71,6 +71,7 @@ Ideas:
 - [x] Good Markdown workflow for publishing to Wordpress
 - Good timelapse CLI workflow
 - Make `publish` script not hardcode `zachinto2020.wordpress.com`
+- Short CLI tool to get creation date of file (first tries git and if that doesn't work, gets from the FS)
 
 ---
 
