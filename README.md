@@ -24,13 +24,15 @@ Dependencies:
 
 - Neovim
 - Zsh
-- Rust installed via `rustup`
+- Tmux
+- Rust
 - GNU sed installed (assuming machine is on macOS)
 - GNU coreutils installed (again, assuming machine is on macOS)
 - Starship (the prompt) installed
 - Alacritty (terminal emulator)
 - Fira Code font installed
 - nodejs + npm + yarn installed
+- _there are lots more now for Linux, I forget all..._
 
 ---
 
