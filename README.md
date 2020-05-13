@@ -40,6 +40,7 @@ To-Do for `psyduck`:
 
 - [x] Make audio no longer tinny
 - [ ] Properly scale dmenu for HiDPI (or find alternative)
+  - Doing it with a terminal: https://medium.com/njiuko/using-fzf-instead-of-dmenu-2780d184753f
 - [ ] Fix blurry cursor in Xwayland apps
 - [ ] Get LTE chip working
   - I attempted to do this by converting the PCI device to a USB device, but never got Modem Manager working. Need to figure this out.
