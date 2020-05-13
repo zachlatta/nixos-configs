@@ -62,16 +62,21 @@ eval "$(starship init zsh)"
 ###########
 
 alias reload="source ~/.zshrc"
+
 alias e="$VISUAL"
+alias browser="$BROWSER"
+alias b="browser"
+
 alias d="e ~/.dotfiles"
 alias dr="e ~/.dotfiles/README.md"
+
 alias r="ranger"
 alias ri="r ~/dev/inbox"
-alias battery="cat /sys/class/power_supply/BAT0/capacity"
+
 alias c="wl-copy"
 alias p="wl-paste"
-alias browser="$BROWSER"
-alias b="$BROWSER"
+
+alias battery="cat /sys/class/power_supply/BAT0/capacity"
 
 # check for files present in inbox
 inbox-notifier --dir "$INBOX"
