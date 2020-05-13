@@ -4,25 +4,25 @@ action=$(echo -e "suspend\nlock\nlogout\nshutdown\nreboot" | wofi -d -p "power:"
 
 if [[ "$action" == "lock" ]]
 then
-    swaylock
+  swaylock
 fi
 
 if [[ "$action" == "suspend" ]]
 then
-    systemctl suspend && swaylock
+  systemctl suspend && swaylock
 fi
 
 if [[ "$action" == "logout" ]]
 then
-    swaymsg exit
+  swaymsg exit
 fi
 
 if [[ "$action" == "shutdown" ]]
 then
-    shutdown now
+  shutdown now
 fi
 
 if [[ "$action" == "reboot" ]]
 then
-    reboot
+  reboot
 fi
