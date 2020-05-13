@@ -68,7 +68,7 @@ alias browser="$BROWSER"
 alias b="browser"
 
 alias d="pushd ~/.dotfiles > /dev/null && e . && popd > /dev/null"
-alias dr="pushd e ~/.dotfiles > /dev/null && e README.md && popd > /dev/null"
+alias dr="pushd ~/.dotfiles > /dev/null && e README.md && popd > /dev/null"
 
 alias r="ranger"
 alias ri="r ~/dev/inbox"
