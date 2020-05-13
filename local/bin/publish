@@ -28,7 +28,7 @@ TITLE="${FILE%.*}"
 # date file was first added to current folder
 #
 # sed removes the timezone section because wordpress doesn't support it
-DATE=$(git log --diff-filter=A --follow --format=%ai -1 -- "$FILE" | sed 's/ -[0-9]\+$//')
+DATE=$(git log --diff-filter=A --follow --format=%ai -1 -- "$FILE" | sed 's/ [-+][0-9]\+$//')
 
 # generate a tempfile name for the current directory
 TMP="$(mktemp -u -p .)"
