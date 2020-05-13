@@ -61,6 +61,8 @@ Ideas:
 - Make neomutt colors nicer
 - Make neomutt _way_ faster
 - Break out dotfiles for different systems (ex. psyduck configs vary from zapdos)
+- Good Markdown workflow for publishing to Wordpress
+- Good timelapse CLI workflow
 
 ---
 
