@@ -53,7 +53,7 @@ To-Do for `psyduck`:
 - [x] Make brightness buttons work
 - [ ] Show battery life in desktop environment
 - [ ] Fix Secure Boot
-- [ ] Get Chromium running under Wayland
+- [x] Get Chromium running under Wayland
 
 ---
 
