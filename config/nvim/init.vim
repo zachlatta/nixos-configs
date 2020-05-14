@@ -32,6 +32,7 @@ set linebreak
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
 
 " C-w + hjkl to work nicer in terminal
 tnoremap <C-w>h <C-\><C-n><C-w>h
