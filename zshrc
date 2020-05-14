@@ -71,7 +71,9 @@ alias d="pushd ~/.dotfiles > /dev/null && e . && popd > /dev/null"
 alias dr="pushd ~/.dotfiles > /dev/null && e README.md && popd > /dev/null"
 
 alias r="ranger"
-alias ri="r ~/dev/inbox"
+
+alias ir="r ~/dev/inbox"
+alias it="r ~/dev/TODO.md"
 
 alias c="wl-copy"
 alias p="wl-paste"
