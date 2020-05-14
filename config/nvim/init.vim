@@ -58,6 +58,13 @@ au BufNewFile,BufRead *.prisma setfiletype graphql
 " Make JS formatting colorful
 let g:vim_jsx_pretty_colorful_config = 1
 
+" Automatically save and load folds
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 "
 " NERDTree Setup
 "
