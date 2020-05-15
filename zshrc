@@ -69,6 +69,7 @@ alias b="browser"
 
 alias d="pushd ~/.dotfiles > /dev/null && e . && popd > /dev/null"
 alias dr="pushd ~/.dotfiles > /dev/null && e README.md && popd > /dev/null"
+alias dz="pushd ~/.dotfiles > /dev/null && e zshrc && popd > /dev/null"
 
 alias r="ranger"
 
