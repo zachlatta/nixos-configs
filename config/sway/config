@@ -235,3 +235,7 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+
+# screenshot key
+bindsym --release Print exec grim -g \"$(slurp)"
+bindsym --release Shift+Print exec grim

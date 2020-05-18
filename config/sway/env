@@ -1,1 +1,1 @@
-MOZ_ENABLE_WAYLAND=1
+# all env files for sway are loaded in ~/.zprofile
