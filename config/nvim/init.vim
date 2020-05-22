@@ -34,6 +34,9 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+" one space after sentence ends, not two spaces
+set nojoinspaces
+
 " C-w + hjkl to work nicer in terminal
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
