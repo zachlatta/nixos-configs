@@ -46,4 +46,4 @@ run markpress -u "$FILE"
 
 POST_ID="$(cat "$FILE" | grep uuid | sed 's/uuid: //')"
 
-run "$BROWSER" "https://wordpress.com/block-editor/post/zachinto2020.wordpress.com/$POST_ID" 2> /dev/null
+run "$BROWSER" "https://zachinto2020.zachlatta.com/wp-admin/post.php?post=$POST_ID&action=edit" 2> /dev/null
