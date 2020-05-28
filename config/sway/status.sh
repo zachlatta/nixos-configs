@@ -15,7 +15,7 @@ date_formatted=$(date "+%a %F %H:%M")
 linux_version=$(uname -r | cut -d '-' -f1)
 
 # Returns the battery status: "Full", "Discharging", or "Charging".
-battery_status=$(cat /sys/class/power_supply/BAT0/status)
+battery_status="$(cat /sys/class/power_supply/BAT0/status) $(cat /sys/class/power_supply/BAT0/capacity)%"
 
 # Emojis and characters for the status bar
 # 💎 💻 💡 🔌 ⚡ 📁 \|
