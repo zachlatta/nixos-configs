@@ -66,6 +66,7 @@ alias reload="source ~/.zshrc"
 alias e="$VISUAL"
 alias browser="$BROWSER"
 alias b="browser"
+alias play='mpv --screenshot-directory="~/pokedex/screenshots/psyduck/"'
 
 alias d="pushd ~/.dotfiles > /dev/null && e . && popd > /dev/null"
 alias dr="pushd ~/.dotfiles > /dev/null && e README.md && popd > /dev/null"
