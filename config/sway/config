@@ -70,6 +70,12 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+# Trackpad - Disable while typing and use two fingers for right click
+input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
+  dwt enabled
+  click_method clickfinger
+}
+
 ### Key bindings
 #
 # Basics:
