@@ -81,6 +81,7 @@ alias is="sync-inbox"
 
 alias c="wl-copy"
 alias p="wl-paste"
+alias g="gist -p"
 
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
 alias mount.putio="mkdir -p ~/downloads/put.io/ && rclone mount putio:/ ~/downloads/put.io/ --daemon && sleep 1 && pushd ~/downloads/put.io/"
