@@ -41,9 +41,6 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # ls with color
 alias ls='ls --color=auto'
 
-# z command
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-
 # vim mode in zsh
 bindkey -v
 bindkey "^?" backward-delete-char # fix vim weirdness
