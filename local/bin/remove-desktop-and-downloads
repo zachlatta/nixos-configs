@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# Simple script to check if ~/Desktop and ~/Downloads exists. If they do,
+# remove them (but only succeed at removing them if they are empty).
+#
+# I run this script on an interval because some visual Linux apps keep
+# re-creating these directories when I don't have a Desktop directory and use
+# ~/downloads instead of ~/Downloads
+
+remove_if_exists() {
+  DIR="$1"
+
+  echo "Beginning work for $DIR"
+
+  if [ -d "$DIR" ] # check if exists
+  then
+    echo "$DIR exists. Removing $DIR (if empty)..."
+
+    rmdir $DIR
+  else
+    echo "$DIR does not exist"
+  fi
+}
+
+remove_if_exists "$HOME/Desktop"
+remove_if_exists "$HOME/Downloads"

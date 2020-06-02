@@ -1,0 +1,9 @@
+[Unit]
+Description=Remove ~/Desktop and ~/Downloads folder on a regular basis
+
+[Timer]
+OnCalendar=*:0/1
+Persistent=true
+
+[Install]
+WantedBy=timers.target
