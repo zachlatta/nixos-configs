@@ -76,6 +76,7 @@ alias ds="pushd ~/.dotfiles > /dev/null && e config/sway/config && popd > /dev/n
 alias r="ranger"
 
 alias ir="r ~/dev/inbox"
+alias ic="pushd ~/dev/inbox"
 alias it="e ~/dev/inbox/TODO.md"
 alias is="sync-inbox"
 
