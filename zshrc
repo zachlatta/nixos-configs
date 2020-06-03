@@ -74,7 +74,7 @@ alias r="ranger"
 
 alias ir="r ~/dev/inbox"
 alias ic="pushd ~/dev/inbox"
-alias it="e ~/dev/inbox/TODO.md"
+alias it="pushd ~/dev/inbox > /dev/null && e TODO.md && popd > /dev/null"
 alias is="sync-inbox"
 
 alias c="wl-copy"
