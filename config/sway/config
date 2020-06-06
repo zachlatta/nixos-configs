@@ -254,3 +254,6 @@ bindsym --release Shift+Print exec grim
 # load ~/dev/inbox/TODO.md in scratchpad upon startup
 for_window [title="TODO"] move scratchpad 
 exec alacritty --title TODO -e /bin/zsh -c 'nvim ~/dev/inbox/TODO.md; zsh -i'
+
+# run redshift
+exec redshift
