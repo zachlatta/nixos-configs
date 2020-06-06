@@ -15,8 +15,14 @@ date_formatted=$(date "+%a %F %H:%M")
 linux_version=$(uname -r | cut -d '-' -f1)
 
 # Returns the battery status: "Full", "Discharging", or "Charging".
-battery_status="$(cat /sys/class/power_supply/BAT0/status) $(cat /sys/class/power_supply/BAT0/capacity)%"
+battery_status="$(cat /sys/class/power_supply/BAT0/capacity)% ($(cat /sys/class/power_supply/BAT0/status))"
+
+# Returns screen brightness percentage
+brightness="$(printf %.0f $(light))%"
+
+# Returns current volume
+volume="$(pamixer --get-volume-human)"
 
 # Emojis and characters for the status bar
 # 💎 💻 💡 🔌 ⚡ 📁 \|
-echo $uptime_formatted ↑ $linux_version 🐧 $battery_status 🔋 $date_formatted
+echo ↑ $uptime_formatted 🐧 $linux_version 🔋 $battery_status 🌞 $brightness 🔊 $volume '|' $date_formatted
