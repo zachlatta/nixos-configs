@@ -17,6 +17,10 @@ linux_version=$(uname -r | cut -d '-' -f1)
 # Returns the battery status: "Full", "Discharging", or "Charging".
 battery_status="$(cat /sys/class/power_supply/BAT0/capacity)% ($(cat /sys/class/power_supply/BAT0/status))"
 
+# Returns the current WiFi network name + signal bars
+networking="$(nmcli -t -f name connection show --active)"
+
+
 # Returns screen brightness percentage
 brightness="$(printf %.0f $(light))%"
 
@@ -25,4 +29,4 @@ volume="$(pamixer --get-volume-human)"
 
 # Emojis and characters for the status bar
 # 💎 💻 💡 🔌 ⚡ 📁 \|
-echo ↑ $uptime_formatted 🐧 $linux_version 🔋 $battery_status 🌞 $brightness 🔊 $volume '|' $date_formatted
+echo ↑ $uptime_formatted 🐧 $linux_version 🔋 $battery_status 📡 $networking 🌞 $brightness 🔊 $volume '|' $date_formatted
