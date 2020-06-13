@@ -259,3 +259,6 @@ exec alacritty --title TODO -e /bin/zsh -c 'nvim ~/dev/inbox/TODO.md; zsh -i'
 
 # run redshift
 exec redshift
+
+# run vorta for backups
+exec vorta --daemonize
