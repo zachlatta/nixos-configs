@@ -14,7 +14,7 @@ date_formatted=$(date "+%a %F %H:%M")
 # Get the Linux version but remove the "-1-ARCH" part
 linux_version=$(uname -r | cut -d '-' -f1)
 
-# Returns the current WiFi network name + signal bars
+# Returns the current WiFi network name
 networking="$(nmcli -t -f name connection show --active)"
 
 # Returns screen brightness percentage
