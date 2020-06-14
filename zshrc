@@ -23,6 +23,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/.local/share/go"
 export PATH="$GOPATH/bin:$PATH"
 
+## Deno Setup ##
+################
+export PATH="$HOME/.deno/bin:$PATH"
+
 # Shell Setup #
 ###############
 
