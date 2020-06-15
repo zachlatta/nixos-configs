@@ -53,8 +53,7 @@ exec xsettingsd
 exec swayidle -w \
        timeout 300 'swaylock-blur' \
        timeout 600 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"' \
-       before-sleep 'swaylock-blur'
+       resume 'swaymsg "output * dpms on"'
 
 ### Input configuration
 #
@@ -224,7 +223,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
 
     status_command while ~/.config/sway/status.sh; do sleep 1; done
 
