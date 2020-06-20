@@ -19,6 +19,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu wofi --show drun | xargs swaymsg exec --
+set $dismiss_notifications makoctl dismiss --all
 
 font FiraCode Medium 9
 
@@ -32,6 +33,9 @@ font FiraCode Medium 9
 
 ### HiDPI support
 output eDP-1 scale 1.4
+
+# Dynamically update displays when new stuff is plugged in. See ~/.config/kanshi/config
+exec kanshi 2>&1 >/tmp/kanshi.log
 
 # Properly work with X apps
 xwayland scale 2
@@ -248,6 +252,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym Shift+XF86MonBrightnessUp exec brightnessctl set +5%
+
+bindsym XF86Favorites exec $dismiss_notifications
 
 # screenshot key
 bindsym --release Print exec grim -g \"$(slurp)"
