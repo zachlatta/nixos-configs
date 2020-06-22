@@ -59,8 +59,8 @@ bindkey "^E" end-of-line
 # (requires starship installed) init starship
 eval "$(starship init zsh)"
 
-# Aliases #
-###########
+# Aliases / Convenience Functions #
+###################################
 
 alias reload="source ~/.zshrc"
 
@@ -87,6 +87,15 @@ alias g="gist -p"
 
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
 alias mount.putio="mkdir -p ~/downloads/put.io/ && rclone mount putio:/ ~/downloads/put.io/ --daemon && sleep 1 && pushd ~/downloads/put.io/"
+
+# convert markdown to html and copy with text/html mimetype
+md2html() {
+  pandoc --from=markdown --to=html --output=- "$1" | wl-copy -t text/html 2> /dev/null
+}
+
+html2md() {
+  wl-paste -t text/html | pandoc --standalone --from=html --to=md --output=- "$1"
+}
 
 # check for files present in inbox
 inbox-notifier --dir "$INBOX"
