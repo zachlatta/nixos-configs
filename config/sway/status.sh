@@ -14,6 +14,9 @@ date_formatted=$(date "+%a %F %H:%M")
 # Get the Linux version but remove the "-1-ARCH" part
 linux_version=$(uname -r | cut -d '-' -f1)
 
+# Time since last sync of ~/dev/inbox/
+inbox_sync=$(($(date +%s) - $(stat -c %Y ~/dev/inbox/.git/FETCH_HEAD)))
+
 # Returns the current WiFi network name
 networking="$(nmcli -t -f name connection show --active)"
 
@@ -28,4 +31,4 @@ battery_status="$(cat /sys/class/power_supply/BAT0/capacity)%"
 
 # Emojis and characters for the status bar
 # 💎 💻 💡 🔌 ⚡ 📁 \|
-echo ↑ $uptime_formatted 🐧 $linux_version 📡 $networking 🌞 $brightness 🔊 $volume 🔋 $battery_status '|' $date_formatted
+echo ↑ $uptime_formatted 🐧 $linux_version 📥 last sync $inbox_sync seconds ago 📡 $networking 🌞 $brightness 🔊 $volume 🔋 $battery_status '|' $date_formatted
