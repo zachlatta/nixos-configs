@@ -10,3 +10,5 @@
 	ui = true
 [credential]
 	helper = cache --timeout=21600
+[pull]
+	rebase = false
