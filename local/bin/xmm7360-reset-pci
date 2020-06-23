@@ -1,0 +1,2 @@
+setpci -s "0000:00:1c.0" "CAP_EXP+10.w=0052"
+printf "%s" "\_SB_.PCI0.RP01.PXSX._RST" > /proc/acpi/call
