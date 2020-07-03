@@ -54,7 +54,7 @@ exec xsettingsd
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-exec swayidle -w \
+exec swayidle \
        timeout 300 'swaylock-blur' \
        timeout 360 'brightnessctl set 10%' \
        timeout 600 'swaymsg "output * dpms off"' \
@@ -244,6 +244,8 @@ include /etc/sway/config.d/*
 # media keys
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
@@ -254,6 +256,7 @@ bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym Shift+XF86MonBrightnessUp exec brightnessctl set +5%
 
 bindsym XF86Favorites exec $dismiss_notifications
+bindsym XF86Eject exec $dismiss_notifications
 
 # screenshot key
 bindsym --release Print exec grim -g \"$(slurp)"
