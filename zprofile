@@ -1,6 +1,6 @@
-# hidpi for qt apps
-export QT_SCALE_FACTOR=1.4
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
+# hidpi support for zoom (other QT apps too), make it look not horrible
+
+export QT_SCALE_FACTOR=0.65
 
 # for hidpi support on psyduck
 export MOZ_ENABLE_WAYLAND=1
