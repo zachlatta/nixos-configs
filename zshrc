@@ -27,6 +27,10 @@ export PATH="$GOPATH/bin:$PATH"
 ################
 export PATH="$HOME/.deno/bin:$PATH"
 
+## npm setup ##
+###############
+export PATH="$HOME/.npm_global/bin:$PATH"
+
 # Shell Setup #
 ###############
 
