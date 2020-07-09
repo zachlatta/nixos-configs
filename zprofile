@@ -11,7 +11,7 @@ export MOZ_ENABLE_WAYLAND=1
 export XDG_DESKTOP_DIR=/home/zrl/downloads/
 
 # default screenshot location
-export GRIM_DEFAULT_DIR=/home/zrl/pokedex/screenshots/psyduck/
+export GRIM_DEFAULT_DIR=/home/zrl/pokedex/offline/screenshots/psyduck/
 
 # hide OpenCV warnings to prevent Howdy from complaining every time it auths -
 # see https://wiki.archlinux.org/index.php/Howdy#GStreamer_warnings_in_shell
