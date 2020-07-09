@@ -29,6 +29,9 @@ volume="$(pamixer --get-volume-human)"
 # Returns the battery % full
 battery_status="$(cat /sys/class/power_supply/BAT0/capacity)%"
 
+# Returns the remaining space on the system drive
+hdd_remaining="$(df -h | grep vol_grp-root | tr -s ' ' | cut -d ' ' -f 4)"
+
 # Emojis and characters for the status bar
 # 💎 💻 💡 🔌 ⚡ 📁 \|
-echo ↑ $uptime_formatted 🐧 $linux_version 📥 last sync $inbox_sync seconds ago 📡 $networking 🌞 $brightness 🔊 $volume 🔋 $battery_status '|' $date_formatted
+echo ↑ $uptime_formatted 🐧 $linux_version 📥 last sync $inbox_sync seconds ago 📡 $networking 🖴 $hdd_remaining 🌞 $brightness 🔊 $volume 🔋 $battery_status '|' $date_formatted
