@@ -98,7 +98,7 @@ md2html() {
 }
 
 html2md() {
-  wl-paste -t text/html | pandoc --standalone --from=html --to=md --output=- "$1"
+  wl-paste -t text/html | pandoc --from=html --to=markdown_github-raw_html-smart --atx-headers --output=- | wl-copy
 }
 
 # check for files present in inbox
