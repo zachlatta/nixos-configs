@@ -32,7 +32,7 @@ font FiraCode Medium 9
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### HiDPI support
-output eDP-1 scale 1.3
+output eDP-1 scale 1.25
 
 # Dynamically update displays when new stuff is plugged in. See ~/.config/kanshi/config
 exec kanshi 2>&1 >/tmp/kanshi.log
@@ -78,6 +78,11 @@ exec swayidle \
 input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
   dwt enabled
   click_method clickfinger
+}
+
+# Logitech MX Master 3 mouse
+input "1739:52619:SYNA8004:00_06CB:CD8B_Mouse" {
+  pointer_accel 0.25
 }
 
 ### Key bindings
