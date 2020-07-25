@@ -13,8 +13,8 @@ window:
     lines: 50
 
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
 
   dynamic_padding: true
   decorations: none
