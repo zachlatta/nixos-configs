@@ -1,3 +1,0 @@
-#!/bin/sh
-
-git log --diff-filter=A --follow --format=%ai -1 -- "$1"

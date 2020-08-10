@@ -1,9 +1,0 @@
-[Unit]
-Description=Sync ~/dev/inbox/ with GitHub every minute
-
-[Timer]
-OnCalendar=*:0/1
-Persistent=true
-
-[Install]
-WantedBy=timers.target

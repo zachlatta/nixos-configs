@@ -1,9 +1,0 @@
-[Unit]
-Description=Remove ~/Desktop and ~/Downloads if they're empty
-
-[Service]
-ExecStart=/home/zrl/.local/bin/remove-desktop-and-downloads
-WorkingDirectory=/home/zrl/
-
-[Install]
-WantedBy=default.target

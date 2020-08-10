@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $# -eq 0 ]; then
-  "$EDITOR" "$INBOX"/"$(date +%F-%T.md)"
-else
-  "$EDITOR" "$INBOX"/"$*.md"
-fi
