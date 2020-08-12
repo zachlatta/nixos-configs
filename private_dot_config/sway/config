@@ -169,7 +169,7 @@ client.focused_inactive $gray $gray #ffffff $gray $gray
 gaps outer 0
 gaps inner 10
 
-default_border pixel 3
+default_border none
 
 focus_on_window_activation urgent
 
