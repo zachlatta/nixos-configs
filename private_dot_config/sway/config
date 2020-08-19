@@ -1,6 +1,6 @@
 # Windows key. Use Mod1 for Alt.
 set $mod Mod4
-set $term alacritty
+set $term kitty
 set $browser qutebrowser
 
 font pango:IPAGothic 10, DejaVu Sans Mono 9
