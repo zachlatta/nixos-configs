@@ -115,11 +115,6 @@ handle_extension() {
             mediainfo "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
-
-	## Markdown
-        markdown|md)
-            pygmentize -f 'terminal256' -O "style=${PYGMENTIZE_STYLE}"   -- "${FILE_PATH}"| fmt -s -w "78" && exit 5
-            ;;
     esac
 }
 
@@ -307,13 +302,21 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
+
+            filename=$(basename -- "${FILE_PATH}")
+            extension="${filename##*.}"
+
+            tmpfile="$(mktemp --suffix=".${extension}")"
+
+            fmt -w "${PV_WIDTH}" "${FILE_PATH}" >> "${tmpfile}"
+
             env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
                 --out-format="${highlight_format}" \
-                --force -- "${FILE_PATH}" && exit 5
+                --force -- "${tmpfile}" && rm "${tmpfile}" && exit 5
             env COLORTERM=8bit bat --color=always --style="plain" \
-                -- "${FILE_PATH}" && exit 5
+                -- "${tmpfile}" && rm "${tmpfile}" && exit 5
             pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}"\
-                -- "${FILE_PATH}" && exit 5
+                -- "${tmpfile}" && rm "${tmpfile}" && exit 5
             exit 2;;
 
         ## DjVu
