@@ -1,3 +1,5 @@
 [user]
 	email = zach@zachlatta.com
 	name = Zach Latta
+[pull]
+	rebase = false

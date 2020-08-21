@@ -91,10 +91,10 @@ bindsym $mod+Control+Mod1+Right move container to workspace next_on_output
 mode "window" {
     bindsym s split v; mode "default"
     bindsym v split h; mode "default"
-    bindsym Shift+comma resize shrink width 10 ppt or 10 px
-    bindsym Shift+period resize grow width 10 ppt or 10 px
-    bindsym Shift+equal resize grow height 10 ppt or 10 px
-    bindsym minus resize shrink height 10 ppt or 10 px
+    bindsym l resize shrink width 10 ppt or 10 px
+    bindsym h resize grow width 10 ppt or 10 px
+    bindsym k resize grow height 10 ppt or 10 px
+    bindsym j resize shrink height 10 ppt or 10 px
 # Leave window mode with return/escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -112,9 +112,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # Move focus to parent container with mod+a
 bindsym $mod+a focus parent
-# Move windows in and out of the scratchpad with mod+(shift)+t
-bindsym $mod+Shift+t move scratchpad
-bindsym $mod+t scratchpad show
+# Move windows in and out of the scratchpad with mod+(shift)+-
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 # Cycle through border styles with mod+b
 bindsym $mod+b border toggle
 # reload the configuration file
