@@ -115,6 +115,11 @@ handle_extension() {
             mediainfo "${FILE_PATH}" && exit 5
             exiftool "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
+
+	## Markdown
+        markdown|md)
+            pygmentize -f 'terminal256' -O "style=${PYGMENTIZE_STYLE}"   -- "${FILE_PATH}"| fmt -s -w "78" && exit 5
+            ;;
     esac
 }
 
