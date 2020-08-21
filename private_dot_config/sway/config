@@ -121,6 +121,8 @@ bindsym $mod+b border toggle
 bindsym $mod+Shift+c reload
 # restart sway inplace with mod+shift+r
 bindsym $mod+Shift+r restart
+# lock with mod+shift+w
+bindsym $mod+Shift+w exec swaylock -f -c 000000
 # exit sway with mod+shift+e
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
