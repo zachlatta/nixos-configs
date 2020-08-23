@@ -1,0 +1,8 @@
+export EDITOR="nvim"
+
+alias e="$EDITOR"
+
+alias c="wl-copy"
+alias p="wl-paste"
+
+export PATH="$HOME/.local/bin:$PATH"
