@@ -1,0 +1,12 @@
+#!/bin/sh
+case "${1%%:*}" in
+	http|https)
+		exec qutebrowser "$1"
+		;;
+        *.pdf)
+                exec zathura "$1"
+                ;;
+	*)
+		exec /usr/bin/xdg-open "$@"
+		;;
+esac
