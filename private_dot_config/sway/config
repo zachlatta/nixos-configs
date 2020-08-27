@@ -27,6 +27,12 @@ input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
   click_method clickfinger
 }
 
+# Mess with mouse sensitivity
+input "1133:16514:Logitech_MX_Master_3" {
+  accel_profile adaptive
+  pointer_accel -0.35
+}
+
 # move window with mod+mouse drag
 floating_modifier $mod normal
 # kill focused
