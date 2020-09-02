@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd ~/documents/org/
+
+git add .
+git commit -m "sync updates from $(hostname)"
+git pull --rebase
+git push

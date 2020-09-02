@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically syncs ~/documents/org with GitHub
+Wants=inbox.timer
+
+[Service]
+ExecStart=/home/zrl/.local/bin/sync-org
+WorkingDirectory=/home/zrl/documents/org/
+
+[Install]
+WantedBy=default.target

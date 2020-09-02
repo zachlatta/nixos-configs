@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync ~/documents/org-attachments with Google Drive
+Wants=sync-org-attachments.timer
+
+[Service]
+ExecStart=/sbin/rclonesync . org-attachments:/
+WorkingDirectory=/home/zrl/documents/org-attachments
+
+[Install]
+WantedBy=default.target
