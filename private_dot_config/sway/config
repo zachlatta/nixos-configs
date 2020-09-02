@@ -144,8 +144,22 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+e exec nautilus
 # Clipboard -> sr.ht with mod+shift+p
 bindsym $mod+Shift+p exec paste
-# dmenu with mod+d for arbitrary programs
-bindsym $mod+d exec dmenu_path | dmenu -p "Run:" -l 10 | xargs swaymsg exec --
+# bemenu with mod+d for arbitrary programs... should document the
+# colors at some point, i had to fiddle to get it to look like dmenu
+# (it's still not amazing though...)
+bindsym $mod+d exec dmenu_path | bemenu -i \
+       --tb '#005577' \
+        --fb '#222222' \
+        --nb '#222222' \
+        --scb '#222222' \
+        --sb '#005577' \
+        --hb '#005577' \
+        --tf '#eeeeee' \
+        --sf '#eeeeee' \
+        --sb '#005577' \
+        --hf '#bbbbbb' \
+        --fn "pango:IPAGothic 10" \
+        --prompt "Run:" | xargs swaymsg exec --
 
 # mod+alt+shift+p color picker that copies hex to clipboard
 bindsym $mod+Mod1+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
