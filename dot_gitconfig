@@ -3,3 +3,5 @@
 	name = Zach Latta
 [pull]
 	rebase = false
+[core]
+        excludesfile = ~/.gitignore
