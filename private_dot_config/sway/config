@@ -12,7 +12,10 @@ set $right l
 
 output * bg $HOME/.config/sway/bg.png fill
 output * scale 1.5
-output HDMI-A-2 scale 1
+
+# acer monitor config
+output DP-4 adaptive_sync on
+output DP-4 mode 3840x2160@119.910004Hz
 
 # idle and lock the computer after inactivity
 exec swayidle -w \
