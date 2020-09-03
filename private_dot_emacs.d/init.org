@@ -1,0 +1,131 @@
+#+PROPERTY: header-args :tangle ~/.emacs.d/init.el
+
+#+BEGIN_SRC emacs-lisp
+(defun tangle-init ()
+  "If the current buffer is 'init.org' the code-blocks are
+tangled, and the tangled file is compiled."
+  (when (equal (buffer-file-name)
+               (expand-file-name "~/.local/share/chezmoi/private_doc_emacs/init.org"))
+    ;; Avoid running hooks when tangling.
+    (let ((prog-mode-hook nil))
+      (org-babel-tangle)
+      (byte-compile-file (concat user-emacs-directory "init.el")))))
+
+(add-hook 'after-save-hook 'tangle-init)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(markdown-mode evil-magit magit org-download modus-operandi-theme leuven-theme evil)))
+
+;; hide UI that's not needed
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode -1)
+
+;; nice scrolling, from: https://www.reddit.com/r/emacs/comments/8sw3r0/finally_scrolling_over_large_images_with_pixel/
+(pixel-scroll-mode)
+(setq pixel-dead-time 0) ; Never go back to the old scrolling behaviour.
+(setq pixel-resolution-fine-flag t) ; Scroll by number of pixels instead of lines (t = frame-char-height pixels).
+(setq mouse-wheel-scroll-amount '(1)) ; Distance in pixel-resolution to scroll each mouse wheel event.
+(setq mouse-wheel-progressive-speed nil) ; Progressive speed is too fast for me.
+
+;; theme setup
+
+(load-theme 'leuven t)
+
+;; make emacs evil!
+
+(require 'evil)
+(evil-mode 1)
+
+;; make git magit!
+
+(require 'evil-magit)
+
+;; org-mode setup
+
+;; drag and drop support
+(require 'org-download)
+(setq org-download-method 'attach) ;; use org-mode's attachments machinery
+
+(setq org-directory "~/documents/org")
+(setq org-default-notes-file (concat org-directory "/organizer.org"))
+(setq org-attach-id-dir "~/documents/org-attachments")
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-switchb)
+
+;; when pressing M-RET to create a new heading, don't split the line
+;;
+;; former behavior ("|" = cursor):
+;;
+;; **** Te|st
+;;   -> **** Te
+;;      ****st
+;;
+;; new behavior:
+;;
+;; **** Te|st
+;;   -> **** Test
+;;      ****
+(setq org-M-RET-may-split-line '((default . nil)))
+
+;; hide emphasis markers (ex. /.../ for italics, etc)
+(setq org-hide-emphasis-markers t)
+
+;; turn off all auto and manual indentation completely
+;;
+;; from https://github.com/syl20bnr/spacemacs/issues/2732#issuecomment-472750960
+(setq org-startup-indented nil)
+(setq org-adapt-indentation nil)
+
+;; use variable fonts in org
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+
+;; but use fixed fonts in org tables!
+(set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+
+;; wrap lines to the window width
+(add-hook 'org-mode-hook 'visual-line-mode)
+
+;; show images on load
+(setq org-startup-with-inline-images t)
+
+;; resize images to be nice to view
+(setq org-image-actual-width '(450))
+
+;; helpful function for creating indirect buffers in new frames
+;;
+;; from https://stackoverflow.com/a/47333316
+(defun clone-indirect-buffer-other-frame (newname display-flag &optional norecord)
+  "Like `clone-indirect-buffer' but display in another window."
+  (interactive
+   (progn
+     (if (get major-mode 'no-clone-indirect)
+     (error "Cannot indirectly clone a buffer in %s mode" mode-name))
+     (list (if current-prefix-arg
+           (read-buffer "Name of indirect buffer: " (current-buffer)))
+       t)))
+  ;; (let ((pop-up-windows t))
+  (let ((pop-up-frames t)) ; <==========
+    (clone-indirect-buffer newname display-flag norecord)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+#+END_SRC
