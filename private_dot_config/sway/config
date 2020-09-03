@@ -158,7 +158,7 @@ bindsym $mod+d exec dmenu_path | bemenu -i \
         --sf '#eeeeee' \
         --sb '#005577' \
         --hf '#bbbbbb' \
-        --fn "pango:IPAGothic 10" \
+        --fn "DejaVu Sans Mono 10" \
         --prompt "Run:" | xargs swaymsg exec --
 
 # mod+alt+shift+p color picker that copies hex to clipboard
