@@ -2,7 +2,7 @@
 
 * Init.org
 
-My living configuration for Emacs. Inspired by Sacha's management of her Emacs config with org Model.
+My living configuration for Emacs. Inspired by Sacha's management of her Emacs config with Org Mode.
 
 ** Bootstrap Configuration Setup
 
