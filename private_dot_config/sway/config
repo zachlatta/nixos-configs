@@ -204,3 +204,6 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# start bluetooth visual daemon
+exec blueman-applet
