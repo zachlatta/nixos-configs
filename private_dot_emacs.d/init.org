@@ -13,7 +13,7 @@ Chezmoi is used for dotfile management, meaning this file is stored in the Chezm
   "If the current buffer is 'init.org' the code-blocks are
 tangled, and the tangled file is compiled."
   (when (equal (buffer-file-name)
-               (expand-file-name "~/.local/share/chezmoi/private_doc_emacs/init.org"))
+               (expand-file-name "~/.local/share/chezmoi/private_dot_emacs.d/init.org"))
     ;; Avoid running hooks when tangling.
     (let ((prog-mode-hook nil))
       (org-babel-tangle)
@@ -21,6 +21,9 @@ tangled, and the tangled file is compiled."
 
 (add-hook 'after-save-hook 'tangle-init)
 #+END_SRC
+
+#+RESULTS:
+| rmail-after-save-hook | tangle-init |
 
 Please note: this requires some bootstrapping on a new system. The contents of this file must first be manually tangled out to their own elisp file and manually set to ~~/.emacs.d/init.el~ for the first run.
 
