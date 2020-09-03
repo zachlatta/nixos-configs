@@ -37,14 +37,21 @@ Please note: this requires some bootstrapping on a new system. The contents of t
 (require 'use-package)
 #+END_SRC
 
+#+RESULTS:
+: use-package
+
 ** Colors
 
 #+BEGIN_SRC emacs-lisp
 (use-package modus-operandi-theme)
+(use-package modus-vivendi-theme)
 (use-package leuven-theme)
 
-(load-theme 'leuven t)
+(load-theme 'modus-vivendi t) 
 #+END_SRC
+
+#+RESULTS:
+: t
 
 ** Everything else
 
@@ -155,3 +162,5 @@ Please note: this requires some bootstrapping on a new system. The contents of t
  ;; If there is more than one, they won't work right.
  )
 #+END_SRC
+
+#+RESULTS:
