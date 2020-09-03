@@ -1,5 +1,13 @@
 #+PROPERTY: header-args :tangle ~/.emacs.d/init.el
 
+* Init.org
+
+My living configuration for Emacs. Inspired by Sacha's management of her Emacs config with org Model.
+
+** Bootstrap Configuration Setup
+
+Chezmoi is used for dotfile management, meaning this file is stored in the Chezmoi dotfile directory. On save of this file, tangle all the elisp in it to ~~/.emacs.d/init.el~ and compile it to bytecode. Emacs knows to tangle the output to ~~/.emacs.d/init.el~ because of this file's ~PROPERTY~ header.
+
 #+BEGIN_SRC emacs-lisp
 (defun tangle-init ()
   "If the current buffer is 'init.org' the code-blocks are
@@ -14,18 +22,37 @@ tangled, and the tangled file is compiled."
 (add-hook 'after-save-hook 'tangle-init)
 #+END_SRC
 
+Please note: this requires some bootstrapping on a new system. The contents of this file must first be manually tangled out to their own elisp file and manually set to ~~/.emacs.d/init.el~ for the first run.
+
+** Package manager setup
+ 
 #+BEGIN_SRC emacs-lisp
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+(require 'use-package)
+#+END_SRC
+
+** Colors
+
+#+BEGIN_SRC emacs-lisp
+(use-package modus-operandi-theme)
+(use-package leuven-theme)
+
+(load-theme 'leuven t)
+#+END_SRC
+
+** Everything else
+
+#+BEGIN_SRC emacs-lisp
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(markdown-mode evil-magit magit org-download modus-operandi-theme leuven-theme evil)))
+   '(markdown-mode evil-magit magit org-download evil)))
 
 ;; hide UI that's not needed
 (tool-bar-mode 0)
@@ -38,10 +65,6 @@ tangled, and the tangled file is compiled."
 (setq pixel-resolution-fine-flag t) ; Scroll by number of pixels instead of lines (t = frame-char-height pixels).
 (setq mouse-wheel-scroll-amount '(1)) ; Distance in pixel-resolution to scroll each mouse wheel event.
 (setq mouse-wheel-progressive-speed nil) ; Progressive speed is too fast for me.
-
-;; theme setup
-
-(load-theme 'leuven t)
 
 ;; make emacs evil!
 
