@@ -54,8 +54,7 @@ Please note: this requires some bootstrapping on a new system. The contents of t
 : t
 
 ** Org Mode
-
-Set up default directories.
+*** Set up default directories
 
 #+BEGIN_SRC emacs-lisp
 (setq org-directory "~/documents/org")
@@ -66,7 +65,7 @@ Set up default directories.
 #+RESULTS:
 : ~/documents/org-attachments
 
-Drag and drop support for adding attachments.
+*** Drag and drop support for adding attachments
 
 #+begin_src emacs-lisp
 (use-package org-download)
@@ -77,7 +76,7 @@ Drag and drop support for adding attachments.
 #+RESULTS:
 : attach
 
-Open directories in Nautilus:
+*** Open directories in Nautilus
 
 #+begin_src emacs-lisp
 (setq org-file-apps (cons '(directory . "nautilus file://%s") org-file-apps))
@@ -86,7 +85,7 @@ Open directories in Nautilus:
 #+RESULTS:
 : ((directory . nautilus file://%s) (auto-mode . emacs) (\.mm\' . default) (\.x?html?\' . default) (\.pdf\' . default))
 
-Markdown exporting:
+*** Markdown exporting
 
 #+begin_src emacs-lisp
 (require 'ox-md)
@@ -95,7 +94,36 @@ Markdown exporting:
 #+RESULTS:
 : ox-md
 
-Everything else:
+*** Todo management: log the time when a TODO item was finished.
+
+#+begin_src emacs-lisp
+(setq org-log-done 'time)
+#+end_src
+
+#+RESULTS:
+: time
+
+*** Let org-mode know which file all my stuff is in:
+
+#+begin_src emacs-lisp
+(setq org-agenda-files (list "~/documents/org/organizer.org"))
+#+end_src
+
+#+RESULTS:
+: time
+
+*** Org-Babel programing language config
+
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+  '((ruby . t)
+    (emacs-lisp . t)))
+#+end_src
+
+#+RESULTS:
+
+*** Everything else
 
 #+begin_src emacs-lisp
 (global-set-key "\C-cl" 'org-store-link)
