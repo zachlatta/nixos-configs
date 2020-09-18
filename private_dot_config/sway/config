@@ -1,6 +1,7 @@
 # Windows key. Use Mod1 for Alt.
 set $mod Mod4
 set $term kitty
+set $ghost kitty --class "ghost" --title "ghost" # command to run when creating a "ghost" window
 set $browser qutebrowser
 
 font pango:IPAGothic 10, DejaVu Sans Mono 9
@@ -142,6 +143,10 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 # Run terminal / browser with mod(+shift)+enter
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
+
+# Create a "ghost" window - a transparent window for aligning other windows
+for_window [app_id="ghost"] opacity 0
+bindsym $mod+Control+Return exec $ghost
 
 # File manager with mod+e
 bindsym $mod+e exec nautilus
