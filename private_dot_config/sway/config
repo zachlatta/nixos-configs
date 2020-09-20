@@ -149,7 +149,7 @@ for_window [app_id="ghost"] opacity 0
 bindsym $mod+Control+Return exec $ghost
 
 # File manager with mod+e
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec dolphin --new-window
 # Clipboard -> sr.ht with mod+shift+p
 bindsym $mod+Shift+p exec paste
 # bemenu with mod+d for arbitrary programs... should document the
