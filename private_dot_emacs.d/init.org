@@ -76,14 +76,14 @@ Please note: this requires some bootstrapping on a new system. The contents of t
 #+RESULTS:
 : attach
 
-*** Open directories in Nautilus
+*** Open directories in Dolphin
 
 #+begin_src emacs-lisp
-(setq org-file-apps (cons '(directory . "nautilus file://%s") org-file-apps))
+(setq org-file-apps (cons '(directory . "dolphin file://%s") org-file-apps))
 #+end_src
 
 #+RESULTS:
-: ((directory . nautilus file://%s) (auto-mode . emacs) (\.mm\' . default) (\.x?html?\' . default) (\.pdf\' . default))
+: ((directory . dolphin file://%s) auto-mode . emacs) (\.mm\' . default) (\.x?html?\' . default) (\.pdf\' . default))
 
 *** Markdown exporting
 
