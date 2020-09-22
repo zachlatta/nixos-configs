@@ -65,6 +65,57 @@ Please note: this requires some bootstrapping on a new system. The contents of t
 #+RESULTS:
 : ~/documents/org-attachments
 
+*** Let org-mode know which file all my stuff is in:
+
+#+begin_src emacs-lisp
+(setq org-agenda-files (list "~/documents/org/organizer.org"))
+#+end_src
+
+#+RESULTS:
+: time
+
+*** "C-c o" to open main org file
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-c o")
+                (lambda () (interactive) (find-file org-default-notes-file)))
+#+end_src
+
+#+RESULTS:
+| lambda | nil | (interactive) | (find-file org-default-notes-file) |
+
+*** Refiling configuration
+
+Load headings for refiling from every ~org-agenda-files~.
+
+#+begin_src emacs-lisp
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+#+end_src
+
+#+RESULTS:
+: ((org-agenda-files :maxlevel . 6))
+
+*** org-capture
+
+C-c c to capture anywhere globally in Emacs.
+
+#+begin_src emacs-lisp
+(global-set-key "\C-cc" 'org-capture)
+#+end_src
+
+**** Templates
+
+#+begin_src emacs-lisp
+(setq org-capture-templates
+  '(("t" "todo" entry (file+headline org-default-notes-file "Refile")
+     "* TODO %?\n%U\n%a\n")
+    ("n" "note" entry (file+headline org-default-notes-file "Refile")
+     "* %?\n%U\n%a\n")))
+#+end_src
+
+#+RESULTS:
+| t | todo | entry | (file+headline org-default-notes-file Refile) | * TODO %? |
+
 *** Drag and drop support for adding attachments
 
 #+begin_src emacs-lisp
@@ -103,15 +154,6 @@ Please note: this requires some bootstrapping on a new system. The contents of t
 #+RESULTS:
 : time
 
-*** Let org-mode know which file all my stuff is in:
-
-#+begin_src emacs-lisp
-(setq org-agenda-files (list "~/documents/org/organizer.org"))
-#+end_src
-
-#+RESULTS:
-: time
-
 *** Org-Babel programing language config
 
 #+begin_src emacs-lisp
@@ -128,7 +170,6 @@ Please note: this requires some bootstrapping on a new system. The contents of t
 #+begin_src emacs-lisp
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
 ;; when pressing M-RET to create a new heading, don't split the line
