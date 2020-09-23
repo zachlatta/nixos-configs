@@ -4,9 +4,9 @@
 
 My living configuration for Emacs. Inspired by Sacha's management of her Emacs config with Org Mode.
 
-** Bootstrap Configuration Setup
+** Bootstrap Org-Mode For ~init.el~
 
-Chezmoi is used for dotfile management, meaning this file is stored in the Chezmoi dotfile directory. On save of this file, tangle all the elisp in it to ~~/.emacs.d/init.el~ and compile it to bytecode. Emacs knows to tangle the output to ~~/.emacs.d/init.el~ because of this file's ~PROPERTY~ header.
+Chezmoi is used for dotfile management, meaning this file is stored in the Chezmoi dotfile directory. When this file is saved, tangle all the elisp in it to ~~/.emacs.d/init.el~ and compile it to bytecode. Emacs knows to tangle output to ~~/.emacs.d/init.el~ because of the ~PROPERTY~ header at the top of this file.
 
 #+BEGIN_SRC emacs-lisp
 (defun tangle-init ()
@@ -25,7 +25,7 @@ tangled, and the tangled file is compiled."
 #+RESULTS:
 | rmail-after-save-hook | tangle-init |
 
-Please note: this requires some bootstrapping on a new system. The contents of this file must first be manually tangled out to their own elisp file and manually set to ~~/.emacs.d/init.el~ for the first run.
+*Please note:* this requires bootstrapping on a new system. The contents of this file must first be manually tangled out to their own elisp file and manually set to ~~/.emacs.d/init.el~ for the first run.
 
 ** Package manager setup
  
