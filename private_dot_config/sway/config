@@ -152,22 +152,8 @@ bindsym $mod+Control+Return exec $ghost
 bindsym $mod+e exec dolphin --new-window
 # Clipboard -> sr.ht with mod+shift+p
 bindsym $mod+Shift+p exec paste
-# bemenu with mod+d for arbitrary programs... should document the
-# colors at some point, i had to fiddle to get it to look like dmenu
-# (it's still not amazing though...)
-bindsym $mod+d exec dmenu_path | bemenu -i \
-       --tb '#005577' \
-        --fb '#222222' \
-        --nb '#222222' \
-        --scb '#222222' \
-        --sb '#005577' \
-        --hb '#005577' \
-        --tf '#eeeeee' \
-        --sf '#eeeeee' \
-        --sb '#005577' \
-        --hf '#bbbbbb' \
-        --fn "DejaVu Sans Mono 10" \
-        --prompt "Run:" | xargs swaymsg exec --
+# program launcher with $mod+d
+bindsym $mod+d exec ~/.local/bin/sway-program-launcher
 
 # mod+alt+shift+p color picker that copies hex to clipboard
 bindsym $mod+Mod1+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
@@ -191,6 +177,9 @@ set $default-seat seat0
 bindsym $mod+Escape seat $default-seat pointer_constraint escape
 # hide cursor after 5 seconds of no activity
 seat $default-seat hide_cursor 5000
+
+# make cursor a nice size, both in sway and x apps
+seat $default-seat xcursor_theme Adwaita 24
 
 set $blue #285577
 set $gray #1d1f21

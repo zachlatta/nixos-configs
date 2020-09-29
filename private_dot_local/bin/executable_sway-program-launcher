@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# bemenu with arbitrary programs... should document the colors at some
+# point, i had to fiddle to get it to look like dmenu (it's still not
+# amazing though...)
+program_selection=$(dmenu_path | bemenu -i \
+    --tb '#005577' \
+    --fb '#222222' \
+    --nb '#222222' \
+    --scb '#222222' \
+    --sb '#005577' \
+    --hb '#005577' \
+    --tf '#eeeeee' \
+    --sf '#eeeeee' \
+    --sb '#005577' \
+    --hf '#bbbbbb' \
+    --fn 'DejaVu Sans Mono 10' \
+    --prompt 'Run:')
+
+# apps to set a larger cursor for. it's a hacky solution, but is the
+# only way i can figure out how to get a normal sized cursor in emacs
+# and slack
+x_apps_for_big_cursor=(
+    "emacs"
+    "slack"
+)
+
+echo $program_selection
+
+# if the program selection is in the x_apps_for_big_cursor array, then
+# manually set a larger cursor
+if [[ " ${x_apps_for_big_cursor[@]} " =~ " ${program_selection} " ]]; then
+    export XCURSOR_SIZE=48
+fi
+
+exec "$program_selection"
