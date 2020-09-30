@@ -204,7 +204,19 @@ C-c c to capture anywhere globally in Emacs.
 #+RESULTS:
 : ox-md
 
-*** Todo management: log the time when a TODO item was finished.
+*** Todo management
+
+**** Configure TODO states
+
+#+begin_src emacs-lisp
+(setq org-todo-keywords
+    '((sequence "TODO" "|" "DONE" "DELEGATED")))
+#+end_src
+
+#+RESULTS:
+| sequence | TODO |   |   | DONE | DELEGATED |
+
+**** Log the time when a TODO item was finished.
 
 #+begin_src emacs-lisp
 (setq org-log-done 'time)
