@@ -27,21 +27,20 @@ launch_options = {
 opts = launch_options[program_selection.to_sym]
 opts ||= []
 
-# apps to set a larger cursor for. it's a hacky solution, but is the
-# only way i can figure out how to get a normal sized cursor in emacs
-# and slack
-x_apps_for_big_cursor = [
-  "emacs",
-  "slack",
-  "spotify",
-]
+# big cursor
+#
+# it's a hacky solution, but is the only way i can figure out how to
+# get a normal sized cursor in emacs and slack (x11 based apps)
+bc = "XCURSOR_SIZE=48"
 
-prefix = ""
+env_variables = {
+  "emacs": [bc],
+  "slack": [bc],
+  "spotify": [bc],
+  "firefox": ["MOZ_ENABLE_WAYLAND=1"]
+}
 
-# if the program selection is in the x_apps_for_big_cursor array, then
-# manually set a larger cursor
-if x_apps_for_big_cursor.include? program_selection
-  prefix = "XCURSOR_SIZE=48 "
-end
+envs = env_variables[program_selection.to_sym]
+envs ||= []
 
-exec(prefix + program_selection + " " + opts.join(' '))
+exec(envs.join(' ') + (' ' if envs.length != 0) + program_selection + " " + opts.join(' '))
