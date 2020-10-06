@@ -28,7 +28,7 @@ new() {
 
     # if args are passed, pass them on. if not, go to splash screen.
     if [ $# -eq 0 ]; then
-	new_eval "(fancy-about-screen)"
+	new_eval "(fancy-about-screen)" > /dev/null
     else
         emacsclient -nc "$@"
     fi
