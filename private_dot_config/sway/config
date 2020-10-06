@@ -18,8 +18,8 @@ xwayland scale 2
 exec xsettingsd
 
 # acer monitor config
-output DP-4 adaptive_sync on
-output DP-4 mode 3840x2160@119.910004Hz
+output DP-5 adaptive_sync on
+output DP-5 mode 3840x2160@120Hz
 
 # idle and lock the computer after inactivity
 exec swayidle -w \
