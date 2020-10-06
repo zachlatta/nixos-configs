@@ -1,0 +1,84 @@
+#!/bin/sh
+
+show_help() {
+    cat <<EOF
+Usage: emacsctl [command] [args]
+
+Available commands:
+
+  new           Create a new window, starting service if it's not already
+                online, opening window at passed filename.
+
+  start         Start emacs server
+
+  stop          Stop emacs server, closing all current windows
+
+  status        Shows whether or not emacs server is currently running
+
+  newcmd [cmd]  Open a new emacs window with [cmd] running, starting
+                server if it's currently offline
+
+EOF
+
+    exit 1
+}
+
+new() {
+    start
+
+    # if args are passed, pass them on. if not, go to splash screen.
+    if [ $# -eq 0 ]; then
+	new_eval "(fancy-about-screen)"
+    else
+        emacsclient -nc "$@"
+    fi
+}
+
+start() {
+    systemctl --user start emacs
+}
+
+stop() {
+    systemctl --user stop emacs
+}
+
+status() {
+    systemctl --user status emacs
+}
+
+new_eval() {
+    start
+    emacsclient -nc --eval "$@"
+}
+
+handle_cli() {
+    local cmd="$1"
+    local args="${*:2}"
+
+    case "$cmd" in
+        "new")
+            new $args
+            ;;
+        "start")
+            start $args
+            ;;
+        "stop")
+            stop $args
+            ;;
+        "status")
+            status $args
+            ;;
+        "new-eval")
+            new_eval $args
+            ;;
+        *)
+            show_help
+            ;;
+    esac
+}
+
+if [ $# -eq 0 ]; then
+    show_help
+fi
+
+handle_cli "$@"
