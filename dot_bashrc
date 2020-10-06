@@ -1,8 +1,6 @@
 #!/bin/bash
 
-export EDITOR="emacsctl new"
-
-alias e="$EDITOR"
+export EDITOR="e"
 
 alias c="wl-copy"
 alias p="wl-paste"
