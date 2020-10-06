@@ -1,4 +1,6 @@
-export EDITOR="nvim"
+#!/bin/bash
+
+export EDITOR="emacsctl new"
 
 alias e="$EDITOR"
 
