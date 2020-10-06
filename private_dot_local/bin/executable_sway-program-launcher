@@ -43,4 +43,4 @@ env_variables = {
 envs = env_variables[program_selection.to_sym]
 envs ||= []
 
-exec(envs.join(' ') + (' ' if envs.length != 0) + program_selection + " " + opts.join(' '))
+exec(envs.join(' ') + (envs.length != 0 ? ' ' : '') + program_selection + " " + opts.join(' '))
