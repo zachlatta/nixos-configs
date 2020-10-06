@@ -7,5 +7,5 @@ else # egpu not plugged in, use integrated graphics
   val="0"
 fi
 
-cmd="WLR_DRM_DEVICES=/dev/dri/card$val sway"
+cmd="WLR_DRM_DEVICES=/dev/dri/card$val PATH=$HOME/.local/bin/:$PATH sway"
 eval "$cmd"

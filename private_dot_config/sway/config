@@ -1,6 +1,6 @@
 # Windows key. Use Mod1 for Alt.
 set $mod Mod4
-set $term kitty
+set $term ~/.local/bin/t
 set $ghost kitty --class "ghost" --title "ghost" # command to run when creating a "ghost" window
 set $browser qutebrowser
 
