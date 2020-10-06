@@ -210,11 +210,11 @@ C-c c to capture anywhere globally in Emacs.
 
 #+begin_src emacs-lisp
 (setq org-todo-keywords
-    '((sequence "TODO" "|" "DONE" "DELEGATED")))
+    '((sequence "TODO" "|" "DONE" "DELEGATED" "DROPPED")))
 #+end_src
 
 #+RESULTS:
-| sequence | TODO |   |   | DONE | DELEGATED |
+| sequence | TODO |   |   | DONE | DELEGATED | DROPPED |
 
 **** Log the time when a TODO item was finished.
 
