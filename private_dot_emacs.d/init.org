@@ -67,6 +67,17 @@ tangled, and the tangled file is compiled."
 #+RESULTS:
 : t
 
+Make the default modes evil that we want:
+
+#+begin_src emacs-lisp
+(use-package evil-collection
+    :ensure t)
+
+(evil-collection-init 'dired)
+#+end_src
+
+#+RESULTS:
+
 ** Programming Language Support
 *** Markdown
 
