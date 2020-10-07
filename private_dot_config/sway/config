@@ -23,10 +23,10 @@ output DP-5 mode 3840x2160@120Hz
 
 # idle and lock the computer after inactivity
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+  timeout 300 'swaylock -f -c 000000' \
+  timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f -c 000000'
 
 # Disable cursor while typing, two finger right click
 input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
@@ -103,16 +103,17 @@ bindsym $mod+Control+Mod1+Right move container to workspace next_on_output
 
 # vim-style window splits and resizing after hitting mod+w
 mode "window" {
-    bindsym s split v; mode "default"
-    bindsym v split h; mode "default"
-    bindsym l resize shrink width 10 ppt or 10 px
-    bindsym h resize grow width 10 ppt or 10 px
-    bindsym k resize grow height 10 ppt or 10 px
-    bindsym j resize shrink height 10 ppt or 10 px
+  bindsym s split v; mode "default"
+  bindsym v split h; mode "default"
+  bindsym l resize shrink width 10 ppt or 10 px
+  bindsym h resize grow width 10 ppt or 10 px
+  bindsym k resize grow height 10 ppt or 10 px
+  bindsym j resize shrink height 10 ppt or 10 px
 # Leave window mode with return/escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
+
 bindsym $mod+w mode "window"
 
 # Change layouts with mod+,./
@@ -204,7 +205,7 @@ default_border none
 focus_on_window_activation urgent
 
 bar {
-    swaybar_command waybar
+  swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
