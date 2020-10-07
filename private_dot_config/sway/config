@@ -150,6 +150,13 @@ bindsym $mod+Control+Return exec $ghost
 
 # File manager with mod+e
 bindsym $mod+e exec dolphin --new-window
+
+# Make file manager popups floating windows
+for_window [app_id="dolphin" title=".*Copying.*"] floating enable
+for_window [app_id="dolphin" title=".*Moving.*"] floating enable
+for_window [app_id="dolphin" title=".*Progress.*"] floating enable
+for_window [app_id="dolphin" title=".*Folder Already Exists.*"] floating enable
+
 # Clipboard -> sr.ht with mod+shift+p
 bindsym $mod+Shift+p exec paste
 # program launcher with $mod+d
