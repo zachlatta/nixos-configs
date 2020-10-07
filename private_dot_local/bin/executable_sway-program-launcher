@@ -34,10 +34,11 @@ opts ||= []
 bc = "XCURSOR_SIZE=48"
 
 env_variables = {
+  "1password": [bc],
   "emacs": [bc],
+  "firefox": ["MOZ_ENABLE_WAYLAND=1"],
   "slack": [bc],
   "spotify": [bc],
-  "firefox": ["MOZ_ENABLE_WAYLAND=1"]
 }
 
 envs = env_variables[program_selection.to_sym]
