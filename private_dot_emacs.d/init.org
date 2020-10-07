@@ -78,6 +78,19 @@ Make the default modes evil that we want:
 
 #+RESULTS:
 
+** Indentation - Spaces, not tabs (and 2 spaces at that!)
+
+#+begin_src emacs-lisp
+(setq indent-tabs-mode nil)
+
+(setq tab-width 2)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+#+end_src
+
+#+RESULTS:
+: tab-width
+
 ** Programming Language Support
 *** Markdown
 
