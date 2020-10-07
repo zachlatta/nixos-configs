@@ -40,7 +40,7 @@ tangled, and the tangled file is compiled."
 #+RESULTS:
 : use-package
 
-** Colors
+** Colors / theme
 
 #+BEGIN_SRC emacs-lisp
 (use-package modus-operandi-theme)
