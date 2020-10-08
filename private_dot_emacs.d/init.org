@@ -331,7 +331,21 @@ C-c c to capture anywhere globally in Emacs.
 #+END_SRC
 
 #+RESULTS:
-** Terminal Emulation
+** Terminals (~eshell~ and ~vterm~)
+
+*** ~eshell~
+
+Add custom binaries to PATH.
+
+#+begin_src emacs-lisp
+(setenv "PATH"
+  (concat (expand-file-name "~/.local/bin") ":" (getenv "PATH")))
+#+end_src
+
+#+RESULTS:
+: /home/zrl/.local/bin:/usr/local/bin:/usr/bin
+
+*** ~vterm~
 
 #+begin_src emacs-lisp
 (use-package vterm
