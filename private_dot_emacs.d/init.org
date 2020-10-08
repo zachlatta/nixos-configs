@@ -47,7 +47,7 @@ tangled, and the tangled file is compiled."
 (use-package modus-vivendi-theme)
 (use-package leuven-theme)
 
-(load-theme 'modus-vivendi t) 
+(load-theme 'modus-operandi t) 
 #+END_SRC
 
 #+RESULTS:
