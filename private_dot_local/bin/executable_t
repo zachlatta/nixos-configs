@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec emacsctl new-eval "(vterm)"
+exec emacsctl new-eval "(eshell)"
