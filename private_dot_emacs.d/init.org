@@ -137,7 +137,9 @@ Make Magit evil!
 #+RESULTS:
 
 ** Org Mode
-*** Set up default directories
+*** Set up default directories and files
+
+Directories:
 
 #+BEGIN_SRC emacs-lisp
 (setq org-directory "~/documents/org")
@@ -148,7 +150,7 @@ Make Magit evil!
 #+RESULTS:
 : ~/documents/org-attachments
 
-*** Let org-mode know which file all my stuff is in:
+Let org-mode know which file all my stuff is in:
 
 #+begin_src emacs-lisp
 (setq org-agenda-files (list "~/documents/org/organizer.org"))
@@ -156,6 +158,20 @@ Make Magit evil!
 
 #+RESULTS:
 : time
+*** Make it evil!
+
+#+begin_src emacs-lisp
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+#+end_src
 
 *** "C-c o" to open main org file
 
@@ -178,7 +194,7 @@ Load headings for refiling from every ~org-agenda-files~.
 #+RESULTS:
 : ((org-agenda-files :maxlevel . 6))
 
-*** org-capture
+*** Org-Capture
 
 C-c c to capture anywhere globally in Emacs.
 
@@ -199,7 +215,7 @@ C-c c to capture anywhere globally in Emacs.
 #+RESULTS:
 | t | todo | entry | (file+headline org-default-notes-file Refile) | * TODO %? |
 
-*** Drag and drop support for adding attachments
+*** Drag and drop to add attachments
 
 #+begin_src emacs-lisp
 (use-package org-download)
@@ -219,7 +235,7 @@ C-c c to capture anywhere globally in Emacs.
 #+RESULTS:
 : ((directory . dolphin file://%s) auto-mode . emacs) (\.mm\' . default) (\.x?html?\' . default) (\.pdf\' . default))
 
-*** Markdown exporting
+*** Markdown export
 
 #+begin_src emacs-lisp
 (require 'ox-md)
@@ -228,7 +244,7 @@ C-c c to capture anywhere globally in Emacs.
 #+RESULTS:
 : ox-md
 
-*** Todo management
+*** To-do management
 
 **** Configure TODO states
 
@@ -249,7 +265,7 @@ C-c c to capture anywhere globally in Emacs.
 #+RESULTS:
 : time
 
-*** Org-Babel programing language config
+*** Org-Babel programming language config
 
 #+begin_src emacs-lisp
 (org-babel-do-load-languages
