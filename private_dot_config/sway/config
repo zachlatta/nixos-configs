@@ -1,6 +1,8 @@
 # Windows key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 set $term ~/.local/bin/t
+set $editor ~/.local/bin/e
 set $ghost kitty --class "ghost" --title "ghost" # command to run when creating a "ghost" window
 set $browser qutebrowser
 
@@ -143,6 +145,7 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 
 # Run terminal / browser with mod(+shift)+enter
 bindsym $mod+Return exec $term
+bindsym $alt+Return exec $editor
 bindsym $mod+Shift+Return exec $browser
 
 # Create a "ghost" window - a transparent window for aligning other windows
