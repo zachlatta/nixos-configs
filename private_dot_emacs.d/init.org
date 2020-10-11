@@ -347,9 +347,7 @@ C-c c to capture anywhere globally in Emacs.
 #+END_SRC
 
 #+RESULTS:
-** Terminals (~eshell~ and ~vterm~)
-
-*** ~eshell~
+** ~eshell~ terminal
 
 Add custom binaries to PATH.
 
@@ -360,15 +358,6 @@ Add custom binaries to PATH.
 
 #+RESULTS:
 : /home/zrl/.local/bin:/usr/local/bin:/usr/bin
-
-*** ~vterm~
-
-#+begin_src emacs-lisp
-(use-package vterm
-    :ensure t)
-#+end_src
-
-#+RESULTS:
 
 ** Mu4e (Email Support)
 
