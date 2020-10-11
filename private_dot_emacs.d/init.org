@@ -139,11 +139,20 @@ Make Magit evil!
 ** Org Mode
 *** Set up default directories and files
 
-Directories:
+Directories (different on Linux vs. Windows):
 
 #+BEGIN_SRC emacs-lisp
-(setq org-directory "~/documents/org")
-(setq org-default-notes-file (concat org-directory "/organizer.org"))
+(cond ((eq system-type 'windows-nt)
+       )
+      ((eq system-type 'gnu/linux)
+       ))
+(setq org-directory (
+  cond ((eq system-type 'windows-nt)
+          "~/Dropbox/org"
+        )
+       ((eq system-type 'gnu/linux)
+          "~/documents/org"
+        )))
 (setq org-attach-id-dir "~/documents/org-attachments")
 #+END_SRC
 
@@ -153,7 +162,8 @@ Directories:
 Let org-mode know which file all my stuff is in:
 
 #+begin_src emacs-lisp
-(setq org-agenda-files (list "~/documents/org/organizer.org"))
+(setq org-default-notes-file (concat org-directory "/organizer.org"))
+(setq org-agenda-files (list org-default-notes-file))
 #+end_src
 
 #+RESULTS:
@@ -367,7 +377,7 @@ Mu4e must be installed using a system package so the ~mu~ CLI binary is installe
 
 Load up Mu4e.
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (require 'mu4e)
 #+end_src
 
@@ -376,7 +386,7 @@ Load up Mu4e.
 
 Use vim keybindings:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (use-package evil-collection
     :ensure t)
 
@@ -387,7 +397,7 @@ Use vim keybindings:
 
 Tell Emacs to use Mu4e for email
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq mail-user-agent 'mu4e-user-agent)
 #+end_src
 
@@ -396,7 +406,7 @@ Tell Emacs to use Mu4e for email
 
 *Needed for mbsync.* Rename files when moving. Prevents dumb sync issues with duplicate UIDs. Don't entirely understand why this fixes it.
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq mu4e-change-filenames-when-moving t)
 #+end_src
 
@@ -407,7 +417,7 @@ Allow for updating mail using ~U~ in the main view.
 
 We have ~mbsync~ running in the background using systemd. Set this to true to tell Mu4e that mail is retrieved another way on the system.
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq mu4e-get-mail-command "true")
 #+end_src
 
@@ -418,7 +428,7 @@ We have ~mbsync~ running in the background using systemd. Set this to true to te
 
 Configure important folders:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq mu4e-sent-folder "/[Gmail]/Sent Mail"
       mu4e-drafts-folder "/[Gmail]/Drafts"
       mu4e-trash-folder "/[Gmail]/Trash")
@@ -429,7 +439,7 @@ Configure important folders:
 
 Don't save sent messages to the sent folder. Gmail will do this for us.
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq mu4e-sent-messages-behavior 'delete)
 #+end_src
 
@@ -438,7 +448,7 @@ Don't save sent messages to the sent folder. Gmail will do this for us.
 
 Shortcuts for mail usage. ~ji~ to go to inbox, ~ma~ to move a message to All Mail.
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq mu4e-maildir-shortcuts
       '( (:maildir "/Inbox"             :key ?i)
          (:maildir "/[Gmail]/Sent Mail" :key ?s)
@@ -456,7 +466,7 @@ Shortcuts for mail usage. ~ji~ to go to inbox, ~ma~ to move a message to All Mai
 
 Configure sender info to send as me!
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq user-mail-address "zach@zachlatta.com"
       user-full-name "Zach Latta")
 #+end_src
@@ -466,7 +476,7 @@ Configure sender info to send as me!
 
 Sending mail configuration:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-stream-type 'starttls
       smtpmail-default-smtp-server "smtp.gmail.com"
@@ -482,7 +492,7 @@ Sending mail configuration:
 
 Reply with the correct email (~zach@zachlatta.com~ or ~zach@hackclub.com~ depending on where they emailed);
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (add-hook 'mu4e-compose-pre-hook
   (defun my-set-from-address ()
     "Set the From address based on the To address of the original"
@@ -502,7 +512,7 @@ Reply with the correct email (~zach@zachlatta.com~ or ~zach@hackclub.com~ depend
 
 Load it up!
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle (when (eq system-type 'gnu/linux) "yes")
 (require 'org-mu4e)
 #+end_src
 
@@ -527,8 +537,6 @@ Load it up!
 
 ;; nice scrolling, from: https://www.reddit.com/r/emacs/comments/8sw3r0/finally_scrolling_over_large_images_with_pixel/
 (pixel-scroll-mode)
-(setq pixel-dead-time 0) ; Never go back to the old scrolling behaviour.
-(setq pixel-resolution-fine-flag t) ; Scroll by number of pixels instead of lines (t = frame-char-height pixels).
 (setq mouse-wheel-scroll-amount '(1)) ; Distance in pixel-resolution to scroll each mouse wheel event.
 (setq mouse-wheel-progressive-speed nil) ; Progressive speed is too fast for me.
 #+END_SRC
