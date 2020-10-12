@@ -5,6 +5,7 @@ set $term ~/.local/bin/t
 set $editor ~/.local/bin/e
 set $ghost kitty --class "ghost" --title "ghost" # command to run when creating a "ghost" window
 set $browser qutebrowser
+set $alt-browser MOZ_DBUS_REMOTE=1 firefox
 
 font pango:IPAGothic 10, DejaVu Sans Mono 9
 
@@ -147,6 +148,7 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 bindsym $mod+Return exec $term
 bindsym $alt+Return exec $editor
 bindsym $mod+Shift+Return exec $browser
+bindsym $mod+Shift+Ctrl+Return exec $alt-browser
 
 # Create a "ghost" window - a transparent window for aligning other windows
 for_window [app_id="ghost"] opacity 0
