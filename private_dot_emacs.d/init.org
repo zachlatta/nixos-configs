@@ -286,6 +286,18 @@ C-c c to capture anywhere globally in Emacs.
 
 #+RESULTS:
 
+*** Auto saving and auto loading of files (for beorg sync)
+
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'zrl-org-mode-autosave-settings)
+(defun zrl-org-mode-autosave-settings ()
+  (auto-save-visited-mode t)
+  (auto-revert-mode t))
+#+end_src
+
+#+RESULTS:
+: zrl-org-mode-autosave-settings
+
 *** Everything else
 
 #+begin_src emacs-lisp
