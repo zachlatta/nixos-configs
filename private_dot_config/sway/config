@@ -20,6 +20,7 @@ xwayland scale 2
 exec xsettingsd
 
 # acer monitor config
+output DP-5 scale 2
 output DP-5 adaptive_sync on
 output DP-5 mode 3840x2160@120Hz
 
