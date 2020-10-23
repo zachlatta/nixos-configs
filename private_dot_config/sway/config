@@ -167,6 +167,9 @@ bindsym $mod+Shift+p exec paste
 # program launcher with $mod+d
 bindsym $mod+d exec ~/.local/bin/sway-program-launcher
 
+# printscrn -> screenshot
+bindsym Print exec grim -g "$(slurp)"
+
 # mod+alt+shift+p color picker that copies hex to clipboard
 bindsym $mod+Mod1+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 
