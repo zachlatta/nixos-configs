@@ -43,9 +43,9 @@ tangled, and the tangled file is compiled."
 ** Colors / theme
 
 #+BEGIN_SRC emacs-lisp
-(use-package modus-operandi-theme)
-(use-package modus-vivendi-theme)
-(use-package leuven-theme)
+(use-package modus-operandi-theme :ensure t)
+(use-package modus-vivendi-theme :ensure t)
+(use-package leuven-theme :ensure t)
 
 (load-theme 'modus-operandi t) 
 #+END_SRC
@@ -229,8 +229,7 @@ C-c c to capture anywhere globally in Emacs.
 *** Drag and drop to add attachments
 
 #+begin_src emacs-lisp
-(use-package org-download)
-(require 'org-download)
+(use-package org-download :ensure t)
 (setq org-download-method 'attach) ;; use org-mode's attachments machinery
 #+end_src
 
