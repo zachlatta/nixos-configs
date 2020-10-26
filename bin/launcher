@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require 'set'
+
+if ARGV.length > 0
+  program_selection = ARGV.join(' ')
+else
+  # bemenu with arbitrary programs... should document the colors at some
+  # point, i had to fiddle to get it to look like dmenu (it's still not
+  # amazing though...)
+  program_selection = `dmenu_path | bemenu -i \
+      --tb '#005577' \
+      --fb '#222222' \
+      --nb '#222222' \
+      --scb '#222222' \
+      --sb '#005577' \
+      --hb '#005577' \
+      --tf '#eeeeee' \
+      --sf '#eeeeee' \
+      --sb '#005577' \
+      --hf '#bbbbbb' \
+      --fn 'DejaVu Sans Mono 10' \
+      --prompt 'Run:'`.strip
+end
+
+# append given arguments to the following apps
+launch_options = {
+  "spotify": ["--force-device-scale-factor=2"] # for hidpi
+}
+
+opts = launch_options[program_selection.to_sym]
+opts ||= []
+
+# big cursor
+#
+# it's a hacky solution, but is the only way i can figure out how to
+# get a normal sized cursor in emacs and slack (x11 based apps)
+bc = "XCURSOR_SIZE=48"
+
+env_variables = {
+  "emacs": [bc],
+  "slack": [bc],
+  "spotify": [bc],
+}
+
+envs = env_variables[program_selection.to_sym]
+envs ||= []
+
+exec(envs.join(' ') + (envs.length != 0 ? ' ' : '') + program_selection + " " + opts.join(' '))
