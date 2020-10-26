@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -c "/dev/dri/card1" ]
+then # egpu plugged in, use it
+  val="1"
+
+  # turn off internal display
+  brightnessctl set 0%
+else # egpu not plugged in, use integrated graphics
+  val="0"
+fi
+
+cmd="WLR_DRM_DEVICES=/dev/dri/card$val PATH=$HOME/.local/bin/:$PATH sway"
+eval "$cmd"
+
+brightnessctl set 100% # reset brightness to 100% so we can still see the wm
