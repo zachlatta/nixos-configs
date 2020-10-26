@@ -16,4 +16,8 @@ bash:
 sway:
 	stow sway -t ~/.config/sway/
 
-all: git bin bash sway
+.PHONY: hidpi-xwayland
+hidpi-xwayland:
+	stow hidpi-xwayland --ignore=README.md
+
+all: git bin bash sway hidpi-xwayland

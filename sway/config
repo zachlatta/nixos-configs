@@ -29,6 +29,10 @@ output DP-5 mode 3840x2160@120Hz position 0,0
 output DP-5 adaptive_sync on
 output DP-5 scale 2
 
+# For HiDPI support in X apps
+xwayland scale 2
+exec xsettingsd # see ~/.dotfiles/hidpi-xwayland/.xsettingsd for config
+
 ### Idle configuration
 #
 # Example configuration:
