@@ -12,4 +12,8 @@ bin:
 bash:
 	stow bash
 
-all: git bin bash
+.PHONY: sway
+sway:
+	stow sway -t ~/.config/sway/
+
+all: git bin bash sway
