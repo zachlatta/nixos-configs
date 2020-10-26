@@ -20,4 +20,8 @@ sway:
 hidpi-xwayland:
 	stow hidpi-xwayland --ignore=README.md
 
-all: git bin bash sway hidpi-xwayland
+.PHONY: emacs
+emacs:
+	stow emacs -t ~/.emacs.d/
+
+all: git bin bash sway hidpi-xwayland emacs
