@@ -26,6 +26,7 @@ set $menu launcher
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output eDP-1 scale 1.75
 
 output DP-5 mode 3840x2160@120Hz position 0,0
 output DP-5 adaptive_sync on
