@@ -13,11 +13,11 @@ Chezmoi is used for dotfile management, meaning this file is stored in the Chezm
   "If the current buffer is 'init.org' the code-blocks are
 tangled, and the tangled file is compiled."
   (when (equal (buffer-file-name)
-               (expand-file-name "~/.local/share/chezmoi/private_dot_emacs.d/init.org"))
+               (expand-file-name "~/.dotfiles/emacs/init.org"))
     ;; Avoid running hooks when tangling.
     (let ((prog-mode-hook nil))
       (org-babel-tangle)
-      (byte-compile-file (concat user-emacs-directory "init.el")))))
+      (byte-compile-file (expand-file-name "~/.dotfiles/emacs/init.el")))))
 
 (add-hook 'after-save-hook 'tangle-init)
 #+END_SRC
