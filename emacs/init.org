@@ -1,8 +1,12 @@
-#+PROPERTY: header-args :tangle ~/.emacs.d/init.el
+#+PROPERTY: header-args :tangle ~/.dotfiles/emacs/init.el
 
 * Init.org
 
 My living configuration for Emacs. Inspired by Sacha's management of her Emacs config with Org Mode.
+
+#+begin_src emacs-lisp :tangle "yes"
+; Hello there! Welcome to the config file.
+#+end_src
 
 ** Bootstrap Org-Mode For ~init.el~
 
