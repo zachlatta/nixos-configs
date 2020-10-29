@@ -203,6 +203,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Function Buttons
+#
+
+# music controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# brightness controls
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym Shift+XF86MonBrightnessUp exec brightnessctl set +5%
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
