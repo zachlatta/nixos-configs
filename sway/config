@@ -28,9 +28,11 @@ set $menu launcher
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output eDP-1 scale 1.75
 
-output DP-5 mode 3840x2160@120Hz position 0,0
+output DP-4 mode 2560x1440 position 0,0
+
+output DP-5 mode 3840x2160@120Hz position 2560,0
 output DP-5 adaptive_sync on
-output DP-5 scale 2
+output DP-5 scale 1.5
 
 # For HiDPI support in X apps
 xwayland scale 2
