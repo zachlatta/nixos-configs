@@ -219,6 +219,9 @@ for_window [app_id="ghost"] opacity 0
 # Function Buttons
 #
 
+# printscrn -> screenshot
+bindsym Print exec grim -g "$(slurp)"
+
 # music controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
