@@ -210,6 +210,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Ghost Windows
+#
+# Support a "ghost" window - a transparent window
+for_window [app_id="ghost"] opacity 0
+
+#
 # Function Buttons
 #
 
