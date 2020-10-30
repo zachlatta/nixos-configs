@@ -73,6 +73,7 @@ exec xsettingsd # see ~/.dotfiles/hidpi-xwayland/.xsettingsd for config
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    # And a browser...
     bindsym $mod+Shift+Return exec $browser
     # And an editor...
     bindsym Alt+Return exec $editor
