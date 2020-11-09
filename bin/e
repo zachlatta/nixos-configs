@@ -1,3 +1,7 @@
 #!/bin/sh
 
-exec emacsctl new
+if grep -q microsoft /proc/version; then
+  exec emacsclientw.exe --create-frame --no-wait --alternate-editor runemacs.exe $@
+else
+  exec emacsctl new
+fi
