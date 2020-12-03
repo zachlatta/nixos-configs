@@ -13,9 +13,4 @@ bin:
 bash:
 	stow bash
 
-.PHONY: emacs
-emacs:
-	mkdir -p ~/.emacs.d/
-	stow emacs -t ~/.emacs.d/
-
-all: git bin bash emacs
+all: git bin bash
