@@ -13,4 +13,9 @@ bin:
 bash:
 	stow bash
 
-all: git bin bash
+.PHONY: doom
+doom:
+	mkdir -p ~/.config/doom
+	stow doom -t ~/.config/doom
+
+all: git bin bash doom
