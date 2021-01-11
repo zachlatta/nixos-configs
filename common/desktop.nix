@@ -19,5 +19,6 @@
     blender
     vscodium
     virt-manager
+    okular
   ];
 }
