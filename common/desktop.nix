@@ -23,5 +23,9 @@
     blender
     vscodium
     virt-manager
+    spotify
   ];
+
+  # open port for spotify so it can sync with local devices on same network
+  networking.firewall.allowedTCPPorts = [ 57621 ];
 }
