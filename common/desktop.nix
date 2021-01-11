@@ -14,11 +14,14 @@
     tree
     git
 
+    okular
+    gwenview
+    ark
+
     firefox
     slack
     blender
     vscodium
     virt-manager
-    okular
   ];
 }
