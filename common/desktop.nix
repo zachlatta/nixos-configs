@@ -6,15 +6,16 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    slack
-    firefox
     killall
     file
 
     wget
     vim
-
+    tree
     git
+
+    firefox
+    slack
     blender
     vscodium
     virt-manager
