@@ -67,6 +67,7 @@
         --pos 2160x1080 \
         --mode 3840x2160 \
         --scale 1x1 \
+        --set TearFree on \
         --primary \
       --output DisplayPort-1 `# 27" 1440p monitor in portrait mode on left` \
         --pos 0x0 \
