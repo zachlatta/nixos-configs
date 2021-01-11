@@ -75,6 +75,10 @@
         --rotate left
   '';
 
+  services.xserver.deviceSection = ''
+    Option "VariableRefresh" "true"
+  '';
+
   # Enable virtualization
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
