@@ -26,6 +26,7 @@
     virt-manager
     spotify
     zoom-us
+    emacs
 
     # obs + v4l2sink for virtual OBS webcam
     #
