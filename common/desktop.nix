@@ -26,7 +26,13 @@
     virt-manager
     spotify
     zoom-us
+
+    # emacs + dependencies for doom
     emacs
+    ripgrep
+    coreutils
+    fd
+    clang
 
     # obs + v4l2sink for virtual OBS webcam
     #
