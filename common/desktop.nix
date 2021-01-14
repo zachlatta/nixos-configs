@@ -33,7 +33,6 @@
     ripgrep
     coreutils
     fd
-   clang
 
     # obs + v4l2sink for virtual OBS webcam
     #
