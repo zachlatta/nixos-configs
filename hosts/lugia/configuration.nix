@@ -15,6 +15,21 @@
       ./custom-plasma5.nix
     ];
 
+  # Enable Sway
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # so that GTK works properly, per the docs
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      xwayland
+      wl-clipboard
+      mako
+      alacritty
+      dmenu
+    ];
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
