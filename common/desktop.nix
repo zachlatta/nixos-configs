@@ -18,6 +18,7 @@
     okular
     gwenview
     ark
+    ktorrent
 
     firefox
     (google-chrome.override {
