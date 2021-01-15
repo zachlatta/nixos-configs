@@ -27,6 +27,9 @@
     spotify
     zoom-us
     libreoffice
+    celluloid
+
+    snapper
 
     # emacs + dependencies for doom
     emacs
