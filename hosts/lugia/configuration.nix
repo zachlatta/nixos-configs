@@ -11,8 +11,6 @@
       /home/zrl/dev/nixos-configs/common/users
       /home/zrl/dev/nixos-configs/common/base.nix
       /home/zrl/dev/nixos-configs/common/desktop.nix
-
-      ./custom-plasma5.nix
     ];
 
   # Enable Sway
@@ -78,23 +76,7 @@
 
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.custom-plasma5.enable = true;
-
-  # Custom command to set up monitors in SDDM
-  services.xserver.displayManager.setupCommands = ''
-    ${pkgs.xlibs.xrandr}/bin/xrandr --fbmm 7680x4320 \
-      --output DisplayPort-0 `# 27" 4k monitor in horizontal mode in center` \
-        --pos 2160x1080 \
-        --mode 3840x2160 \
-        --scale 1x1 \
-        --set TearFree on \
-        --primary \
-      --output DisplayPort-1 `# 27" 1440p monitor in portrait mode on left` \
-        --pos 0x0 \
-        --mode 2560x1440 \
-        --scale 1.5x1.5 \
-        --rotate left
-  '';
+  services.xserver.desktopManager.plasma5.enable = true;
 
   services.xserver.deviceSection = ''
     Option "VariableRefresh" "true"
