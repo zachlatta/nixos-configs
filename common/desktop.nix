@@ -20,6 +20,9 @@
     ark
 
     firefox
+    (google-chrome.override {
+      commandLineArgs = "--disable-frame-rate-limit";
+    })
     slack
     blender
     vscodium
