@@ -6,11 +6,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       /home/zrl/dev/nixos-configs/common/users
-      #/home/zrl/dev/nixos-configs/common/base.nix
-      #/home/zrl/dev/nixos-configs/common/desktop.nix
+      /home/zrl/dev/nixos-configs/common/base.nix
+      /home/zrl/dev/nixos-configs/common/desktop.nix
     ];
 
   # Enables CPU microcode updates
@@ -57,8 +58,8 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
   # FIRMWARE
   nixpkgs.config.allowUnfree = true;
