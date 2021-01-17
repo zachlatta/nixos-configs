@@ -5,8 +5,9 @@
 
   users.users.zrl = {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "networkmanager" "libvirtd" ];
+    home = "/home/zrl";
+    description = "Zach Latta";
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
     shell = pkgs.bash;
   };
 }
