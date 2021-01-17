@@ -45,6 +45,9 @@
   #   keyMap = "us";
   # };
 
+  # Enable Tailscale VPN / networking
+  services.tailscale.enable = true;
+
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;

@@ -31,6 +31,8 @@
 
     snapper
 
+    tailscale
+
     # emacs + dependencies for doom
     emacs
     ripgrep
