@@ -82,7 +82,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true; # But we don't open the firewall, so only available within VPN
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
