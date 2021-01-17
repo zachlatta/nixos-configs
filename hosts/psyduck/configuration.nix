@@ -69,7 +69,7 @@
   hardware.enableAllFirmware = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -86,7 +86,9 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 
+    41641 # Tailscale
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
