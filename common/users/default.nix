@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
-
   users.users.zrl = {
     isNormalUser = true;
     home = "/home/zrl";

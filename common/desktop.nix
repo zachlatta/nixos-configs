@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    <home-manager/nixos>
-  ];
-
   environment.systemPackages = with pkgs; [
     killall
     file
