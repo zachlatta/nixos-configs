@@ -86,7 +86,9 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 
+    41641 # Not necessarily needed for Tailscale, but it may help sometimes
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
