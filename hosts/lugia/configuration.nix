@@ -71,6 +71,11 @@
     Option "VariableRefresh" "true"
   '';
 
+  # Gimme dat Wacom
+  services.xserver.wacom.enable = true;
+  # We need unstable because the wacomtablet in master is broken. See https://github.com/NixOS/nixpkgs/issues/104384
+  environment.systemPackages = with pkgs; [ wacomtablet ];
+
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
   boot.extraModprobeConfig = "options kvm_amd nested=1";

@@ -28,6 +28,7 @@
     zoom-us
     libreoffice
     celluloid
+    krita
 
     gparted
 
