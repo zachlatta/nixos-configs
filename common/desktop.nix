@@ -29,6 +29,8 @@
     libreoffice
     celluloid
 
+    gparted
+
     snapper
 
     tailscale
