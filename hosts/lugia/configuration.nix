@@ -73,8 +73,10 @@
 
   # Gimme dat Wacom
   services.xserver.wacom.enable = true;
-  # We need unstable because the wacomtablet in master is broken. See https://github.com/NixOS/nixpkgs/issues/104384
-  environment.systemPackages = with pkgs; [ wacomtablet ];
+  environment.systemPackages = with pkgs; [
+    wacomtablet
+    powerdevil # need for brightness management in KDE
+  ];
 
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
