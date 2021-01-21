@@ -8,9 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
       /home/zrl/dev/nixos-configs/common/users
       /home/zrl/dev/nixos-configs/common/base.nix
       /home/zrl/dev/nixos-configs/common/desktop.nix
+
+      /home/zrl/dev/nixos-configs/common/sway.nix
     ];
 
   # Enables CPU microcode updates
@@ -77,20 +80,6 @@
     wacomtablet
     powerdevil # need for brightness management in KDE
   ];
-
-  # Try out Sway
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      wl-clipboard
-      mako # notification daemon
-      alacritty # Alacritty is the default terminal in the config
-      dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
-    ];
-  };
 
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
