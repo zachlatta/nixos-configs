@@ -69,6 +69,12 @@ tags
       enable = true;
 
       config = {
+        output = {
+          "*" = {
+            scale = "1.5";
+          };
+        };
+
         terminal = "${pkgs.alacritty}/bin/alacritty";
 
         menu = "${pkgs.bemenu}/bin/bemenu-run -m all --no-exec | xargs swaymsg exec --";
