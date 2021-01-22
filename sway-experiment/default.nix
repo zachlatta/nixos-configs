@@ -55,7 +55,16 @@ tags
       ];
     };
 
-    # warning: this might be overriding the system installed sway
+    programs.vim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [ vim-nix ];
+      settings = {
+        expandtab = true;
+        shiftwidth = 2;
+      };
+    };
+
+    # warning: this might be overriding the system installed sway binary
     wayland.windowManager.sway = {
       enable = true;
 
