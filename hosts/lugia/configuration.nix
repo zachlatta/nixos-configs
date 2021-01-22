@@ -8,9 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
       /home/zrl/dev/nixos-configs/common/users
       /home/zrl/dev/nixos-configs/common/base.nix
       /home/zrl/dev/nixos-configs/common/desktop.nix
+
+      /home/zrl/dev/nixos-configs/common/sway.nix
     ];
 
   # Enables CPU microcode updates
@@ -65,14 +68,20 @@
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.supportDDC = true; # For external brightness control
 
   services.xserver.deviceSection = ''
     Option "VariableRefresh" "true"
   '';
 
+  # Gimme dat Wacom
+  services.xserver.wacom.enable = true;
+  environment.systemPackages = with pkgs; [
+    wacomtablet
+    powerdevil # need for brightness management in KDE
+  ];
+
   # Enable virtualization
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.libvirtd.enable = true;
   boot.extraModprobeConfig = "options kvm_amd nested=1";
 
@@ -95,7 +104,7 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   networking.firewall.allowedUDPPorts = [ 
-    41641 # Tailscale
+    41641 # Not necessarily needed for Tailscale, but it may help sometimes
   ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

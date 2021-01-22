@@ -16,10 +16,8 @@
     ark
     ktorrent
 
-    firefox
-    (google-chrome.override {
-      commandLineArgs = "--disable-frame-rate-limit";
-    })
+    chromium
+
     slack
     blender
     vscodium
@@ -28,6 +26,9 @@
     zoom-us
     libreoffice
     celluloid
+    krita
+
+    gparted
 
     snapper
 

@@ -1,0 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
+
+PAD_DEVICE=$(xsetwacom --list devices | grep PAD | head -n 1 | cut -f1 | xargs)
+
+xsetwacom --set "$PAD_DEVICE" Button 1 'key +ctrl z -ctrl'
+# This sets button 4 to the keybinding set in KDE to trigger my custom wacom-region script (in nixos-configs repo)
+xsetwacom --set "$PAD_DEVICE" Button 3 'key +ctrl +alt w -alt -ctrl'
