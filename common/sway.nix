@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Try out Sway
+  # Try out Sway. This is used in Lugia. Should be moved.
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
