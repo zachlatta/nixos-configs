@@ -10,8 +10,9 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       /home/zrl/dev/nixos-configs/common/users
-      #/home/zrl/dev/nixos-configs/common/base.nix
-      #/home/zrl/dev/nixos-configs/common/desktop.nix
+      /home/zrl/dev/nixos-configs/common/base.nix
+
+      /home/zrl/dev/nixos-configs/common/desktop.nix
 
       /home/zrl/dev/nixos-configs/sway-experiment
     ];
@@ -38,6 +39,7 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
   
   # Enable CUPS to print documents.
   services.printing.enable = true;
