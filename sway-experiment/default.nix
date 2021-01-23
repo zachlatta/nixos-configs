@@ -15,6 +15,14 @@
     ];
   };
 
+  # For the Sway environment, wanted packages go here.
+  #
+  # This should be considered temporary until the Sway environment is either
+  # refactored into a broader config or killed.
+  environment.systemPackages = with pkgs; [
+    tree
+  ];
+
   imports = [ <home-manager/nixos> ];
 
   home-manager.users.zrl = { pkgs, config, ... }: {
