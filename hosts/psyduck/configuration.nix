@@ -62,10 +62,34 @@
 
   services.openssh.enable = true;
 
+  # Enable Tailscale
+
   services.tailscale.enable = true;
   networking.firewall.allowedUDPPorts = [ 
-    41641 # Tailscale
+    config.services.tailscale.port # Tailscale
   ];
+  networking.extraHosts =
+    ''
+      100.119.200.49 lugia
+      100.75.13.111 lugia-vm-media-server
+      100.72.172.50 lugia-vm-win10
+      100.113.168.2 iphone
+    '';
+
+
+  fileSystems."/home/zrl/lugia" = {
+    device = "lugia:/";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+
+      # don't mount on boot, only when accessed
+      "x-systemd.automount"
+      "noauto"
+
+      "x-systemd.idle-timeout=600"
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
