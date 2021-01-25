@@ -101,13 +101,22 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true; # But we don't open the port in the firewall, so only VPN can see it
 
+  # Tailscale networking / VPN.
+  services.tailscale.enable = true;
+
+  # NFS share of home directory
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /home/zrl   100.99.132.36(rw,fsid=0,no_subtree_check)
+  '';
+
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+
   networking.firewall.allowedUDPPorts = [ 
-    41641 # Not necessarily needed for Tailscale, but it may help sometimes
+    config.services.tailscale.port # Not necessarily needed for Tailscale, but it may help sometimes
   ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -116,7 +125,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
-  # Tailscale networking / VPN.
-  services.tailscale.enable = true;
 }
