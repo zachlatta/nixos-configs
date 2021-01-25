@@ -10,7 +10,10 @@
       wl-clipboard
       mako # notification daemon
       alacritty # Alacritty is the default terminal in the config
+
+      j4-dmenu-desktop # For feeding .desktop files into bemenu
       bemenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+
       gnome3.networkmanagerapplet # For networking
       brightnessctl
       pamixer
@@ -82,7 +85,9 @@ tags
       swaymsg = "${pkgs.sway}/bin/swaymsg";
 
       alacritty = "${pkgs.alacritty}/bin/alacritty";
-      bemenu-run = "${pkgs.bemenu}/bin/bemenu-run";
+      bemenu = "${pkgs.bemenu}/bin/bemenu";
+      gtk-launch = "${pkgs.gnome3.gtk}/bin/gtk-launch";
+      j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
       wob = "${pkgs.wob}/bin/wob";
 
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
@@ -109,13 +114,20 @@ tags
 
         terminal = "${alacritty}";
 
-        menu = "${bemenu-run} -m all --no-exec | xargs ${swaymsg} exec --";
+        menu = "${j4-dmenu-desktop} --dmenu='${bemenu} -i' --term='${alacritty}'";
 
         startup = [
           { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
         ];
 
-        keybindings = lib.mkOptionDefault {
+        keybindings =
+        let
+          mod = config.wayland.windowManager.sway.config.modifier;
+        in
+        lib.mkOptionDefault {
+          "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser-wayland.desktop'";
+          "${mod}+Ctrl+Return" = "exec '${gtk-launch} roam-research-wayland.desktop'";
+
           "XF86MonBrightnessUp" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
           "XF86MonBrightnessDown" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
 
