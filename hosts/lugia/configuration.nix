@@ -13,7 +13,8 @@
       /home/zrl/dev/nixos-configs/common/base.nix
       /home/zrl/dev/nixos-configs/common/desktop.nix
 
-      /home/zrl/dev/nixos-configs/common/sway.nix
+      #/home/zrl/dev/nixos-configs/common/sway.nix
+      /home/zrl/dev/nixos-configs/sway-experiment-lugia
     ];
 
   # Enables CPU microcode updates
