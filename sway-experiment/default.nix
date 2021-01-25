@@ -72,6 +72,7 @@ tags
       settings = {
         expandtab = true;
         shiftwidth = 2;
+        number = true;
       };
     };
 
