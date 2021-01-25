@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.sway = {
@@ -12,6 +12,7 @@
       alacritty # Alacritty is the default terminal in the config
       bemenu # Dmenu is the default in the config but i recommend wofi since its wayland native
       gnome3.networkmanagerapplet # For networking
+      brightnessctl
     ];
   };
 
@@ -72,8 +73,24 @@ tags
       };
     };
 
+    wayland.windowManager.sway =
     # warning: this might be overriding the system installed sway binary
-    wayland.windowManager.sway = {
+    let
+      swaymsg = "${pkgs.sway}/bin/swaymsg";
+
+      alacritty = "${pkgs.alacritty}/bin/alacritty";
+      bemenu-run = "${pkgs.bemenu}/bin/bemenu-run";
+      wob = "${pkgs.wob}/bin/wob";
+      brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+      brightnessIncrement = "8";
+
+      cut = "${pkgs.coreutils}/bin/cut";
+      head = "${pkgs.coreutils}/bin/head";
+      mkfifo = "${pkgs.coreutils}/bin/mkfifo";
+      sed = "${pkgs.gnused}/bin/sed";
+      tail = "${pkgs.coreutils}/bin/tail";
+    in
+    {
       enable = true;
 
       config = {
@@ -83,9 +100,18 @@ tags
           };
         };
 
-        terminal = "${pkgs.alacritty}/bin/alacritty";
+        terminal = "${alacritty}";
 
-        menu = "${pkgs.bemenu}/bin/bemenu-run -m all --no-exec | xargs swaymsg exec --";
+        menu = "${bemenu-run} -m all --no-exec | xargs ${swaymsg} exec --";
+
+        startup = [
+          { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
+        ];
+
+        keybindings = lib.mkOptionDefault {
+          "XF86MonBrightnessUp" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+          "XF86MonBrightnessDown" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+        };
       };
     };
   };
