@@ -13,6 +13,8 @@
       bemenu # Dmenu is the default in the config but i recommend wofi since its wayland native
       gnome3.networkmanagerapplet # For networking
       brightnessctl
+      pamixer
+      wob
     ];
   };
 
@@ -81,8 +83,12 @@ tags
       alacritty = "${pkgs.alacritty}/bin/alacritty";
       bemenu-run = "${pkgs.bemenu}/bin/bemenu-run";
       wob = "${pkgs.wob}/bin/wob";
+
       brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
       brightnessIncrement = "8";
+
+      pamixer = "${pkgs.pamixer}/bin/pamixer";
+      audioIncrement = "10";
 
       cut = "${pkgs.coreutils}/bin/cut";
       head = "${pkgs.coreutils}/bin/head";
@@ -111,6 +117,10 @@ tags
         keybindings = lib.mkOptionDefault {
           "XF86MonBrightnessUp" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
           "XF86MonBrightnessDown" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+
+          "XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
+          "XF86AudioLowerVolume" = "exec '${pamixer} -ud ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
+          "XF86AudioMute" = "exec ${pamixer} --toggle-mute && ( ${pamixer} --get-mute && echo 0 > $SWAYSOCK.wob ) || ${pamixer} --get-volume > $SWAYSOCK.wob";
         };
       };
     };
