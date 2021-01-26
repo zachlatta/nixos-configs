@@ -106,9 +106,19 @@ tags
       enable = true;
 
       config = {
+        modifier = "Mod4";
+
         output = {
           "*" = {
             scale = "1.5";
+          };
+
+          "DP-1" = {
+            mode = "3840x2160@120Hz";
+          };
+
+          "DP-2" = {
+            transform = "270";
           };
         };
 
