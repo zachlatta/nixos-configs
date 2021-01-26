@@ -71,7 +71,7 @@ tags
 
     programs.vim = {
       enable = true;
-      plugins = with pkgs.vimPlugins; [ vim-nix ];
+      plugins = with pkgs.vimPlugins; [ vim-nix vim-fugitive ];
       settings = {
         expandtab = true;
         shiftwidth = 2;
