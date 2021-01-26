@@ -124,7 +124,7 @@ tags
 
         terminal = "${alacritty}";
 
-        menu = "${j4-dmenu-desktop} --dmenu='${bemenu} -i' --term='${alacritty}'";
+        menu = "${j4-dmenu-desktop} --dmenu='${bemenu} -i -m all' --term='${alacritty}'";
 
         startup = [
           { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
