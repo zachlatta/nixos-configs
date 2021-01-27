@@ -36,48 +36,9 @@
 
     programs.home-manager.enable = true;
 
-    programs.bash.enable = true;
-
-    programs.git = {
-      enable = true;
-      userName = "Zach Latta";
-      userEmail = "zach@zachlatta.com";
-
-      ignores = [
-# Vim files
-''
-# Swap
-[._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-
-# Session
-Session.vim
-Sessionx.vim
-
-# Temporary
-.netrwhist
-*~
-# Auto-generated tag files
-tags
-# Persistent undo
-[._]*.un~
-''
-      ];
-    };
-
-    programs.vim = {
-      enable = true;
-      plugins = with pkgs.vimPlugins; [ vim-nix vim-fugitive ];
-      settings = {
-        expandtab = true;
-        shiftwidth = 2;
-        number = true;
-      };
-    };
+    imports = [
+      ../sway-experiment-shared
+    ];
 
     wayland.windowManager.sway =
     # warning: this might be overriding the system installed sway binary
