@@ -106,6 +106,7 @@ tags
       enable = true;
 
       config = {
+        modifier = "Mod4";
         output = {
           "*" = {
             scale = "1.5";
@@ -134,6 +135,13 @@ tags
           "XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
           "XF86AudioLowerVolume" = "exec '${pamixer} -ud ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
           "XF86AudioMute" = "exec ${pamixer} --toggle-mute && ( ${pamixer} --get-mute && echo 0 > $SWAYSOCK.wob ) || ${pamixer} --get-volume > $SWAYSOCK.wob";
+        };
+
+        input = {
+          # built-in laptop keyboard
+          "1:1:AT_Translated_Set_2_keyboard" = {
+            xkb_options = "altwin:swap_lalt_lwin"; # swap windows key with left alt key
+          };
         };
       };
     };
