@@ -26,7 +26,7 @@
     programs.home-manager.enable = true;
 
     imports = [
-      ../sway-experiment-shared
+      ../sway-experiment-shared-home
     ];
 
     wayland.windowManager.sway.config = {
