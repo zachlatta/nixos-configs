@@ -5,10 +5,11 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      /home/zrl/dev/nixos-configs/common/users
-      /home/zrl/dev/nixos-configs/common/base.nix
 
+      /home/zrl/dev/nixos-configs/common/base.nix
       /home/zrl/dev/nixos-configs/common/desktop.nix
+
+      /home/zrl/dev/nixos-configs/common/users
 
       /home/zrl/dev/nixos-configs/sway-experiment
     ];
