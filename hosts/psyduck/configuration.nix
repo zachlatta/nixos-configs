@@ -50,7 +50,10 @@
 
   services.xserver.libinput.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
+  # Enable virtualization
+  virtualisation.libvirtd.enable = true;
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
+
   # started in user sessions.
   programs.mtr.enable = true;
   programs.gnupg.agent = {
