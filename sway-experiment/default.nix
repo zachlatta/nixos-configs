@@ -5,19 +5,8 @@
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
     extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      wl-clipboard
+      wl-clipboard # make wl-copy and wl-paste available in session
       mako # notification daemon
-      alacritty # Alacritty is the default terminal in the config
-
-      j4-dmenu-desktop # For feeding .desktop files into bemenu
-      bemenu # Dmenu is the default in the config but i recommend wofi since its wayland native
-
-      gnome3.networkmanagerapplet # For networking
-      brightnessctl
-      pamixer
-      wob
     ];
   };
 
@@ -40,69 +29,19 @@
       ../sway-experiment-shared-home
     ];
 
-    wayland.windowManager.sway =
-    # warning: this might be overriding the system installed sway binary
-    let
-      swaymsg = "${pkgs.sway}/bin/swaymsg";
+    wayland.windowManager.sway.config = {
+      modifier = "Mod4";
 
-      alacritty = "${pkgs.alacritty}/bin/alacritty";
-      bemenu = "${pkgs.bemenu}/bin/bemenu";
-      gtk-launch = "${pkgs.gnome3.gtk}/bin/gtk-launch";
-      j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
-      wob = "${pkgs.wob}/bin/wob";
-
-      brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-      brightnessIncrement = "8";
-
-      pamixer = "${pkgs.pamixer}/bin/pamixer";
-      audioIncrement = "10";
-
-      cut = "${pkgs.coreutils}/bin/cut";
-      head = "${pkgs.coreutils}/bin/head";
-      mkfifo = "${pkgs.coreutils}/bin/mkfifo";
-      sed = "${pkgs.gnused}/bin/sed";
-      tail = "${pkgs.coreutils}/bin/tail";
-    in
-    {
-      enable = true;
-
-      config = {
-        modifier = "Mod4";
-        output = {
-          "*" = {
-            scale = "1.5";
-          };
+      output = {
+        "*" = {
+          scale = "1.5";
         };
+      };
 
-        terminal = "${alacritty}";
-
-        menu = "${j4-dmenu-desktop} --dmenu='${bemenu} -i' --term='${alacritty}'";
-
-        startup = [
-          { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
-        ];
-
-        keybindings =
-        let
-          mod = config.wayland.windowManager.sway.config.modifier;
-        in
-        lib.mkOptionDefault {
-          "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser-wayland.desktop'";
-          "${mod}+Ctrl+Return" = "exec '${gtk-launch} roam-research-wayland.desktop'";
-
-          "XF86MonBrightnessUp" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
-          "XF86MonBrightnessDown" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
-
-          "XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
-          "XF86AudioLowerVolume" = "exec '${pamixer} -ud ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
-          "XF86AudioMute" = "exec ${pamixer} --toggle-mute && ( ${pamixer} --get-mute && echo 0 > $SWAYSOCK.wob ) || ${pamixer} --get-volume > $SWAYSOCK.wob";
-        };
-
-        input = {
-          # built-in laptop keyboard
-          "1:1:AT_Translated_Set_2_keyboard" = {
-            xkb_options = "altwin:swap_lalt_lwin"; # swap windows key with left alt key
-          };
+      input = {
+        # built-in laptop keyboard
+        "1:1:AT_Translated_Set_2_keyboard" = {
+          xkb_options = "altwin:swap_lalt_lwin"; # swap windows key with left alt key
         };
       };
     };
