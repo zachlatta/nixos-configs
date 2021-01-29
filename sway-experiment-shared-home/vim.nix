@@ -4,6 +4,8 @@
     enable = true;
 
     plugins = with pkgs.vimPlugins; [
+      base16-vim # theme
+
       vim-fugitive # git support
       ctrlp-vim # search files easily
       vim-better-whitespace # highlight all whitespace
@@ -25,6 +27,10 @@
     };
 
     extraConfig = ''
+      " theme config
+      let base16colorspace=256
+      colorscheme base16-tomorrow-night
+
       " CtrlP - Ignore files in .gitignore
       let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
