@@ -51,7 +51,8 @@
 
       " leader key keybindings
       nnoremap <leader>f :NERDTreeFocus<CR>
-      nnoremap <leader>g :Git<CR>
+      nnoremap <leader>gs :Git<CR>
+      nnoremap <leader>gp :Gpush<CR>
       nnoremap <leader>p :CtrlP<CR>
     '';
   };
