@@ -44,7 +44,7 @@
         mod = config.wayland.windowManager.sway.config.modifier;
       in
       lib.mkOptionDefault {
-        "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser-wayland.desktop'";
+        "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser.desktop'";
         "${mod}+Ctrl+Return" = "exec '${gtk-launch} roam-research-wayland.desktop'";
 
         "XF86MonBrightnessUp" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
