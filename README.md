@@ -12,4 +12,4 @@ Laptop. Lenovo X1 Carbon Gen 7.
 
 ### lugia
 
-Desktop machine at office. Like Xe's sachi, this is an apex predator. Ryzen 9 3950x with 32 GB of RAM and an RX 5700 GPU.
+Desktop machine at office. Like Xe's sachi, this is an apex predator. Ryzen 9 3950x with 32 GB of RAM and a Radeon RX 5699 GPU.
