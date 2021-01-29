@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.bash = {
+  programs.fish = {
     enable = true;
   };
 }
