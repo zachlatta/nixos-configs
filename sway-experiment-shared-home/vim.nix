@@ -31,6 +31,9 @@
       let base16colorspace=256
       colorscheme base16-tomorrow-night
 
+      " only visually wrap lines on whitespace (https://stackoverflow.com/a/19624717)
+      set nolist wrap linebreak breakat&vim
+
       " CtrlP - Ignore files in .gitignore
       let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
