@@ -43,7 +43,7 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-  
+
   # Configure keymap in X11
   services.xserver.layout = "us";
 
@@ -115,7 +115,7 @@
 
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     config.services.tailscale.port # Not necessarily needed for Tailscale, but it may help sometimes
   ];
 
