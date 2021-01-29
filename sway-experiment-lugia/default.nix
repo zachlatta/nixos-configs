@@ -1,6 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
