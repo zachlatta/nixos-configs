@@ -8,6 +8,7 @@
       ctrlp-vim # search files easily
       vim-better-whitespace # highlight all whitespace
       nerdtree # gimme those files
+      vim-which-key # spacemacs-like leader key menu
 
       vim-nix
       vim-javascript
@@ -26,6 +27,20 @@
     extraConfig = ''
       " CtrlP - Ignore files in .gitignore
       let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+      " set leader key to SPC
+      nnoremap <SPACE> <Nop> " remove any current binding
+      let mapleader=" "
+
+      " vim-which-key - Trigger when pressing SPC
+      nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+      " vim-which-key - Popup after 400ms of no keypress
+      set timeoutlen=400
+
+      " leader key keybindings
+      nnoremap <leader>f :NERDTreeFocus<CR>
+      nnoremap <leader>g :Git<CR>
+      nnoremap <leader>p :CtrlP<CR>
     '';
   };
 }
