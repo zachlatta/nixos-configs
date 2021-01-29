@@ -22,6 +22,7 @@
     ls = "${pkgs.coreutils}/bin/ls";
     mkfifo = "${pkgs.coreutils}/bin/mkfifo";
     sed = "${pkgs.gnused}/bin/sed";
+    sh = "${pkgs.bash}/bin/sh";
     tail = "${pkgs.coreutils}/bin/tail";
   in
   {
@@ -30,7 +31,9 @@
     config = {
       terminal = "${alacritty}";
 
-      menu = "${j4-dmenu-desktop} --dmenu='${bemenu} -i -m all' --term='${alacritty}'";
+      # j4-dmenu-desktop needs to be wrapped with bash to properly launch
+      # programs when fish is set as the default shell
+      menu = "SHELL=${sh} ${j4-dmenu-desktop} --dmenu='${bemenu} -i -m all' --term=${alacritty}";
 
       startup = [
         { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }

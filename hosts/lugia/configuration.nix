@@ -9,12 +9,13 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      /home/zrl/dev/nixos-configs/common/users
       /home/zrl/dev/nixos-configs/common/base.nix
-      /home/zrl/dev/nixos-configs/common/desktop.nix
 
-      #/home/zrl/dev/nixos-configs/common/sway.nix
+      /home/zrl/dev/nixos-configs/common/zrl_user.nix
+
       /home/zrl/dev/nixos-configs/sway-experiment-lugia
+
+      #/home/zrl/dev/nixos-configs/common/plasma5.nix
     ];
 
   # Enables CPU microcode updates
@@ -62,26 +63,7 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
-  # Enable the X11 windowing system
-  services.xserver.enable = true;
-  services.xserver.dpi = 163;
-
-  # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.plasma5.supportDDC = true; # For external brightness control
-
-  services.xserver.deviceSection = ''
-    Option "VariableRefresh" "true"
-  '';
-
-  # Gimme dat Wacom
-  services.xserver.wacom.enable = true;
   environment.systemPackages = with pkgs; [
-    wacomtablet
-
-    powerdevil # needed for brightness management in KDE
-
     linuxPackages.ddcci-driver # external monitor brightness control (makes external devices show up in /sys/class/backlight/)
   ];
 

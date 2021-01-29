@@ -1,6 +1,19 @@
 { config, pkgs, ... }:
 
 {
+  # Enable the X11 windowing system
+  services.xserver.enable = true;
+  services.xserver.dpi = 163;
+
+  # Enable the Plasma 5 Desktop Environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.supportDDC = true; # For external brightness control
+
+  services.xserver.deviceSection = ''
+    Option "VariableRefresh" "true"
+  '';
+
   environment.systemPackages = with pkgs; [
     killall
     file

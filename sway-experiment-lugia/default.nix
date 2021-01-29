@@ -16,6 +16,10 @@
   # refactored into a broader config or killed.
   environment.systemPackages = with pkgs; [
     tree
+
+    (chromium.override {
+      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland"; # wayland
+    })
   ];
 
   imports = [ <home-manager/nixos> ];
