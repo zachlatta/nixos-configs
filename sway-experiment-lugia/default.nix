@@ -22,6 +22,28 @@
     })
   ];
 
+  # FONTS
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-emoji-blob-bin
+
+    dejavu_fonts
+    roboto
+    source-sans-pro
+
+    nerdfonts
+
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts
+    dina-font
+
+    proggyfonts
+  ];
+
   imports = [ <home-manager/nixos> ];
 
   home-manager.users.zrl = { pkgs, config, ... }: {
