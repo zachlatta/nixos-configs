@@ -63,13 +63,14 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
+  # Make external monitors show up in /sys/class/backlight/ for brightness control
   environment.systemPackages = with pkgs; [
     linuxPackages.ddcci-driver # external monitor brightness control (makes external devices show up in /sys/class/backlight/)
   ];
-
   boot.extraModulePackages = with config.boot.kernelPackages; [
     ddcci-driver
   ];
+  boot.kernelModules = [ "ddcci" ];
 
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
