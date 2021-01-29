@@ -13,6 +13,10 @@
     extraPackages = with pkgs; [
       wl-clipboard # make wl-copy and wl-paste available in session
       mako # notification daemon
+
+      # theme
+      adwaita-qt
+      gnome3.adwaita-icon-theme
     ];
   };
 
