@@ -79,7 +79,14 @@
   services.xserver.wacom.enable = true;
   environment.systemPackages = with pkgs; [
     wacomtablet
-    powerdevil # need for brightness management in KDE
+
+    powerdevil # needed for brightness management in KDE
+
+    linuxPackages.ddcci-driver # external monitor brightness control (makes external devices show up in /sys/class/backlight/)
+  ];
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    ddcci-driver
   ];
 
   # Enable virtualization

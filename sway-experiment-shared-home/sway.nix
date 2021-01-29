@@ -19,6 +19,7 @@
 
     cut = "${pkgs.coreutils}/bin/cut";
     head = "${pkgs.coreutils}/bin/head";
+    ls = "${pkgs.coreutils}/bin/ls";
     mkfifo = "${pkgs.coreutils}/bin/mkfifo";
     sed = "${pkgs.gnused}/bin/sed";
     tail = "${pkgs.coreutils}/bin/tail";
@@ -43,8 +44,8 @@
         "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser-wayland.desktop'";
         "${mod}+Ctrl+Return" = "exec '${gtk-launch} roam-research-wayland.desktop'";
 
-        "XF86MonBrightnessUp" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
-        "XF86MonBrightnessDown" = ''exec "${brightnessctl} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+        "XF86MonBrightnessUp" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+        "XF86MonBrightnessDown" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
 
         "XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
         "Shift+XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${smallAudioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
