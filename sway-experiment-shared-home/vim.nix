@@ -7,6 +7,7 @@
       vim-fugitive # git support
       ctrlp-vim # search files easily
       vim-better-whitespace # highlight all whitespace
+      nerdtree # gimme those files
 
       vim-nix
       vim-javascript
