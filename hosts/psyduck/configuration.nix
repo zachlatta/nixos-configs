@@ -37,7 +37,7 @@
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -65,7 +65,7 @@
   # Enable Tailscale
 
   services.tailscale.enable = true;
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     config.services.tailscale.port # Tailscale
   ];
   networking.extraHosts =
