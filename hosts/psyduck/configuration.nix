@@ -7,11 +7,10 @@
       ./hardware-configuration.nix
 
       /home/zrl/dev/nixos-configs/common/base.nix
-      /home/zrl/dev/nixos-configs/common/desktop.nix
 
-      /home/zrl/dev/nixos-configs/common/users
+      /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-      /home/zrl/dev/nixos-configs/sway-experiment
+      /home/zrl/dev/nixos-configs/sway-experiment-psyduck
     ];
 
   # Enables CPU microcode updates
@@ -34,10 +33,6 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -45,7 +40,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  services.xserver.libinput.enable = true;
+  #services.xserver.libinput.enable = true;
 
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
