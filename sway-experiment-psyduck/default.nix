@@ -29,7 +29,7 @@
     tree
 
     (chromium.override {
-      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland"; # wayland
+      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu-memory-buffer-video-frames"; # wayland
     })
   ];
 
