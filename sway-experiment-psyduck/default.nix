@@ -7,6 +7,8 @@
     wayland = true;
   };
 
+  services.gnome3.gnome-keyring.enable = true;
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
@@ -17,6 +19,9 @@
       # theme
       adwaita-qt
       gnome3.adwaita-icon-theme
+
+      # networking
+      gnome3.networkmanagerapplet
     ];
   };
 

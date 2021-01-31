@@ -17,6 +17,8 @@
     audioIncrement = "10";
     smallAudioIncrement = "5";
 
+    nm-applet = "${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet";
+
     cut = "${pkgs.coreutils}/bin/cut";
     head = "${pkgs.coreutils}/bin/head";
     ls = "${pkgs.coreutils}/bin/ls";
@@ -37,6 +39,7 @@
 
       startup = [
         { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
+        { command = "${nm-applet} --indicator"; }
       ];
 
       keybindings =
