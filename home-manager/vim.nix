@@ -53,6 +53,7 @@
       nnoremap <leader>f :NERDTreeFocus<CR>
       nnoremap <leader>gg :Git<CR>
       nnoremap <leader>gp :Gpush<CR>
+      nnoremap <leader>gf :Gpull<CR>
       nnoremap <leader>p :CtrlP<CR>
     '';
   };
