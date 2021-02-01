@@ -29,11 +29,19 @@
   #
   # This should be considered temporary until the Sway environment is either
   # refactored into a broader config or killed.
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+  let
+    chromiumArgs = if config.networking.hostName == "psyduck"
+      # run in wayland + fix video playback (i think this makes it do cpu rendering)
+      then "--enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu-memory-buffer-video-frames"
+      # run in wayland
+      else "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+  in
+  with pkgs; [
     tree
 
     (chromium.override {
-      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland"; # wayland
+      commandLineArgs = chromiumArgs;
     })
   ];
 
