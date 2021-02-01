@@ -9,6 +9,9 @@
 
   services.gnome3.gnome-keyring.enable = true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
