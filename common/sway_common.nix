@@ -45,6 +45,8 @@
 
     virt-manager
 
+    pcmanfm
+
     (chromium.override {
       commandLineArgs = chromiumArgs;
     })
