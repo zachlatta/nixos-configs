@@ -43,6 +43,8 @@
   with pkgs; [
     tree
 
+    virt-manager
+
     (chromium.override {
       commandLineArgs = chromiumArgs;
     })
