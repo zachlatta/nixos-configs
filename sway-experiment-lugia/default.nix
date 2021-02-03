@@ -35,6 +35,13 @@
           pos = "1440 600";
         };
       };
+
+      input = {
+        "1133:16514:Logitech_MX_Master_3" = {
+          accel_profile = "adaptive";
+          pointer_accel = "0.25";
+        };
+      };
     };
   };
 }
