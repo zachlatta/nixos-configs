@@ -5,6 +5,8 @@
     swaymsg = "${pkgs.sway}/bin/swaymsg";
 
     alacritty = "${pkgs.alacritty}/bin/alacritty";
+    dolphin = "${pkgs.dolphin}/bin/dolphin";
+
     bemenu = "${pkgs.bemenu}/bin/bemenu";
     gtk-launch = "${pkgs.gnome3.gtk}/bin/gtk-launch";
     j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
@@ -48,7 +50,7 @@
       in
       lib.mkOptionDefault {
         "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser.desktop'";
-        "${mod}+Ctrl+Return" = "exec '${gtk-launch} roam-research-wayland.desktop'";
+        "${mod}+Shift+f" = "exec ${dolphin}";
 
         "XF86MonBrightnessUp" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
         "XF86MonBrightnessDown" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
