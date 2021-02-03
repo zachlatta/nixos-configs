@@ -7,10 +7,11 @@
     wayland = true;
   };
 
+  # use gnome keyring
   services.gnome3.gnome-keyring.enable = true;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  # use plasma5 applications (dolphin, keyring, etc). just make sure to log into sway session.
+  services.xserver.desktopManager.plasma5.enable = true;
 
   programs.sway = {
     enable = true;
@@ -46,6 +47,8 @@
     virt-manager
 
     pcmanfm
+
+    spotify
 
     (chromium.override {
       commandLineArgs = chromiumArgs;
