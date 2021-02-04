@@ -8,6 +8,7 @@
 
       /home/zrl/dev/nixos-configs/common/base.nix
 
+      /home/zrl/dev/nixos-configs/common/tailscale.nix
       /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
       /home/zrl/dev/nixos-configs/sway-experiment-psyduck
@@ -56,21 +57,6 @@
   # List services that you want to enable:
 
   services.openssh.enable = true;
-
-  # Enable Tailscale
-
-  services.tailscale.enable = true;
-  networking.firewall.allowedUDPPorts = [
-    config.services.tailscale.port # Tailscale
-  ];
-  networking.extraHosts =
-    ''
-      100.119.200.49 lugia
-      100.75.13.111 lugia-vm-media-server
-      100.72.172.50 lugia-vm-win10
-      100.113.168.2 iphone
-    '';
-
 
   fileSystems."/home/zrl/lugia" = {
     device = "lugia:/";
