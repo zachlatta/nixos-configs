@@ -8,8 +8,11 @@
     dolphin = "${pkgs.dolphin}/bin/dolphin";
 
     bemenu = "${pkgs.bemenu}/bin/bemenu";
+    grim = "${pkgs.grim}/bin/grim";
     gtk-launch = "${pkgs.gnome3.gtk}/bin/gtk-launch";
     j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
+    slurp = "${pkgs.slurp}/bin/slurp";
+    wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
     wob = "${pkgs.wob}/bin/wob";
 
     brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
@@ -21,7 +24,10 @@
 
     nm-applet = "${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet";
 
+    cat = "${pkgs.coreutils}/bin/cat";
     cut = "${pkgs.coreutils}/bin/cut";
+    date = "${pkgs.coreutils}/bin/date";
+    echo = "${pkgs.coreutils}/bin/echo";
     head = "${pkgs.coreutils}/bin/head";
     ls = "${pkgs.coreutils}/bin/ls";
     mkfifo = "${pkgs.coreutils}/bin/mkfifo";
@@ -51,6 +57,8 @@
       lib.mkOptionDefault {
         "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser.desktop'";
         "${mod}+Shift+f" = "exec ${dolphin}";
+
+        "${mod}+Shift+4" = ''exec OUTPUT=$HOME/Pictures/Screenshots/$(${date} +"%Y-%m-%d %H:%M:%S").png && ${grim} -g "$(${slurp})" "$OUTPUT" && cat "$OUTPUT" | ${wl-copy} --type image/png'';
 
         "XF86MonBrightnessUp" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
         "XF86MonBrightnessDown" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
