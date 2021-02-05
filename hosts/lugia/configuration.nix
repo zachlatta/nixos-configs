@@ -88,8 +88,6 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true; # But we don't open the port in the firewall, so only VPN can see it
 
