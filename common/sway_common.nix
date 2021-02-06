@@ -43,6 +43,7 @@
   in
   with pkgs; [
     tree
+    ripgrep
 
     virt-manager
 
