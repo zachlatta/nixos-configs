@@ -19,9 +19,6 @@
       #/home/zrl/dev/nixos-configs/common/plasma5.nix
     ];
 
-  # 32 cores, use up to 24 for builds
-  nix.buildCores = 24;
-
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
 
