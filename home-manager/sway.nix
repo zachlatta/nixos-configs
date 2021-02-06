@@ -13,7 +13,6 @@
     j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
     slurp = "${pkgs.slurp}/bin/slurp";
     wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-    wob = "${pkgs.wob}/bin/wob";
 
     brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
     brightnessIncrement = "8";
@@ -22,7 +21,9 @@
     audioIncrement = "10";
     smallAudioIncrement = "5";
 
+    jellyfin-mpv-shim = "${pkgs.jellyfin-mpv-shim}/bin/jellyfin-mpv-shim";
     nm-applet = "${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet";
+    wob = "${pkgs.wob}/bin/wob";
 
     cat = "${pkgs.coreutils}/bin/cat";
     cut = "${pkgs.coreutils}/bin/cut";
@@ -47,6 +48,7 @@
 
       startup = [
         { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
+        { command = "${jellyfin-mpv-shim}"; }
         { command = "${nm-applet} --indicator"; }
       ];
 
