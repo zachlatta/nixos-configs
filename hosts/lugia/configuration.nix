@@ -17,7 +17,10 @@
       /home/zrl/dev/nixos-configs/sway-experiment-lugia
 
       #/home/zrl/dev/nixos-configs/common/plasma5.nix
-    ];
+  ];
+
+  nix.maxJobs = 24;
+  nix.buildCores = 24;
 
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
