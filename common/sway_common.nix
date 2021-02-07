@@ -49,6 +49,7 @@
     pcmanfm
 
     spotify
+    zoom
 
     (chromium.override {
       commandLineArgs = chromiumArgs;
