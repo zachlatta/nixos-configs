@@ -11,12 +11,16 @@
 
       /home/zrl/dev/nixos-configs/common/base.nix
 
+      /home/zrl/dev/nixos-configs/common/tailscale.nix
       /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
       /home/zrl/dev/nixos-configs/sway-experiment-lugia
 
       #/home/zrl/dev/nixos-configs/common/plasma5.nix
-    ];
+  ];
+
+  nix.maxJobs = 24;
+  nix.buildCores = 24;
 
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
@@ -87,27 +91,14 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true; # But we don't open the port in the firewall, so only VPN can see it
-
-  # Tailscale networking / VPN.
-  services.tailscale.enable = true;
 
   # NFS share of home directory
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /home/zrl   100.99.132.36(rw,fsid=0,no_subtree_check)
+    /home/zrl   psyduck(rw,fsid=0,no_subtree_check)
   '';
-
-  # Open ports in the firewall.
-
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
-
-  networking.firewall.allowedUDPPorts = [
-    config.services.tailscale.port # Not necessarily needed for Tailscale, but it may help sometimes
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
