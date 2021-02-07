@@ -48,7 +48,7 @@
 
       startup = [
         { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
-        { command = "${jellyfin-mpv-shim}"; }
+        { command = "sleep 30 && ${jellyfin-mpv-shim}"; } # give jellyfin enough time to start up
         { command = "${nm-applet} --indicator"; }
       ];
 
