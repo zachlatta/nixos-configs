@@ -40,7 +40,8 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  #services.xserver.libinput.enable = true;
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
 
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
