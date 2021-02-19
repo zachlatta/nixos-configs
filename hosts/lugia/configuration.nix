@@ -14,9 +14,11 @@
       /home/zrl/dev/nixos-configs/common/tailscale.nix
       /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-      /home/zrl/dev/nixos-configs/sway-experiment-lugia
+      #/home/zrl/dev/nixos-configs/sway-experiment-lugia
 
-      #/home/zrl/dev/nixos-configs/common/plasma5.nix
+      /home/zrl/dev/nixos-configs/common/plasma5.nix
+
+      <home-manager/nixos>
   ];
 
   nix.maxJobs = 24;
@@ -107,4 +109,42 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
+
+  home-manager.users.zrl = { pkgs, config, ... }: {
+    home.packages = [ ];
+
+    programs.home-manager.enable = true;
+
+    imports = [
+      ../../home-manager
+    ];
+
+    wayland.windowManager.sway.config = {
+      modifier = "Mod4";
+
+      output = {
+        "*" = {
+          scale = "1.5";
+        };
+
+        "DP-2" = {
+          mode = "3840x2160@120Hz";
+          transform = "270";
+          pos = "0 0";
+        };
+
+        "DP-1" = {
+          mode = "3840x2160@144Hz";
+          pos = "1440 710";
+        };
+      };
+
+      input = {
+        "1133:16514:Logitech_MX_Master_3" = {
+          accel_profile = "adaptive";
+          pointer_accel = "0.25";
+        };
+      };
+    };
+  };
 }
