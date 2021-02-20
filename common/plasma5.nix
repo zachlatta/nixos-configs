@@ -19,6 +19,7 @@
     file
 
     wget
+    htop
     vim
     tree
     git
@@ -41,11 +42,13 @@
     celluloid
     krita
 
+    alacritty
+
     gparted
 
     snapper
 
-    tailscale
+    tdesktop
 
     # emacs + dependencies for doom
     emacs
