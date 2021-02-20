@@ -30,6 +30,11 @@
         "1:1:AT_Translated_Set_2_keyboard" = {
           xkb_options = "altwin:swap_lalt_lwin"; # swap windows key with left alt key
         };
+
+        # external logitech bluetooth keyboard at home
+        "1133:45890:Keyboard_K380_Keyboard" = {
+          xkb_options = "altwin:swap_lalt_lwin"; # swap windows key with left alt key
+        };
       };
     };
   };
