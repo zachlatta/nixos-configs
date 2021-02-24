@@ -5,6 +5,9 @@
   services.xserver.enable = true;
   services.xserver.dpi = 163;
 
+  # Enable Flatpak
+  services.flatpak.enable = true;
+
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -20,9 +23,11 @@
 
     wget
     htop
+    glances
     vim
     tree
     git
+
     youtube-dl
 
     okular
