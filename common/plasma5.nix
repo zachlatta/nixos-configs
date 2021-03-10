@@ -68,14 +68,17 @@
     # ln -s `nix-build '<nixpkgs>' -A obs-v4l2sink --no-out-link`/share/obs/obs-plugins/v4l2sink ~/.config/obs-studio/plugins/v4l2sink
     obs-studio
     obs-v4l2sink
+
+    barrier
   ];
+
+  # expose barrier in firewall
+  networking.firewall.allowedTCPPorts = [ 24800 ];
+  networking.firewall.allowedUDPPorts = [ 24800 ];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModprobeConfig = ''
     options v4l2loopback exclusive_caps=1 video_nr=9 card_label="obs"
   '';
-
-  # open port for spotify so it can sync with local devices on same network
-  networking.firewall.allowedTCPPorts = [ 57621 ];
 }
