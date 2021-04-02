@@ -11,7 +11,8 @@
       /home/zrl/dev/nixos-configs/common/tailscale.nix
       /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-      /home/zrl/dev/nixos-configs/sway-experiment-psyduck
+      #/home/zrl/dev/nixos-configs/sway-experiment-psyduck
+      /home/zrl/dev/nixos-configs/common/plasma5.nix
     ];
 
   # Enables CPU microcode updates
