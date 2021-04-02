@@ -8,6 +8,6 @@
     home = "/home/zrl";
     description = "Zach Latta";
     extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
 }

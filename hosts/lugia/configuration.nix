@@ -99,8 +99,23 @@
   # NFS share of home directory
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /home/zrl   psyduck(rw,fsid=0,no_subtree_check)
+    /home/zrl   psyduck(rw,fsid=0,no_subtree_check) abra(rw,insecure,no_subtree_check,sync,all_squash,anonuid=0,anongid=0)
   '';
+
+  # AFP share of home directory (for macOS)
+  services.netatalk = {
+    enable = true;
+    extraConfig = ''
+      mimic model = TimeCapsule6,106
+      log level = default:warn
+      log file = /var/log/afpd.log
+      hosts allow = abra
+
+      [lugia]
+      path = /home/zrl/
+      valid users = zrl
+    '';
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

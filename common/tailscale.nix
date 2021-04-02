@@ -12,5 +12,6 @@
       100.75.13.111 lugia-vm-media-server
       100.72.172.50 lugia-vm-win10
       100.113.168.2 iphone
+      100.89.29.120 abra
     '';
 }
