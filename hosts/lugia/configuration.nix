@@ -83,6 +83,8 @@
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
   boot.extraModprobeConfig = "options kvm_amd nested=1";
+  # And Docker!
+  virtualisation.docker.enable = true;
 
   # Use amdgpu drivers
   services.xserver.videoDrivers = [ "amdgpu" ];
