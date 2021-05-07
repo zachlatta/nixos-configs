@@ -4,6 +4,29 @@
     enable = true;
 
     settings = {
+      window.dimensions = {
+        lines = 24;
+        columns = 80;
+      };
+
+      key_bindings = [
+        {
+          key = "N";
+          mods = "Control";
+          action = "SpawnNewInstance";
+        }
+        {
+          key = "W";
+          mods = "Control";
+          action = "Quit";
+        }
+        {
+          key = "Q";
+          mods = "Control";
+          action = "Quit";
+        }
+      ];
+
       # Base16 Tomorrow Night 256 - alacritty color config
       # Chris Kempson (http://chriskempson.com)
       colors = {
