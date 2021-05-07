@@ -36,6 +36,7 @@
     ktorrent
 
     chromium
+    google-chrome
 
     slack
     blender
@@ -70,6 +71,7 @@
     obs-v4l2sink
 
     barrier
+    synergy
   ];
 
   # expose barrier in firewall
