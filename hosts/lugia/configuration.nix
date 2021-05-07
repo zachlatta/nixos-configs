@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      /home/zrl/dev/nixos-configs/hosts/lugia/intel_ax200_fix.nix
+
       /home/zrl/dev/nixos-configs/common/base.nix
 
       /home/zrl/dev/nixos-configs/common/tailscale.nix
