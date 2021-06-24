@@ -62,13 +62,7 @@
     coreutils
     fd
 
-    # obs + v4l2sink for virtual OBS webcam
-    #
-    # need to manually run the following after installing (apparently nixos doesn't support obs hooks or something)
-    #
-    # ln -s `nix-build '<nixpkgs>' -A obs-v4l2sink --no-out-link`/share/obs/obs-plugins/v4l2sink ~/.config/obs-studio/plugins/v4l2sink
     obs-studio
-    obs-v4l2sink
 
     barrier
     synergy
@@ -78,6 +72,7 @@
   networking.firewall.allowedTCPPorts = [ 24800 ];
   networking.firewall.allowedUDPPorts = [ 24800 ];
 
+  # obs v4l2sink for virtual OBS webcam
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModprobeConfig = ''
