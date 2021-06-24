@@ -4,6 +4,10 @@
     enable = true;
 
     settings = {
+      # this is needed to allow interactivity when SSHing into other
+      # machines, since they will not recognize Alacritty as a terminal
+      env.TERM = "xterm-256color";
+
       window.dimensions = {
         lines = 24;
         columns = 80;
@@ -14,11 +18,6 @@
           key = "N";
           mods = "Control";
           action = "SpawnNewInstance";
-        }
-        {
-          key = "W";
-          mods = "Control";
-          action = "Quit";
         }
         {
           key = "Q";
