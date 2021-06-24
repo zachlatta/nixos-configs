@@ -35,6 +35,7 @@
 
   networking.hostName = "lugia"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables NetworkManager to get us on the interwebz.
+  networking.firewall.trustedInterfaces = [ "enp4s0" ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -63,6 +64,11 @@
   # For network discovery of printers
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
+
+  # Broadcast ourselves so others can reach us with lugia.local
+  services.avahi.publish.enable = true;
+  services.avahi.publish.addresses = true;
+  services.avahi.publish.workstation = true;
 
   # Enable sound.
   sound.enable = true;
