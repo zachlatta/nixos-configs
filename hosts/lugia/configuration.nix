@@ -112,19 +112,31 @@
     /home/zrl   psyduck(rw,fsid=0,no_subtree_check) abra(rw,insecure,no_subtree_check,sync,all_squash,anonuid=0,anongid=0)
   '';
 
-  # AFP share of home directory (for macOS)
-  services.netatalk = {
+  # SMB share of home directory (for macOS too)
+  services.samba = {
     enable = true;
+    securityType = "user";
     extraConfig = ''
-      mimic model = TimeCapsule6,106
-      log level = default:warn
-      log file = /var/log/afpd.log
-      hosts allow = abra
-
-      [lugia]
-      path = /home/zrl/
-      valid users = zrl
+      workgroup = WORKGROUP
+      server string = lugia
+      server role = standalone server
+      netbios name = lugia
+      security = user
+      hosts allow = 100.89.29.120 localhost
+      hosts deny = 0.0.0.0/0
+      guest account = nobody
+      map to guest = bad user
     '';
+    shares = {
+      private = {
+        path = "/home/zrl";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default
