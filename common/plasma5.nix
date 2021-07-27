@@ -40,7 +40,7 @@
 
     slack
     blender
-    vscodium
+    vscode
     virt-manager
     spotify
     zoom-us
