@@ -71,8 +71,13 @@
   services.avahi.publish.workstation = true;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true; # recommended for pipewire
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
