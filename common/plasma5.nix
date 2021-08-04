@@ -41,12 +41,14 @@
     slack
     blender
     vscode
+    nixfmt # needed for vscode's nix extension
     virt-manager
     spotify
     zoom-us
     libreoffice
     celluloid
     krita
+    _1password-gui
 
     alacritty
 
@@ -66,6 +68,8 @@
 
     barrier
     synergy
+
+    calibre
   ];
 
   # expose barrier in firewall
