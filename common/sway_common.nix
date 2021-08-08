@@ -46,7 +46,6 @@
 
     pcmanfm
 
-    spotify
     zoom-us
 
     (chromium.override {
