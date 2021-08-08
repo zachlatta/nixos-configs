@@ -106,7 +106,6 @@
       audioIncrement = "10";
       smallAudioIncrement = "5";
 
-      jellyfin-mpv-shim = "${pkgs.jellyfin-mpv-shim}/bin/jellyfin-mpv-shim";
       nm-applet = "${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet";
       wob = "${pkgs.wob}/bin/wob";
 
@@ -153,7 +152,6 @@
 
         startup = [
           { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
-          { command = "sleep 30 && ${jellyfin-mpv-shim}"; } # give jellyfin enough time to start up
           { command = "${nm-applet} --indicator"; }
         ];
 
