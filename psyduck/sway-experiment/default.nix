@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../common/sway_common.nix
+    ../../common/sway_common.nix
 
     <home-manager/nixos>
   ];
@@ -13,7 +13,7 @@
     programs.home-manager.enable = true;
 
     imports = [
-      ../home-manager
+      ../../home-manager
     ];
 
     wayland.windowManager.sway.config = {
