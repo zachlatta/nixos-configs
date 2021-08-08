@@ -26,6 +26,10 @@
         }
       ];
 
+      font = {
+        size = 10;
+      };
+
       # Base16 Tomorrow Night 256 - alacritty color config
       # Chris Kempson (http://chriskempson.com)
       colors = {
