@@ -7,9 +7,6 @@
     wayland = true;
   };
 
-  # use gnome keyring
-  services.gnome3.gnome-keyring.enable = true;
-
   # use plasma5 applications (dolphin, keyring, etc). just make sure to log into sway session.
   services.xserver.desktopManager.plasma5.enable = true;
 
