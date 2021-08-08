@@ -167,7 +167,7 @@
     programs.home-manager.enable = true;
 
     imports = [
-      ../../home-manager
+      ../home-manager
     ];
 
     wayland.windowManager.sway.config = {
