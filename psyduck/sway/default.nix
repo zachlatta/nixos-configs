@@ -24,7 +24,8 @@
 
       # networking
       gnome3.networkmanagerapplet
-    ];
+    ] ++ builtins.filter lib.isDerivation (builtins.attrValues plasma5Packages.kdeGear)
+      ++ builtins.filter lib.isDerivation (builtins.attrValues plasma5Packages.kdeFrameworks);
   };
 
   # For the Sway environment, wanted packages go here.
