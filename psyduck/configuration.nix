@@ -11,6 +11,8 @@
       /home/zrl/dev/nixos-configs/common/tailscale.nix
       /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
+      /home/zrl/dev/nixos-configs/common/pokedex.nix
+
       /home/zrl/dev/nixos-configs/psyduck/sway
     ];
 
