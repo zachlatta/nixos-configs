@@ -1,9 +1,13 @@
 { pkgs, config, ... }:
+
+let
+  plugins = pkgs.vimPlugins // pkgs.callPackage ./vim/custom-plugins.nix {};
+in
 {
   programs.vim = {
     enable = true;
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with plugins; [
       base16-vim # theme
 
       vim-fugitive # git support
@@ -18,6 +22,8 @@
       vim-jsx-pretty
       vim-jsx-typescript
       vim-graphql
+
+      vim-esearch
     ];
 
     settings = {
