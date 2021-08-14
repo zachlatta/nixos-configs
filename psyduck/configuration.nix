@@ -65,9 +65,6 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-  services.tlp.enable = true; # laptop power management
-
   services.openssh.enable = true;
 
   fileSystems."/home/zrl/lugia" = {
