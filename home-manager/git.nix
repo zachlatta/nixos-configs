@@ -2,8 +2,19 @@
 {
   programs.git = {
     enable = true;
+
     userName = "Zach Latta";
     userEmail = "zach@zachlatta.com";
+
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+
+      pull = {
+        rebase = true;
+      };
+    };
 
     ignores = [
 # Vim files
