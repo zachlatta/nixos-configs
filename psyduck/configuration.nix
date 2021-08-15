@@ -54,6 +54,9 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
+  # Enable Docker
+  virtualisation.docker.enable = true;
+
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
