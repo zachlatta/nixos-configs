@@ -70,7 +70,7 @@
 
   services.openssh.enable = true;
 
-  fileSystems."/home/zrl/lugia" = {
+  fileSystems."/mnt/lugia" = {
     device = "lugia:/";
     fsType = "nfs";
     options = [
