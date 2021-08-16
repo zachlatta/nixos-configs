@@ -35,7 +35,6 @@
 
   networking.hostName = "lugia"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables NetworkManager to get us on the interwebz.
-  networking.firewall.trustedInterfaces = [ "enp4s0" ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
