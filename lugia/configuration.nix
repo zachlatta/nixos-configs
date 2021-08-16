@@ -18,8 +18,6 @@
 
       /home/zrl/dev/nixos-configs/common/pokedex.nix
 
-      #/home/zrl/dev/nixos-configs/sway-experiment-lugia
-
       /home/zrl/dev/nixos-configs/common/plasma5.nix
 
       <home-manager/nixos>
