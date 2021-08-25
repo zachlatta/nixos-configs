@@ -18,8 +18,6 @@
 
       /home/zrl/dev/nixos-configs/common/pokedex.nix
 
-      #/home/zrl/dev/nixos-configs/sway-experiment-lugia
-
       /home/zrl/dev/nixos-configs/common/plasma5.nix
 
       <home-manager/nixos>
@@ -37,7 +35,6 @@
 
   networking.hostName = "lugia"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables NetworkManager to get us on the interwebz.
-  networking.firewall.trustedInterfaces = [ "enp4s0" ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -146,14 +143,6 @@
     };
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
-
   home-manager.users.zrl = { pkgs, config, ... }: {
     home.packages = [ ];
 
@@ -162,33 +151,13 @@
     imports = [
       ../home-manager
     ];
-
-    wayland.windowManager.sway.config = {
-      modifier = "Mod4";
-
-      output = {
-        "*" = {
-          scale = "1.5";
-        };
-
-        "DP-2" = {
-          mode = "3840x2160@120Hz";
-          transform = "270";
-          pos = "0 0";
-        };
-
-        "DP-1" = {
-          mode = "3840x2160@144Hz";
-          pos = "1440 710";
-        };
-      };
-
-      input = {
-        "1133:16514:Logitech_MX_Master_3" = {
-          accel_profile = "adaptive";
-          pointer_accel = "0.25";
-        };
-      };
-    };
   };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "20.09"; # Did you read the comment?
 }

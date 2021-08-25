@@ -54,6 +54,9 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
+  # Enable Docker
+  virtualisation.docker.enable = true;
+
   # Enable virtualization
   virtualisation.libvirtd.enable = true;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
@@ -65,12 +68,9 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
-  services.tlp.enable = true; # laptop power management
-
   services.openssh.enable = true;
 
-  fileSystems."/home/zrl/lugia" = {
+  fileSystems."/mnt/lugia" = {
     device = "lugia:/";
     fsType = "nfs";
     options = [
