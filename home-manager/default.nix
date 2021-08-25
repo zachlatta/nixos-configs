@@ -6,5 +6,6 @@
     ./git.nix
     ./mako.nix
     ./vim.nix
+    ./vscode-server.nix
   ];
 }
