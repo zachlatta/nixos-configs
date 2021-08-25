@@ -37,6 +37,7 @@
 
     chromium
     google-chrome
+    vieb
 
     slack
     blender
