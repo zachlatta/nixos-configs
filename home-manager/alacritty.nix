@@ -8,9 +8,20 @@
       # machines, since they will not recognize Alacritty as a terminal
       env.TERM = "xterm-256color";
 
-      window.dimensions = {
-        lines = 24;
-        columns = 80;
+      window = {
+        dimensions = {
+          lines = 24;
+          columns = 80;
+        };
+
+        padding = {
+          x = 6;
+          y = 28;
+        };
+
+        dynamic_padding = true;
+
+        decorations = "Transparent";
       };
 
       key_bindings = [
