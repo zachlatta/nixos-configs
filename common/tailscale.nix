@@ -13,6 +13,7 @@
       100.72.172.50 lugia-vm-win10
       100.113.168.2 iphone
       100.89.29.120 abra
+      100.77.1.14 apps.slowking
       100.77.1.14 slowking
     '';
 }
