@@ -30,6 +30,10 @@
     permitRootLogin = "yes";
   };
 
+  users.extraUsers.root.openssh.authorizedKeys.keys = builtins.attrValues(import ../../common/ssh_keys.nix);
+
+  users.mutableUsers = false;
+
   environment.systemPackages = with pkgs; [
     vim
   ];
