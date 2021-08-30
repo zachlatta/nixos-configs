@@ -16,5 +16,6 @@
       100.77.1.14 apps.slowking
       100.77.1.14 slowking
       100.122.82.105 slowking-nixos
+      100.86.221.25 relay
     '';
 }
