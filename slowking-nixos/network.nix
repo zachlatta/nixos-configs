@@ -1,7 +1,7 @@
 {
   network.description = "slowking-nixos deployment at home with a public relay server";
 
-  "slowking-nixops" = { config, pkgs, lib, ... }:
+  "slowking-nixos" = { config, pkgs, lib, ... }:
   {
     deployment.targetUser = "root";
     deployment.targetHost = "slowking-nixos";
