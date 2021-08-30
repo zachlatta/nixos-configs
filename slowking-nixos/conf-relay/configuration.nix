@@ -5,7 +5,7 @@
 
     ../../common/tailscale.nix
 
-    ../conf/services/nginx.nix
+    ./nginx
   ];
 
   boot.cleanTmpDir = true;
