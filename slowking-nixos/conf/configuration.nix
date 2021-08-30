@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
 
       ../../common/tailscale.nix
+      ../../common/pokedex.nix
 
       # Services to run on machine
       ./services/nginx.nix
