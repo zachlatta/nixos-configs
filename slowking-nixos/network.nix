@@ -1,10 +1,10 @@
 {
-  network.description = "slowking-nixops host connection attempt";
+  network.description = "slowking-nixos deployment at home";
 
   "slowking-nixops" = { config, pkgs, lib, ... }:
   {
     deployment.targetUser = "root";
-    deployment.targetHost = "100.122.82.105";
+    deployment.targetHost = "slowking-nixos";
 
     imports = [ ./conf/configuration.nix ];
   };
