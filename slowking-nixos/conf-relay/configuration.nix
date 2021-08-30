@@ -21,7 +21,5 @@
     openFirewall = false; # do not open port 22 in the firewall
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSLDfNoAhyP89I99ZgepL6LiZE2jK6A4cqGR4CNceUb zrl@psyduck"
-  ];
+  users.users.root.openssh.authorizedKeys.keys = builtins.attrValues(import ../../common/ssh_keys.nix);
 }
