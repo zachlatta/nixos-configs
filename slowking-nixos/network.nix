@@ -9,6 +9,7 @@
     imports = [ ./conf/configuration.nix ];
   };
 
+  # hosted on vultr
   "relay" = { config, pkgs, lib, ... }:
   {
     deployment.targetUser = "root";
