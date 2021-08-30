@@ -16,12 +16,10 @@
 
         padding = {
           x = 6;
-          y = 28;
+          y = 3;
         };
 
         dynamic_padding = true;
-
-        decorations = "Transparent";
       };
 
       key_bindings = [
