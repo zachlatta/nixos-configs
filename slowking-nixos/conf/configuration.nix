@@ -18,7 +18,7 @@
   # QEMU / Synology Guest Agent since this is a VM
   services.qemuGuest.enable = true;
 
-  networking.hostName = "slowking-nixops";
+  networking.hostName = "slowking-nixos";
 
   time.timeZone = "America/New_York";
 
