@@ -18,7 +18,8 @@
 
       /home/zrl/dev/nixos-configs/common/pokedex.nix
 
-      /home/zrl/dev/nixos-configs/common/plasma5.nix
+      #/home/zrl/dev/nixos-configs/common/plasma5.nix
+      ./sway
 
       <home-manager/nixos>
   ];
