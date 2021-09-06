@@ -3,6 +3,6 @@
   services.nginx = {
     enable = true;
 
-    virtualHosts.default.locations."/".root = ./nginx;
+    virtualHosts.default.locations."/".root = ./public;
   };
 }

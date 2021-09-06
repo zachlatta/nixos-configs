@@ -9,7 +9,7 @@
       ../../common/pokedex.nix
 
       # Services to run on machine
-      ./services/nginx.nix
+      ./nginx
     ];
 
   boot.loader.systemd-boot.enable = true;
