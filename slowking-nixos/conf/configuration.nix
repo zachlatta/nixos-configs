@@ -10,6 +10,7 @@
 
       # Services to run on machine
       ./nginx
+      ./pokedex-local
     ];
 
   boot.loader.systemd-boot.enable = true;
