@@ -15,7 +15,7 @@
       forceSSL = true;
 
       locations."/" = {
-        proxyPass = "http://slowking:1337";
+        proxyPass = "http://slowking-nixos:1337";
         proxyWebsockets = true;
       };
     };
