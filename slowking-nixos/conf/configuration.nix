@@ -9,7 +9,8 @@
 
       # Services to run on machine
       ./nginx
-      ./pokedex-local
+      ./pokedex-local # nfs server
+      ./zachlatta.com
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -30,7 +31,7 @@
     permitRootLogin = "yes";
   };
 
-  users.extraUsers.root.openssh.authorizedKeys.keys = builtins.attrValues(import ../../common/ssh_keys.nix);
+  users.extraUsers.root.openssh.authorizedKeys.keys = builtins.attrValues(import ../../common/ssh_keys.nix) ++ (import ../common/github_actions_ssh_key.nix);
 
   users.mutableUsers = false;
 
