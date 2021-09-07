@@ -1,6 +1,6 @@
 { ... }:
 {
-  virtualisation.oci-containers.backend = "docker";
+  virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers = {
     "zachlatta.com" = {
       image = "zachlatta/zachlatta.com:latest";
