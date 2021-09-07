@@ -6,7 +6,7 @@
       image = "zachlatta/zachlatta.com:latest";
       ports = [ "1337:80" ];
       volumes = [
-        "/mnt/pokedex:/zachlatta.com/db"
+        "/mnt/pokedex/apps/zachlatta.com/db:/zachlatta.com/db"
       ];
     };
   };
