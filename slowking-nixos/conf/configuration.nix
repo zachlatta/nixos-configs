@@ -11,6 +11,7 @@
       ./nginx
       ./pokedex-local # nfs server
       ./zachlatta.com
+      ./ftp
     ];
 
   boot.loader.systemd-boot.enable = true;
