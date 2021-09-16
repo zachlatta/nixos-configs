@@ -7,6 +7,7 @@ let
     [ "slack" "https://hackclub.slack.com/" ]
   ];
 in
+with builtins;
 {
   services.nginx.enable = true;
 
@@ -22,13 +23,13 @@ in
   #   };
   #   ...and so on, for each element
   # };
-  services.nginx.virtualHosts = builtins.listToAttrs (map (link:
+  services.nginx.virtualHosts = listToAttrs (map (link:
     {
-      name = "${builtins.elemAt link 0}";
+      name = "${elemAt link 0}";
       value = {
         locations = {
           "/" = {
-            return = "302 ${builtins.elemAt link 1}";
+            return = "302 ${elemAt link 1}";
           };
         };
       };
@@ -37,5 +38,5 @@ in
 
 
   # this create an entry like `127.0.0.1 pokedex` for each item in links
-  networking.extraHosts = builtins.concatStringsSep "\n" (map (link: "127.0.0.1 ${builtins.elemAt link 0}") links);
+  networking.extraHosts = concatStringsSep "\n" (map (link: "127.0.0.1 ${elemAt link 0}") links);
 }
