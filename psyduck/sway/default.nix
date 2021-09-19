@@ -131,14 +131,6 @@
           "*" = {
             scale = "1.5";
           };
-
-          "eDP-1" = {
-            pos = "0 480";
-          };
-
-          "DP-1" = {
-            pos = "1706 0";
-          };
         };
 
         input = {
@@ -184,6 +176,33 @@
         # Cursor
         seat seat0 xcursor_theme Adwaita 24
       '';
+    };
+
+    services.kanshi = {
+      enable = true;
+
+      profiles = {
+        undocked = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+            }
+          ];
+        };
+
+        docked = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              position = "0,480";
+            }
+            {
+              criteria = "Unknown U2790B 0x0000B397";
+              position = "1706,0";
+            }
+          ];
+        };
+      };
     };
   };
 }
