@@ -17,6 +17,7 @@
       /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
       /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
+      /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
       #/home/zrl/dev/nixos-configs/common/plasma5.nix
       ./sway
