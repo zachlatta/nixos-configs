@@ -8,6 +8,7 @@ let
     [ "slack" "https://hackclub.slack.com/" ]
     [ "hm-config" "https://rycee.gitlab.io/home-manager/options.html" ]
     [ "nixos-config" "https://search.nixos.org/options" ]
+    [ "nixos-pkgs" "https://search.nixos.org/packages" ]
   ];
 
   shortlinksIndexName = "shortlinks";
