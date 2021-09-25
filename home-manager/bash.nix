@@ -12,6 +12,11 @@
 
   programs.direnv = {
     enable = true;
+
+    enableBashIntegration = true;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
+
     nix-direnv.enable = true;
   };
 }
