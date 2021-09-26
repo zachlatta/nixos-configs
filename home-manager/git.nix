@@ -39,6 +39,12 @@ tags
 # Persistent undo
 [._]*.un~
 ''
+
+# direnv cache directories
+''.direnv/''
+
+# we never want .env committed
+''.env''
     ];
   };
 }
