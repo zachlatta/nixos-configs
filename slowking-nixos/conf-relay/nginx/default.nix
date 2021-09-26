@@ -19,6 +19,15 @@
         proxyWebsockets = true;
       };
     };
+
+    virtualHosts."www.zachlatta.com" = {
+      enableACME = true;
+      forceSSL = true;
+
+      locations."/" = {
+        return = "302 https://zachlatta.com/";
+      };
+    };
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
