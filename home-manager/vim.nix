@@ -22,6 +22,7 @@ in
       vim-jsx-pretty
       vim-jsx-typescript
       vim-graphql
+      dhall-vim
 
       vim-esearch
     ];
