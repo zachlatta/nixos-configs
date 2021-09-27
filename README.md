@@ -1,4 +1,4 @@
-# `nixos-configs` / dotfiles
+# `latta-linux` / `nixos-configs` / dotfiles
 
 As I try out NixOS as my main OS, I'm having my NixOS configs take over my dotfiles. Format of repository inspired by https://github.com/Xe/nixos-configs.
 
