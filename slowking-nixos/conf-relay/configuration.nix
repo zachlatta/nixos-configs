@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   imports = [
     ./hardware-configuration.nix
 
@@ -21,5 +20,7 @@
     openFirewall = false; # do not open port 22 in the firewall
   };
 
-  users.users.root.openssh.authorizedKeys.keys = builtins.attrValues(import ../../common/ssh_keys.nix) ++ (import ../common/github_actions_ssh_key.nix);
+  users.users.root.openssh.authorizedKeys.keys =
+    builtins.attrValues (import ../../common/ssh_keys.nix)
+    ++ (import ../common/github_actions_ssh_key.nix);
 }

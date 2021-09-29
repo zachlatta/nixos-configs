@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   services.vsftpd = {
     enable = true;
 
@@ -8,11 +7,11 @@
     anonymousUploadEnable = true;
     anonymousMkdirEnable = true;
     extraConfig = ''
-anon_mkdir_write_enable=YES
-anon_other_write_enable=YES
+      anon_mkdir_write_enable=YES
+      anon_other_write_enable=YES
 
-delete_failed_uploads=YES
-    '';
+      delete_failed_uploads=YES
+          '';
 
     localUsers = false;
 

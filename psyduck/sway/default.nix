@@ -1,9 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    <home-manager/nixos>
-  ];
+  imports = [ <home-manager/nixos> ];
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm = {
@@ -14,29 +12,31 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [
-      wl-clipboard # make wl-copy and wl-paste available in session
-      mako # notification daemon
+    extraPackages = with pkgs;
+      [
+        wl-clipboard # make wl-copy and wl-paste available in session
+        mako # notification daemon
 
-      # theme
-      adwaita-qt
-      gnome3.adwaita-icon-theme
+        # theme
+        adwaita-qt
+        gnome3.adwaita-icon-theme
 
-      # networking
-      gnome3.networkmanagerapplet
-    ] ++ builtins.filter lib.isDerivation (builtins.attrValues plasma5Packages.kdeGear)
-      ++ builtins.filter lib.isDerivation (builtins.attrValues plasma5Packages.kdeFrameworks);
+        # networking
+        gnome3.networkmanagerapplet
+      ] ++ builtins.filter lib.isDerivation
+      (builtins.attrValues plasma5Packages.kdeGear)
+      ++ builtins.filter lib.isDerivation
+      (builtins.attrValues plasma5Packages.kdeFrameworks);
   };
 
   # For the Sway environment, wanted packages go here.
   #
   # This should be considered temporary until the Sway environment is either
   # refactored into a broader config or killed.
-  environment.systemPackages =
-  let
-    chromiumArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
-  in
-  with pkgs; [
+  environment.systemPackages = let
+    chromiumArgs =
+      "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+  in with pkgs; [
     arandr
 
     tree
@@ -48,9 +48,7 @@
 
     zoom-us
 
-    (chromium.override {
-      commandLineArgs = chromiumArgs;
-    })
+    (chromium.override { commandLineArgs = chromiumArgs; })
   ];
 
   # FONTS
@@ -82,12 +80,9 @@
 
     programs.home-manager.enable = true;
 
-    imports = [
-      ../../home-manager
-    ];
+    imports = [ ../../home-manager ];
 
-    wayland.windowManager.sway =
-    let
+    wayland.windowManager.sway = let
       swaymsg = "${pkgs.sway}/bin/swaymsg";
 
       alacritty = "${pkgs.alacritty}/bin/alacritty";
@@ -120,23 +115,19 @@
       sed = "${pkgs.gnused}/bin/sed";
       sh = "${pkgs.bash}/bin/sh";
       tail = "${pkgs.coreutils}/bin/tail";
-    in
-    {
+    in {
       enable = true;
 
       config = {
         modifier = "Mod4";
 
-        output = {
-          "*" = {
-            scale = "1.5";
-          };
-        };
+        output = { "*" = { scale = "1.5"; }; };
 
         input = {
           # built-in laptop keyboard
           "1:1:AT_Translated_Set_2_keyboard" = {
-            xkb_options = "altwin:swap_lalt_lwin"; # swap windows key with left alt key
+            xkb_options =
+              "altwin:swap_lalt_lwin"; # swap windows key with left alt key
           };
         };
 
@@ -144,32 +135,43 @@
 
         # j4-dmenu-desktop needs to be wrapped with bash to properly launch
         # programs when fish is set as the default shell
-        menu = "SHELL=${sh} ${j4-dmenu-desktop} --dmenu='${bemenu} -i -m all' --term=${alacritty}";
+        menu =
+          "SHELL=${sh} ${j4-dmenu-desktop} --dmenu='${bemenu} -i -m all' --term=${alacritty}";
 
         startup = [
-          { command = "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}"; }
+          {
+            command =
+              "${mkfifo} $SWAYSOCK.wob && ${tail} -f $SWAYSOCK.wob | ${wob}";
+          }
           { command = "${nm-applet} --indicator"; }
         ];
 
         keybindings =
-        let
-          mod = config.wayland.windowManager.sway.config.modifier;
-        in
-        lib.mkOptionDefault {
-          "${mod}+Shift+Return" = "exec '${gtk-launch} chromium-browser.desktop'";
-          "${mod}+Shift+f" = "exec ${dolphin}";
+          let mod = config.wayland.windowManager.sway.config.modifier;
+          in lib.mkOptionDefault {
+            "${mod}+Shift+Return" =
+              "exec '${gtk-launch} chromium-browser.desktop'";
+            "${mod}+Shift+f" = "exec ${dolphin}";
 
-          "${mod}+Shift+4" = ''exec OUTPUT=$HOME/Pictures/Screenshots/$(${date} +"%Y-%m-%d %H:%M:%S").png && ${grim} -g "$(${slurp})" "$OUTPUT" && cat "$OUTPUT" | ${wl-copy} --type image/png'';
+            "${mod}+Shift+4" = ''
+              exec OUTPUT=$HOME/Pictures/Screenshots/$(${date} +"%Y-%m-%d %H:%M:%S").png && ${grim} -g "$(${slurp})" "$OUTPUT" && cat "$OUTPUT" | ${wl-copy} --type image/png'';
 
-          "XF86MonBrightnessUp" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
-          "XF86MonBrightnessDown" = ''exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+            "XF86MonBrightnessUp" = ''
+              exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%+ && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
+            "XF86MonBrightnessDown" = ''
+              exec "${ls} /sys/class/backlight/ | xargs -n1 -I{} ${brightnessctl} --device={} -e set ${brightnessIncrement}%- && ${brightnessctl} -m | ${cut} -f4 -d, | ${head} -n 1 | ${sed} 's/%//' > $SWAYSOCK.wob"'';
 
-          "XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
-          "Shift+XF86AudioRaiseVolume" = "exec '${pamixer} -ui ${smallAudioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
-          "XF86AudioLowerVolume" = "exec '${pamixer} -ud ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
-          "Shift+XF86AudioLowerVolume" = "exec '${pamixer} -ud ${smallAudioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
-          "XF86AudioMute" = "exec ${pamixer} --toggle-mute && ( ${pamixer} --get-mute && echo 0 > $SWAYSOCK.wob ) || ${pamixer} --get-volume > $SWAYSOCK.wob";
-        };
+            "XF86AudioRaiseVolume" =
+              "exec '${pamixer} -ui ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
+            "Shift+XF86AudioRaiseVolume" =
+              "exec '${pamixer} -ui ${smallAudioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
+            "XF86AudioLowerVolume" =
+              "exec '${pamixer} -ud ${audioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
+            "Shift+XF86AudioLowerVolume" =
+              "exec '${pamixer} -ud ${smallAudioIncrement} && ${pamixer} --get-volume > $SWAYSOCK.wob'";
+            "XF86AudioMute" =
+              "exec ${pamixer} --toggle-mute && ( ${pamixer} --get-mute && echo 0 > $SWAYSOCK.wob ) || ${pamixer} --get-volume > $SWAYSOCK.wob";
+          };
       };
 
       extraConfig = ''
@@ -182,13 +184,7 @@
       enable = true;
 
       profiles = {
-        undocked = {
-          outputs = [
-            {
-              criteria = "eDP-1";
-            }
-          ];
-        };
+        undocked = { outputs = [{ criteria = "eDP-1"; }]; };
 
         docked = {
           outputs = [

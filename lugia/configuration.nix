@@ -5,24 +5,23 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      /home/zrl/dev/nixos-configs/lugia/intel_ax200_fix.nix
+    /home/zrl/dev/nixos-configs/lugia/intel_ax200_fix.nix
 
-      /home/zrl/dev/nixos-configs/common/base.nix
+    /home/zrl/dev/nixos-configs/common/base.nix
 
-      /home/zrl/dev/nixos-configs/common/tailscale.nix
-      /home/zrl/dev/nixos-configs/common/zrl_user.nix
+    /home/zrl/dev/nixos-configs/common/tailscale.nix
+    /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-      /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
-      /home/zrl/dev/nixos-configs/common/shortlinks.nix
+    /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
+    /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
-      #/home/zrl/dev/nixos-configs/common/plasma5.nix
-      ./sway
+    #/home/zrl/dev/nixos-configs/common/plasma5.nix
+    ./sway
 
-      <home-manager/nixos>
+    <home-manager/nixos>
   ];
 
   nix.maxJobs = 24;
@@ -36,7 +35,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "lugia"; # Define your hostname.
-  networking.networkmanager.enable = true; # Enables NetworkManager to get us on the interwebz.
+  networking.networkmanager.enable =
+    true; # Enables NetworkManager to get us on the interwebz.
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -84,12 +84,11 @@
   hardware.bluetooth.enable = true;
 
   # Make external monitors show up in /sys/class/backlight/ for brightness control
-  environment.systemPackages = with pkgs; [
-    linuxPackages.ddcci-driver # external monitor brightness control (makes external devices show up in /sys/class/backlight/)
-  ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    ddcci-driver
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      linuxPackages.ddcci-driver # external monitor brightness control (makes external devices show up in /sys/class/backlight/)
+    ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
   boot.kernelModules = [ "ddcci" ];
 
   # Enable virtualization
@@ -110,7 +109,8 @@
   };
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true; # But we don't open the port in the firewall, so only VPN can see it
+  services.openssh.enable =
+    true; # But we don't open the port in the firewall, so only VPN can see it
 
   # NFS share of home directory
   services.nfs.server.enable = true;
@@ -150,9 +150,7 @@
 
     programs.home-manager.enable = true;
 
-    imports = [
-      ../home-manager
-    ];
+    imports = [ ../home-manager ];
   };
 
   # This value determines the NixOS release from which the default

@@ -1,13 +1,10 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.bash = {
     enable = true;
 
     enableVteIntegration = true;
 
-    sessionVariables = {
-      EDITOR = "vim";
-    };
+    sessionVariables = { EDITOR = "vim"; };
   };
 
   programs.direnv = {

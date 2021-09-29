@@ -9,6 +9,6 @@
 
     extraGroups = [ "wheel" "networkmanager" "libvirtd" "docker" ];
 
-    openssh.authorizedKeys.keys = builtins.attrValues(import ./ssh_keys.nix);
+    openssh.authorizedKeys.keys = builtins.attrValues (import ./ssh_keys.nix);
   };
 }

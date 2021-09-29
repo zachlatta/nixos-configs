@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   services.nginx = {
     enable = true;
 
@@ -24,9 +23,7 @@
       enableACME = true;
       forceSSL = true;
 
-      locations."/" = {
-        return = "302 https://zachlatta.com/";
-      };
+      locations."/" = { return = "302 https://zachlatta.com/"; };
     };
   };
 

@@ -1,18 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
 
-      ../../common/tailscale.nix
+    ../../common/tailscale.nix
 
-      # Services to run on machine
-      ./nginx
-      ./pokedex-local # nfs server
-      ./zachlatta.com
-      ./ftp
-    ];
+    # Services to run on machine
+    ./nginx
+    ./pokedex-local # nfs server
+    ./zachlatta.com
+    ./ftp
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -32,13 +31,13 @@
     permitRootLogin = "yes";
   };
 
-  users.extraUsers.root.openssh.authorizedKeys.keys = builtins.attrValues(import ../../common/ssh_keys.nix) ++ (import ../common/github_actions_ssh_key.nix);
+  users.extraUsers.root.openssh.authorizedKeys.keys =
+    builtins.attrValues (import ../../common/ssh_keys.nix)
+    ++ (import ../common/github_actions_ssh_key.nix);
 
   users.mutableUsers = false;
 
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  environment.systemPackages = with pkgs; [ vim ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

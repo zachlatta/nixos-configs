@@ -5,8 +5,7 @@
 # So, as a hack, I'm connecting to slowking's pokedex NFS share using
 # slowking.local and then running an NFS server that authorizes Tailscale
 # traffic from slowking-nixos.
-{ ... }:
-{
+{ ... }: {
   services.avahi = {
     enable = true;
     nssmdns = true;

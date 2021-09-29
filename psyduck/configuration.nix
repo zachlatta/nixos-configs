@@ -1,21 +1,20 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      /home/zrl/dev/nixos-configs/common/base.nix
+    /home/zrl/dev/nixos-configs/common/base.nix
 
-      /home/zrl/dev/nixos-configs/common/tailscale.nix
-      /home/zrl/dev/nixos-configs/common/zrl_user.nix
+    /home/zrl/dev/nixos-configs/common/tailscale.nix
+    /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-      /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
-      /home/zrl/dev/nixos-configs/common/shortlinks.nix
+    /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
+    /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
-      /home/zrl/dev/nixos-configs/psyduck/sway
-    ];
+    /home/zrl/dev/nixos-configs/psyduck/sway
+  ];
 
   # Enables CPU microcode updates
   hardware.cpu.intel.updateMicrocode = true;

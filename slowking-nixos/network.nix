@@ -1,8 +1,8 @@
 {
-  network.description = "slowking-nixos deployment at home with a public relay server";
+  network.description =
+    "slowking-nixos deployment at home with a public relay server";
 
-  "slowking-nixos" = { config, pkgs, lib, ... }:
-  {
+  "slowking-nixos" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
     deployment.targetHost = "slowking-nixos";
 
@@ -10,8 +10,7 @@
   };
 
   # hosted on vultr
-  "relay" = { config, pkgs, lib, ... }:
-  {
+  "relay" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
     deployment.targetHost = "relay";
 
