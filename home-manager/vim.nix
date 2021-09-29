@@ -70,7 +70,7 @@ nnoremap <leader>gf :Git pull<CR>
 nnoremap <leader>p :CtrlP<CR>
 
 " run dhall format automatically on save
-autocmd bufwritepost *.dhall silent !${dhall}/bin/dhall format %
+autocmd bufwritepost *.dhall silent !${dhall}/bin/dhall format % 2> /dev/null
 '';
   };
 }
