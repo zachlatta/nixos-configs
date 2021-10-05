@@ -72,7 +72,7 @@ in {
       autocmd bufwritepost *.dhall silent !${dhall}/bin/dhall format % 2> /dev/null
 
       " run nixfmt on save
-      autocmd bufwritepost *nix silent !${nixfmt}/bin/nixfmt --width=80 %
+      autocmd bufwritepost *nix silent !${nixfmt}/bin/nixfmt --width=80 % 2> /dev/null
     '';
   };
 }
