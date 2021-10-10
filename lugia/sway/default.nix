@@ -122,7 +122,7 @@
         modifier = "Mod4";
 
         output = {
-          "*" = { scale = "1.3"; };
+          "*" = { scale = "1.25"; };
 
           "DP-3" = {
             adaptive_sync = "on";

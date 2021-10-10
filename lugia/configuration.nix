@@ -19,6 +19,7 @@
     /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
     #/home/zrl/dev/nixos-configs/common/plasma5.nix
+    ./gpu-passthrough-vm
     ./sway
 
     <home-manager/nixos>
@@ -29,6 +30,8 @@
 
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
+
+  hardware.i2c.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -45,8 +48,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
-  networking.interfaces.wlp5s0.useDHCP = true;
+  networking.interfaces.enp5s0.useDHCP = true;
+  #networking.interfaces.wlp6s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -92,8 +95,9 @@
   boot.kernelModules = [ "ddcci" ];
 
   # Enable virtualization
-  virtualisation.libvirtd.enable = true;
   boot.extraModprobeConfig = "options kvm_amd nested=1";
+  virtualisation.libvirtd.enable = true;
+
   # And Docker!
   virtualisation.docker.enable = true;
 
