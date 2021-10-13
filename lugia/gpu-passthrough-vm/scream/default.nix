@@ -6,15 +6,13 @@
     enable = true;
     description = "Scream";
     serviceConfig = {
-      ExecStart = "${pkgs.scream}/bin/scream -i virbr0";
+      ExecStart = "${pkgs.scream}/bin/scream -i virbr0 -o alsa";
       Restart = "always";
     };
     wantedBy = [ "default.target" ];
-    after = [ "pipewire-pulse.service" ];
-    wants = [ "pipewire-pulse.service" ];
+    after = [ "pipewire.service" ];
+    wants = [ "pipewire.service" ];
   };
 
-  networking.firewall.trustedInterfaces = [
-    "virbr0"
-  ]; # TODO consider changing to just trusting the UDP traffic for scream on this interface
+  networking.firewall.interfaces.virbr0.allowedUDPPorts = [ 4010 ];
 }
