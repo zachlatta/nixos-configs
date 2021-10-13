@@ -1,16 +1,19 @@
 { stdenv, lib, fetchFromGitHub, fetchpatch, makeDesktopItem, cmake, pkg-config
 , SDL, SDL2_ttf, freefont_ttf, spice-protocol, nettle, libbfd, fontconfig, libXi
 , libXScrnSaver, libXinerama, libxkbcommon, libXcursor, libXpresent, wayland
-, wayland-protocols }:
+, wayland-protocols,
+
+# package customization
+commandLineArgs ? "", runInTerminal ? true }:
 
 let
   desktopItem = makeDesktopItem {
     name = "looking-glass-client";
     desktopName = "Looking Glass Client";
     type = "Application";
-    exec = "looking-glass-client";
+    exec = "looking-glass-client ${commandLineArgs}";
     icon = "lg-logo";
-    terminal = true;
+    terminal = runInTerminal;
   };
   commit = "e914e56c48e2cb39f87e5927492761de8dec95be";
   sha256 = "0vy2r1g7xl1n7m417f8gciwns76pqcwrqbbzm87wx7q982gpai2b";

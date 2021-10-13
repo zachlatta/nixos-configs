@@ -7,5 +7,10 @@ in {
   systemd.tmpfiles.rules =
     [ "f /dev/shm/looking-glass 0660 zrl qemu-libvirtd -" ];
 
-  environment.systemPackages = [ looking-glass-client-git ];
+  environment.systemPackages = [
+    (looking-glass-client-git.override {
+      commandLineArgs = "-f /dev/shm/looking-glass -p 5900 -m 107";
+      runInTerminal = false;
+    })
+  ];
 }
