@@ -1,6 +1,10 @@
 # Passthrough of audio from Windows VM -> Linux environment
 #
 # Requires Scream to be instaled and running in Windows VM.
+#
+# TODO: Audio has seemed to stop working. I am not sure why. Need to
+# investigate and fix. I can see the packets being sent with tcpdump, but the
+# Scream client cannot seem to see and process them.
 { pkgs, ... }: {
   systemd.user.services.scream = {
     enable = true;
@@ -14,5 +18,6 @@
     wants = [ "pipewire.service" ];
   };
 
-  networking.firewall.interfaces.virbr0.allowedUDPPorts = [ 4010 ];
+  # TODO look into narrowing this permission in the future
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
 }
