@@ -126,7 +126,7 @@
         output = {
           "*" = { scale = "1.25"; };
 
-          "DP-3" = {
+          "DP-1" = {
             adaptive_sync = "on";
             mode = "3840x2160@119.999Hz";
           };
