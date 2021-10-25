@@ -22,6 +22,15 @@
     done
 
     modprobe -i vfio-pci
+
+    # from https://forums.unraid.net/topic/83680-solved-nvidia-gpu-pass-through-via-rom-edit-method/?do=findComment&comment=775838
+    #
+    # fixes: "vfio-pci 0000:0c:00.0: BAR 1: can't reserve [mem
+    # 0xb0000000-0xbfffffff 64bit pref]" error preventing video from being
+    # loaded in vm
+    echo 0 > /sys/class/vtconsole/vtcon0/bind
+    echo 0 > /sys/class/vtconsole/vtcon1/bind
+    echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
   '';
 
   boot.kernelParams = [ "amd_iommu=on" "pcie_aspm=off" ];
