@@ -9,7 +9,8 @@ in {
 
   environment.systemPackages = [
     (looking-glass-client-git.override {
-      commandLineArgs = "-f /dev/shm/looking-glass -p 5900 -m 107";
+      commandLineArgs =
+        "-f /dev/shm/looking-glass -p 5900 -m 107 -input:mouseSens -9";
       runInTerminal = false;
     })
   ];
