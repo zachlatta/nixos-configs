@@ -14,10 +14,13 @@
 
   boot.initrd.availableKernelModules = [ "amdgpu" "vfio-pci" ];
   boot.initrd.preDeviceCommands = ''
+    # PCI devices to not load and use vfio-pci insted for
     DEVS="0000:0c:00.0 0000:0c:00.1"
+
     for DEV in $DEVS; do
-    echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+      echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
     done
+
     modprobe -i vfio-pci
   '';
 
