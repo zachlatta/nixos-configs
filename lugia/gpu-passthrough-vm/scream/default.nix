@@ -5,19 +5,23 @@
 # TODO: Audio has seemed to stop working. I am not sure why. Need to
 # investigate and fix. I can see the packets being sent with tcpdump, but the
 # Scream client cannot seem to see and process them.
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let interface = "br0";
+in {
   systemd.user.services.scream = {
     enable = true;
     description = "Scream";
+
     serviceConfig = {
-      ExecStart = "${pkgs.scream}/bin/scream -i virbr0 -o alsa";
+      ExecStart = "${pkgs.scream}/bin/scream -i ${interface} -o alsa";
       Restart = "always";
     };
-    wantedBy = [ "default.target" ];
+
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+
     after = [ "pipewire.service" ];
-    wants = [ "pipewire.service" ];
   };
 
-  # TODO look into narrowing this permission in the future
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
+  networking.firewall.interfaces."${interface}".allowedUDPPorts = [ 4010 ];
 }
