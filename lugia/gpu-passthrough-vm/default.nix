@@ -15,7 +15,8 @@
   boot.initrd.availableKernelModules = [ "amdgpu" "vfio-pci" ];
   boot.initrd.preDeviceCommands = ''
     # PCI devices to not load and use vfio-pci insted for
-    DEVS="0000:0c:00.0 0000:0c:00.1"
+    #     gpu          gpu audio    nvme ssd
+    DEVS="0000:0d:00.0 0000:0d:00.1 0000:01:00.0"
 
     for DEV in $DEVS; do
       echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
@@ -25,7 +26,7 @@
 
     # from https://forums.unraid.net/topic/83680-solved-nvidia-gpu-pass-through-via-rom-edit-method/?do=findComment&comment=775838
     #
-    # fixes: "vfio-pci 0000:0c:00.0: BAR 1: can't reserve [mem
+    # fixes: "vfio-pci 0000:0d:00.0: BAR 1: can't reserve [mem
     # 0xb0000000-0xbfffffff 64bit pref]" error preventing video from being
     # loaded in vm
     echo 0 > /sys/class/vtconsole/vtcon0/bind
