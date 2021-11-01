@@ -138,6 +138,10 @@
             xkb_options =
               "altwin:swap_lalt_lwin"; # swap windows key with left alt key
           };
+
+          "5426:123:Razer_Razer_Viper_Ultimate_Dongle" = {
+            pointer_accel = "-1.0";
+          };
         };
 
         terminal = "${alacritty}";
