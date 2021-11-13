@@ -15,8 +15,8 @@
   boot.initrd.availableKernelModules = [ "amdgpu" "vfio-pci" ];
   boot.initrd.preDeviceCommands = ''
     # PCI devices to not load and use vfio-pci insted for
-    #     gpu          gpu audio    nvme ssd
-    DEVS="0000:0d:00.0 0000:0d:00.1 0000:01:00.0"
+    #     gpu          gpu audio    nvme ssd     usb controller to pass through
+    DEVS="0000:0d:00.0 0000:0d:00.1 0000:01:00.0 0000:0f:00.3"
 
     for DEV in $DEVS; do
       echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
