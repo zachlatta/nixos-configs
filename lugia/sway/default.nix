@@ -124,7 +124,7 @@
         modifier = "Mod4";
 
         output = {
-          "*" = { scale = "1.25"; };
+          "*" = { scale = "1.5"; };
 
           "DP-1" = {
             adaptive_sync = "on";
@@ -140,7 +140,7 @@
           };
 
           "5426:123:Razer_Razer_Viper_Ultimate_Dongle" = {
-            pointer_accel = "-1.0";
+            pointer_accel = "-0.7";
           };
         };
 
