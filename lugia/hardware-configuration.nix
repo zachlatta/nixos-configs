@@ -22,10 +22,10 @@
     fsType = "vfat";
   };
 
-  fileSystems."/home/zrl/.media" = {
-    device = "/dev/disk/by-uuid/54e28ce2-633f-4b7d-a81b-46af5c256efd";
-    fsType = "btrfs";
-  };
+  #fileSystems."/home/zrl/.media" = {
+  #  device = "/dev/disk/by-uuid/54e28ce2-633f-4b7d-a81b-46af5c256efd";
+  #  fsType = "btrfs";
+  #};
 
   swapDevices = [ ];
 
