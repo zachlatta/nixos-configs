@@ -122,39 +122,6 @@
   services.openssh.enable =
     true; # But we don't open the port in the firewall, so only VPN can see it
 
-  # NFS share of home directory
-  services.nfs.server.enable = true;
-  services.nfs.server.exports = ''
-    /home/zrl   psyduck(rw,fsid=0,no_subtree_check) abra(rw,insecure,no_subtree_check,sync,all_squash,anonuid=0,anongid=0)
-  '';
-
-  # SMB share of home directory (for macOS too)
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = lugia
-      server role = standalone server
-      netbios name = lugia
-      security = user
-      hosts allow = 100.89.29.120 localhost
-      hosts deny = 0.0.0.0/0
-      guest account = nobody
-      map to guest = bad user
-    '';
-    shares = {
-      private = {
-        path = "/home/zrl";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-      };
-    };
-  };
-
   home-manager.users.zrl = { pkgs, config, ... }: {
     home.packages = [ ];
 
