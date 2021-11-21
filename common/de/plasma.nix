@@ -18,18 +18,6 @@
   environment.systemPackages = with pkgs; [
     powerdevil # needed for brightness control
 
-    killall
-    file
-
-    wget
-    htop
-    glances
-    vim
-    tree
-    git
-
-    youtube-dl
-
     okular
     gwenview
     ark

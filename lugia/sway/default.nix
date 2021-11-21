@@ -39,9 +39,6 @@
   in with pkgs; [
     arandr
 
-    tree
-    ripgrep
-
     virt-manager
 
     pavucontrol

@@ -121,9 +121,8 @@
   services.openssh.enable =
     true; # But we don't open the port in the firewall, so only VPN can see it
 
+  home-manager.useGlobalPkgs = true;
   home-manager.users.zrl = { pkgs, config, ... }: {
-    home.packages = [ ];
-
     programs.home-manager.enable = true;
 
     imports = [ ../home-manager ];
