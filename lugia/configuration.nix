@@ -18,9 +18,9 @@
     /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
     /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
-    #/home/zrl/dev/nixos-configs/common/plasma5.nix
     ./gpu-passthrough-vm
-    ./sway
+    ../common/plasma5.nix
+    #./sway
 
     <home-manager/nixos>
   ];
