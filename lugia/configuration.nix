@@ -50,8 +50,7 @@
   networking.useDHCP = false;
 
   networking.interfaces.enp9s0.useDHCP = true;
-
-  #networking.interfaces.wlp8s0.useDHCP = true;
+  networking.interfaces.wlp8s0.useDHCP = true;
 
   # bridged networking for windows VM guest
   networking.interfaces.br0.useDHCP = true;
