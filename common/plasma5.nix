@@ -16,6 +16,8 @@
   '';
 
   environment.systemPackages = with pkgs; [
+    powerdevil # needed for brightness control
+
     killall
     file
 
