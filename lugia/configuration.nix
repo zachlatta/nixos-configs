@@ -19,7 +19,7 @@
     /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
     ./gpu-passthrough-vm
-    ../common/plasma5.nix
+    ../common/de/plasma.nix
     #./sway
 
     <home-manager/nixos>
