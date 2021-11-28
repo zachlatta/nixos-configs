@@ -10,10 +10,6 @@ Branches in this repository are timestamped "logs" of when I last reset my dotfi
 
 Desktop machine at office. Like Xe's sachi, this is an apex predator. Ryzen 9 3950x with 32 GB of RAM and a Radeon RX 5700 GPU.
 
-### abra
-
-M1 MacBook Air
-
 ### psyduck
 
 Laptop. Lenovo X1 Carbon Gen 7. Currently permanently set up at home.
