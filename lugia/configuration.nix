@@ -15,7 +15,7 @@
     /home/zrl/dev/nixos-configs/common/tailscale.nix
     /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-    /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
+    /home/zrl/dev/nixos-configs/common/pokedex-remote-smb.nix
     /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
     ./gpu-passthrough-vm
