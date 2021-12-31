@@ -1,7 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-https://www.google.com/search?q=sslwon&oq=slowkin&aqs=chrome..69i57j69i60l5.985j0j4&sourceid=chrome&ie=UTF-8
+
+{ config, pkgs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -26,6 +27,9 @@ https://www.google.com/search?q=sslwon&oq=slowkin&aqs=chrome..69i57j69i60l5.985j
 
   nix.maxJobs = 24;
   nix.buildCores = 24;
+
+  # needed for typora
+  nixpkgs.config.permittedInsecurePackages = [ "electron-9.4.4" ];
 
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
