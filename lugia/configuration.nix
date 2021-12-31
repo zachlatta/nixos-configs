@@ -1,8 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+https://www.google.com/search?q=sslwon&oq=slowkin&aqs=chrome..69i57j69i60l5.985j0j4&sourceid=chrome&ie=UTF-8
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -15,7 +14,7 @@
     /home/zrl/dev/nixos-configs/common/tailscale.nix
     /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-    /home/zrl/dev/nixos-configs/common/pokedex-smb.nix
+    /home/zrl/dev/nixos-configs/common/pokedex-local-smb.nix
     /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
     ./gpu-passthrough-vm
