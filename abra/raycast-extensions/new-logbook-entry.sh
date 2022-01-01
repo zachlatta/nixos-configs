@@ -78,4 +78,11 @@ fi
 
 touch "$FILE"
 
+echo "*$DATE*" >> "$FILE"
+echo "*LOCATION*" >> "$FILE"
+echo "*$TIME*" >> "$FILE"
+echo "" >> "$FILE"
+echo "**Logbook Entry**" >> "$FILE"
+echo "" >> "$FILE"
+
 $EDITOR "$FILE"
