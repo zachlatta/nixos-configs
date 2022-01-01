@@ -61,7 +61,7 @@ DaySuffix() {
 # Using consolidated date command from chris_l
 # Also using %-d instead of %d so it doesn't pad with 0's
 DATE=$(date "+%A, %B %-d`DaySuffix`, %Y")
-TIME=$(date "+%-I:%M %p")
+TIME=$(date "+%-I.%M %p")
 
 FILE=""
 
