@@ -8,9 +8,7 @@
   fileSystems."/mnt/pokedex" = {
     device = "//slowking.local/pokedex";
     fsType = "cifs";
-    options = let
-      opts =
-        "uid=1000,gid=100";
+    options = let opts = "uid=1000,gid=100";
     in [ "${opts},credentials=/etc/nixos/smb-pokedex-secrets" ];
   };
 }
