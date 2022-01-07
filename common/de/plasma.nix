@@ -32,7 +32,7 @@ in {
     virt-manager
 
     spotify
-
+    standardnotes
     zoom-us
     celluloid
 
@@ -43,5 +43,6 @@ in {
     gparted
 
     typora
+
   ];
 }
