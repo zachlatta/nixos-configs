@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-let typora = pkgs.callPackage ../../pkgs/typora { };
+let
+  typora = pkgs.callPackage ../../pkgs/typora { };
+  logbook = pkgs.callPackage ../../pkgs/custom/logbook { };
 in {
   # Enable the X11 windowing system
   services.xserver.enable = true;
@@ -43,6 +45,6 @@ in {
     gparted
 
     typora
-
+    logbook
   ];
 }
