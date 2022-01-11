@@ -37,6 +37,7 @@ in {
     standardnotes
     zoom-us
     celluloid
+    losslesscut-bin
 
     _1password-gui
 
