@@ -21,3 +21,7 @@ Laptop. Lenovo X1 Carbon Gen 7. Currently permanently set up at home.
 ### slowking-nixos
 
 NixOS VM managed using `morph` running on `slowking`, a Synology 920+ NAS, at home.
+
+## todos
+
+- refactor logbook shortcuts on macos to use /pkgs/custom/logbook/bin scripts
