@@ -5,10 +5,19 @@ let
 
   typora = pkgs.callPackage ../../typora { };
 
-  desktopItem = makeDesktopItem {
-    name = "logbook";
+  newLogbook = ./bin/new-logbook-entry.sh;
+  newLogbookDesktop = makeDesktopItem {
+    name = "new-logbook-entry";
+    desktopName = "New Logbook Entry";
+    exec = "EDITOR=${typora}/bin/typora ${newLogbook}";
+    icon = "typora";
+  };
+
+  openLogbook = ./bin/open-logbook.sh;
+  openLogbookDesktop = makeDesktopItem {
+    name = "open-logbook";
     desktopName = "Open Logbook";
-    exec = ''${typora}/bin/typora "${logbookDir}"'';
+    exec = "EDITOR=${typora}/bin/typora ${openLogbook}";
     icon = "typora";
   };
 in stdenv.mkDerivation rec {
@@ -17,6 +26,8 @@ in stdenv.mkDerivation rec {
   src = ./.;
   phases = "installPhase";
   installPhase = ''
-    ln -s ${desktopItem} $out
+    mkdir -p $out/share/applications/
+    ln -s ${newLogbookDesktop}/share/applications/* $out/share/applications/
+    ln -s ${openLogbookDesktop}/share/applications/* $out/share/applications/
   '';
 }
