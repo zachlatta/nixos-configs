@@ -25,3 +25,7 @@ NixOS VM managed using `morph` running on `slowking`, a Synology 920+ NAS, at ho
 ## todos
 
 - refactor logbook shortcuts on macos to use /pkgs/custom/logbook/bin scripts
+
+ideas:
+
+- create some sort of utility function to generate packages with .desktop items for shortcuts, kind of like raycast / what i have going on with the logbook and close-windows scripts
