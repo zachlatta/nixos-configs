@@ -3,6 +3,7 @@
 let
   typora = pkgs.callPackage ../../pkgs/typora { };
   logbook = pkgs.callPackage ../../pkgs/custom/logbook { };
+  close-windows = pkgs.callPackage ../../pkgs/custom/close-windows { };
 in {
   # Enable the X11 windowing system
   services.xserver.enable = true;
@@ -47,5 +48,6 @@ in {
 
     typora
     logbook
+    close-windows
   ];
 }
