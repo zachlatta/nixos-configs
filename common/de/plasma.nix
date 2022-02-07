@@ -36,6 +36,8 @@ in {
 
     spotify
     standardnotes
+    simplenote
+    obsidian
     zoom-us
     celluloid
     losslesscut-bin
