@@ -99,8 +99,11 @@
     [
       linuxPackages.ddcci-driver # external monitor brightness control (makes external devices show up in /sys/class/backlight/)
     ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
-  boot.kernelModules = [ "ddcci" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    ddcci-driver
+    v4l2loopback
+  ];
+  boot.kernelModules = [ "ddcci" "v4l2loopback" ];
 
   # Enable virtualization
   boot.extraModprobeConfig = "options kvm_amd nested=1";
