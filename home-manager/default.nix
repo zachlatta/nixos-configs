@@ -8,6 +8,7 @@
     ./bash.nix
     ./git.nix
     ./mako.nix
+    ./mpv.nix
     ./tmux.nix
     ./vim.nix
   ];
