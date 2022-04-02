@@ -28,9 +28,6 @@
   nix.maxJobs = 24;
   nix.buildCores = 24;
 
-  # needed for typora
-  nixpkgs.config.permittedInsecurePackages = [ "electron-9.4.4" ];
-
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
 

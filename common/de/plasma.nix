@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  typora = pkgs.callPackage ../../pkgs/typora { };
-  logbook = pkgs.callPackage ../../pkgs/custom/logbook { };
+  #typora = pkgs.callPackage ../../pkgs/typora { };
+  #logbook = pkgs.callPackage ../../pkgs/custom/logbook { };
   close-windows = pkgs.callPackage ../../pkgs/custom/close-windows { };
 
   gopro-as-webcam = pkgs.callPackage ../../pkgs/gopro-as-webcam { };
@@ -50,8 +50,6 @@ in {
 
     gparted
 
-    typora
-    logbook
     close-windows
 
     gopro-as-webcam
