@@ -5,17 +5,16 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      /home/zrl/dev/nixos-configs/common/base.nix
+    /home/zrl/dev/nixos-configs/common/base.nix
 
-      /home/zrl/dev/nixos-configs/common/tailscale.nix
-      /home/zrl/dev/nixos-configs/common/zrl_user.nix
+    /home/zrl/dev/nixos-configs/common/tailscale.nix
+    /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
-      <home-manager/nixos>
-    ];
+    <home-manager/nixos>
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -24,6 +23,8 @@
   fileSystems."/mnt/host_user" = {
     device = "192.168.64.1:/System/Volumes/Data/Users/zrl";
     fsType = "nfs";
+
+    options = [ "x-systemd.automount" "noauto" ];
   };
 
   services.rpcbind.enable = true;
@@ -36,7 +37,7 @@
   #  where = "/mnt/host";
   #}];
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "kadabra-dev"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -58,9 +59,6 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-
-
-  
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
