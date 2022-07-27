@@ -34,6 +34,17 @@
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
 
+  services.avahi = {
+    enable = true;
+    hostName = "dev";
+
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+    };
+  };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
