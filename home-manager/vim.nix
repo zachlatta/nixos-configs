@@ -37,8 +37,8 @@ in {
 
     extraConfig = ''
       " theme config
-      let base16colorspace=256
       colorscheme base16-tomorrow-night
+      set termguicolors
 
       " only visually wrap lines on whitespace (https://stackoverflow.com/a/19624717)
       set nolist wrap linebreak breakat&vim
