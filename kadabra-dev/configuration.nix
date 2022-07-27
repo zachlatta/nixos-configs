@@ -25,6 +25,8 @@
     # IP of the host Mac laptop, the QEMU host
     "192.168.64.1" = [ "host" ];
   };
+  # trust the interface with the host laptop
+  networking.firewall.trustedInterfaces = [ "enp0s5" ];
 
   fileSystems."/mnt/host_user" = {
     device = "host:/System/Volumes/Data/Users/zrl";
