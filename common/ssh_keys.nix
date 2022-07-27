@@ -5,6 +5,9 @@
   kadabra = ''
     ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDOtICFfDFU4yIcZdpMqNTWMHrT2Bxsqt4vI7eOi1bMG zrl@kadabra
   '';
+  kadabra-dev = ''
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL1jBev5sb96nUx+2UOKFeOj+ZOHFuuGzo1S9ivstawp zrl@kadabra-dev
+  '';
   psyduck =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSLDfNoAhyP89I99ZgepL6LiZE2jK6A4cqGR4CNceUb zrl@psyduck";
   lugia =
