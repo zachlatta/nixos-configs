@@ -13,6 +13,8 @@
     /home/zrl/dev/nixos-configs/common/tailscale.nix
     /home/zrl/dev/nixos-configs/common/zrl_user.nix
 
+    /home/zrl/dev/nixos-configs/kadabra-dev/host-files.nix
+
     <home-manager/nixos>
   ];
 
@@ -27,15 +29,6 @@
   };
   # trust the interface with the host laptop
   networking.firewall.trustedInterfaces = [ "enp0s5" ];
-
-  fileSystems."/mnt/host_user" = {
-    device = "host:/System/Volumes/Data/Users/zrl";
-    fsType = "nfs";
-
-    options = [ "x-systemd.automount" "noauto" ];
-  };
-
-  services.rpcbind.enable = true;
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
