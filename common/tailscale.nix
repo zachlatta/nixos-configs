@@ -2,6 +2,7 @@
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+  networking.firewall.checkReversePath = "loose";
   networking.extraHosts = ''
     100.99.132.36 psyduck
     100.119.200.49 lugia

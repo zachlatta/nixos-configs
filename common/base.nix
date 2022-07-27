@@ -8,10 +8,10 @@ with lib; {
 
     boot.cleanTmpDir = true;
 
-    nix = {
-      autoOptimiseStore = true;
+    nix.settings = {
+      auto-optimise-store = true;
 
-      trustedUsers = [ "root" "zrl" ];
+      trusted-users = [ "root" "zrl" ];
     };
 
     nixpkgs.config.allowUnfree = true;
