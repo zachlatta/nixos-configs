@@ -20,16 +20,20 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.hostName = "kadabra-dev"; # Define your hostname.
+  networking.hosts = {
+    # IP of the host Mac laptop, the QEMU host
+    "192.168.64.1" = [ "host" ];
+  };
+
   fileSystems."/mnt/host_user" = {
-    device = "192.168.64.1:/System/Volumes/Data/Users/zrl";
+    device = "host:/System/Volumes/Data/Users/zrl";
     fsType = "nfs";
 
     options = [ "x-systemd.automount" "noauto" ];
   };
 
   services.rpcbind.enable = true;
-
-  networking.hostName = "kadabra-dev"; # Define your hostname.
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
@@ -67,4 +71,3 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
 }
-
