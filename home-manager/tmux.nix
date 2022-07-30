@@ -12,6 +12,9 @@
       bind l select-pane -R
 
       bind r source-file ~/.config/tmux/tmux.conf\; display-message "reloaded config!"
+
+      # to get color schemes working in vim
+      set -g default-terminal "xterm-256color"
     '';
   };
 }
