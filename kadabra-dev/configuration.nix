@@ -22,6 +22,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.qemuGuest.enable = true;
+
   networking.hostName = "kadabra-dev"; # Define your hostname.
   networking.hosts = {
     # IP of the host Mac laptop, the QEMU host
@@ -53,6 +55,7 @@
   };
 
   virtualisation.docker.enable = true;
+  users.users.zrl.extraGroups = [ "docker" ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
