@@ -11,5 +11,7 @@
     youtube-dl
 
     go
+    rustc
+    cargo
   ];
 }
