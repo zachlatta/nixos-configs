@@ -7,11 +7,13 @@
     htop
     glances
     tree
+    ripgrep
 
     youtube-dl
 
     go
     rustc
     cargo
+    clang # includes cc linker for rust
   ];
 }
