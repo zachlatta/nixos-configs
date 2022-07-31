@@ -9,5 +9,7 @@
     tree
 
     youtube-dl
+
+    go
   ];
 }

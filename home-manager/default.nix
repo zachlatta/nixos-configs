@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./common_cli_apps.nix
+    ./common.nix
 
     #./fish.nix
     ./vscode-server.nix
