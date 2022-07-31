@@ -4,7 +4,10 @@
 
     enableVteIntegration = true;
 
-    sessionVariables = { EDITOR = "vim"; };
+    sessionVariables = {
+      EDITOR = "vim";
+      PATH = "$PATH:$HOME/.cargo/bin";
+    };
   };
 
   programs.direnv = {
