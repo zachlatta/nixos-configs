@@ -12,9 +12,7 @@
     youtube-dl
 
     go
-    rustc
-    cargo
-    clang # includes cc linker for rust
-    rustfmt
+    rustup
+    rust-analyzer
   ];
 }
