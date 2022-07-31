@@ -15,5 +15,6 @@
     rustc
     cargo
     clang # includes cc linker for rust
+    rustfmt
   ];
 }
