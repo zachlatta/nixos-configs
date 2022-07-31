@@ -13,6 +13,7 @@
 
     go
     rustup
+    clang # includes cc linker needed for rust
     rust-analyzer
   ];
 }
