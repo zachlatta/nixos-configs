@@ -30,7 +30,7 @@
     "192.168.64.1" = [ "host" ];
   };
   # trust the interface with the host laptop
-  networking.firewall.trustedInterfaces = [ "enp0s5" ];
+  networking.firewall.trustedInterfaces = [ "enp0s4" ];
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
