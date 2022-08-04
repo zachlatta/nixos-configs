@@ -35,6 +35,9 @@
         tags
         # Persistent undo
         [._]*.un~
+
+        # macOS
+        .DS_Store
       ''
 
       # direnv cache directories
