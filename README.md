@@ -14,18 +14,10 @@ Desktop machine at office. Like Xe's sachi, this is an apex predator. Ryzen 9 39
 
 This is a VM running on lugia that uses VFIO passthrough for native graphics performance. The 3080 Ti is passed through to the Windows VM. It also runs on a separate NVMe drive, which allows dual booting straight into Windows in addition to running Windows in a VM.
 
-### psyduck
+### kadabra-dev
 
-Laptop. Lenovo X1 Carbon Gen 7. Currently permanently set up at home.
+MacBook Air M2 running a NixOS VM for development.
 
 ### slowking-nixos
 
 NixOS VM managed using `morph` running on `slowking`, a Synology 920+ NAS, at home.
-
-## todos
-
-- refactor logbook shortcuts on macos to use /pkgs/custom/logbook/bin scripts
-
-ideas:
-
-- create some sort of utility function to generate packages with .desktop items for shortcuts, kind of like raycast / what i have going on with the logbook and close-windows scripts
