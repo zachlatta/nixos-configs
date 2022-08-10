@@ -8,6 +8,7 @@
     glances
     tree
     ripgrep
+    bat
 
     youtube-dl
 
