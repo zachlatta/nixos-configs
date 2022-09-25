@@ -17,7 +17,3 @@ This is a VM running on lugia that uses VFIO passthrough for native graphics per
 ### kadabra-dev
 
 MacBook Air M2 running a NixOS VM for development.
-
-### slowking-nixos
-
-NixOS VM managed using `morph` running on `slowking`, a Synology 920+ NAS, at home.
