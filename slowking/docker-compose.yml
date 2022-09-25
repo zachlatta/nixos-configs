@@ -1,0 +1,80 @@
+---
+version: "2.1"
+services:
+
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    environment:
+      - PGID=100
+      - PUID=1026
+    volumes:
+      - /var/services/homes/zrl:/home-zrl
+      - /volume1/pokedex-synced:/pokedex-synced
+      - /volume1/pokedex-apps/apps/syncthing/config:/config
+      - /volume1/pokedex:/pokedex
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+
+  nzbget:
+    image: lscr.io/linuxserver/nzbget:latest
+    container_name: nzbget
+    environment:
+      - PUID=1026
+      - PGID=100
+    volumes:
+      - /volume1/pokedex-apps/apps/nzbget/config:/config
+      - /volume1/pokedex-apps/apps/nzbget/downloads:/downloads
+    ports:
+      - 6789:6789
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1026
+      - PGID=100
+    volumes:
+      - /volume1/pokedex-apps/apps/nzbget/downloads:/downloads
+      - /volume1/pokedex-apps/apps/radarr/config:/config
+      - /volume1/pokedex/media/movies:/movies
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  freshrss:
+    image: lscr.io/linuxserver/freshrss:latest
+    container_name: freshrss
+    environment:
+      - PGID=100
+      - PUID=1026
+    volumes:
+      - /volume1/pokedex-apps/apps/freshrss/config:/config
+    ports:
+      - 9000:80
+    restart: unless-stopped
+
+  cdn:
+    image: zachlatta/cdn:latest
+    container_name: cdn
+    environment:
+      - BASE_URL=https://zachlatta.com/f/
+      - FS_DEST_DIR=/files
+      - PORT=1000
+    volumes:
+      - /volume1/pokedex-apps/apps/zachlatta.com/db/public/f:/files
+    ports:
+      - 1000:1000
+
+  zachlatta.com:
+    image: zachlatta/zachlatta.com:latest
+    container_name: zachlatta.com
+    environment:
+      - BASEDIR=/zachlatta.com
+    ports:
+      - 1337:80
