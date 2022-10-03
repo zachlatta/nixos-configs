@@ -78,3 +78,13 @@ services:
       - BASEDIR=/zachlatta.com
     ports:
       - 1337:80
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    volumes:
+      - /volume1/pokedex-apps/apps/n8n/dot-n8n:/home/node/.n8n
+      - /volume1/pokedex:/pokedex
+      - /volume1/pokedex-synced:/pokedex-synced
+    ports:
+      - 5678:5678
