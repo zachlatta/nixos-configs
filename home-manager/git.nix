@@ -45,6 +45,9 @@
 
       # we never want .env committed
       ".env"
+
+      # don't commit VSCode files
+      ".vscode/"
     ];
   };
 }
