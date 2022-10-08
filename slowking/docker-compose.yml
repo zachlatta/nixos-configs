@@ -88,3 +88,14 @@ services:
       - /volume1/pokedex-synced:/pokedex-synced
     ports:
       - 5678:5678
+
+  zachlatta.com-public-notes-sync:
+    image: zachlatta/public-notes-sync:latest
+    container_name: zachlatta.com-public-notes-sync
+    volumes:
+      - /volume1/pokedex-synced/txt/obsidian:/md_src
+      - /volume1/pokedex-synced/md_dest:/md_dest
+      - /volume1/pokedex-apps/apps/zachlatta.com-public-notes-sync/github-ssh-key:/ssh_key
+    environment:
+      - GIT_SSH_KEY_PATH=/ssh_key/ssh_key
+      - GIT_REMOTE=git@github.com:zachlatta/public-notes
