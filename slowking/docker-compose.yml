@@ -94,7 +94,7 @@ services:
     container_name: zachlatta.com-public-notes-sync
     volumes:
       - /volume1/pokedex-synced/txt/obsidian:/md_src
-      - /volume1/pokedex-synced/md_dest:/md_dest
+      - /volume1/pokedex-apps/apps/zachlatta.com-public-notes-sync/md_dest:/md_dest
       - /volume1/pokedex-apps/apps/zachlatta.com-public-notes-sync/github-ssh-key:/ssh_key
     environment:
       - GIT_SSH_KEY_PATH=/ssh_key/ssh_key
