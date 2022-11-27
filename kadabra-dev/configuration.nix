@@ -30,7 +30,7 @@
     "192.168.64.1" = [ "host" ];
   };
   # trust the interface with the host laptop
-  networking.firewall.trustedInterfaces = [ "enp0s4" ];
+  networking.firewall.trustedInterfaces = [ "enp0s1" ];
 
   programs.bash.shellAliases = {
     pbpaste = "ssh zrl@host pbpaste";
