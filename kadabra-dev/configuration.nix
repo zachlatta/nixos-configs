@@ -32,6 +32,12 @@
   # trust the interface with the host laptop
   networking.firewall.trustedInterfaces = [ "enp0s4" ];
 
+  programs.bash.shellAliases = {
+    pbpaste = "ssh zrl@host pbpaste";
+    pbcopy = "ssh zrl@host pbcopy";
+    open = "ssh zrl@host:$(pwd) open";
+  };
+
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
 
