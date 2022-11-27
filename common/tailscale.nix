@@ -8,7 +8,7 @@
     100.119.200.49 lugia
     100.75.13.111 lugia-vm-media-server
     100.72.172.50 lugia-vm-win10
-    100.100.150.50 electrode
+    100.98.29.122 electrode
     100.113.168.2 iphone
     100.89.29.120 abra
     100.77.1.14 apps.slowking
