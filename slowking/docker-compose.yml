@@ -99,3 +99,48 @@ services:
     environment:
       - GIT_SSH_KEY_PATH=/ssh_key/ssh_key
       - GIT_REMOTE=git@github.com:zachlatta/public-notes
+    restart: always
+
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/New_York
+    volumes:
+      - /volume1/pokedex-apps/apps/jellyfin/config:/config
+      - /volume1/pokedex/media/tv:/data/tv
+      - /volume1/pokedex/media/movies:/data/movies
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+    devices:
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
+
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/New_York
+    volumes:
+      - /volume1/pokedex-apps/apps/readarr/config:/config
+      - /volume1/pokedex/media/books:/books
+      - /volume1/pokedex-apps/apps/nzbget/downloads:/downloads
+      #- /path/to/downloadclient-downloads:/downloads #optional
+    ports:
+      - 8787:8787
+    restart: unless-stopped
+
+  golink:
+    image: ghcr.io/tailscale/golink:main
+    container_name: golink
+    volumes:
+      - /volume1/pokedex-apps/apps/golink/home/nonroot:/home/nonroot
+    ports:
+      - 8080:8080
+    restart: unless-stopped
