@@ -35,8 +35,16 @@
   programs.bash.shellAliases = {
     pbpaste = "ssh zrl@host pbpaste";
     pbcopy = "ssh zrl@host pbcopy";
-    open = "ssh zrl@host:$(pwd) open";
   };
+
+  programs.bash.shellInit = ''
+    # only works for files in /mnt/host_user
+    open() {
+      path="$(realpath --relative-to="/mnt/host_user" $(pwd)/$1)"
+
+      ssh zrl@host open "~/$path"
+    }
+  '';
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
