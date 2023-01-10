@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }:
 
-{
-  imports = [ <home-manager/nixos> ];
+let
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in {
+  imports = [ (import "${home-manager}/nixos") ];
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm = {
@@ -22,7 +25,7 @@
         gnome3.adwaita-icon-theme
 
         # networking
-        gnome3.networkmanagerapplet
+        networkmanagerapplet
       ] ++ builtins.filter lib.isDerivation
       (builtins.attrValues plasma5Packages.kdeGear)
       ++ builtins.filter lib.isDerivation
@@ -52,8 +55,6 @@
 
   # FONTS
   fonts.fonts = with pkgs; [
-    corefonts
-
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -68,7 +69,6 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    mplus-outline-fonts
     dina-font
 
     proggyfonts
@@ -89,7 +89,7 @@
 
       bemenu = "${pkgs.bemenu}/bin/bemenu";
       grim = "${pkgs.grim}/bin/grim";
-      gtk-launch = "${pkgs.gnome3.gtk}/bin/gtk-launch";
+      gtk-launch = "${pkgs.gtk4}/bin/gtk-launch";
       j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
       slurp = "${pkgs.slurp}/bin/slurp";
       wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
@@ -101,7 +101,7 @@
       audioIncrement = "10";
       smallAudioIncrement = "5";
 
-      nm-applet = "${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet";
+      nm-applet = "${pkgs.networkmanagerapplet}/bin/nm-applet";
       wob = "${pkgs.wob}/bin/wob";
 
       cat = "${pkgs.coreutils}/bin/cat";
