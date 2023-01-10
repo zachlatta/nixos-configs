@@ -11,4 +11,11 @@
     options = let opts = "uid=1000,gid=100";
     in [ "${opts},credentials=/etc/nixos/smb-pokedex-secrets" ];
   };
+
+  fileSystems."/mnt/pokedex-synced" = {
+    device = "//slowking.local/pokedex-synced";
+    fsType = "cifs";
+    options = let opts = "uid=1000,gid=100";
+    in [ "${opts},credentials=/etc/nixos/smb-pokedex-secrets" ];
+  };
 }
