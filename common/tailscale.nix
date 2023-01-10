@@ -5,7 +5,7 @@
   networking.firewall.checkReversePath = "loose";
   networking.extraHosts = ''
     100.99.132.36 psyduck
-    100.119.200.49 lugia
+    100.86.50.34 lugia
     100.75.13.111 lugia-vm-media-server
     100.72.172.50 lugia-vm-win10
     100.98.29.122 electrode
