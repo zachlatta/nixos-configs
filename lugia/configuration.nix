@@ -4,7 +4,10 @@
 
 { config, pkgs, ... }:
 
-{
+let
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -22,7 +25,7 @@
     #../common/de/plasma.nix
     ./sway
 
-    <home-manager/nixos>
+    (import "${home-manager}/nixos")
   ];
 
   nix.maxJobs = 24;
