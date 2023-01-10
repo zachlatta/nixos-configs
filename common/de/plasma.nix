@@ -36,7 +36,6 @@ in {
 
     virt-manager
 
-    spotify
     standardnotes
     simplenote
     obsidian
