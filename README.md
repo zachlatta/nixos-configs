@@ -17,3 +17,7 @@ This is a VM running on lugia that uses VFIO passthrough for native graphics per
 ### kadabra-dev
 
 MacBook Air M2 running a NixOS VM for development.
+
+### slowking
+
+This is a Synology NAS running at home, with services available through Tailscale. I tried using NixOS to manage it, but never got a setup that felt nice. Instead, I'm just using Docker Compose for now (don't love it though - it keeps breaking).
