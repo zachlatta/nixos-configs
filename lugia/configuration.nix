@@ -28,8 +28,8 @@ in {
     (import "${home-manager}/nixos")
   ];
 
-  nix.maxJobs = 24;
-  nix.buildCores = 24;
+  nix.settings.max-jobs = 24;
+  nix.settings.cores = 24;
 
   # Enables CPU microcode updates
   hardware.cpu.amd.updateMicrocode = true;
