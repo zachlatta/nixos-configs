@@ -67,6 +67,7 @@ in {
       nnoremap <leader>gp :Git push<CR>
       nnoremap <leader>gf :Git pull<CR>
       nnoremap <leader>p :CtrlP<CR>
+      nnoremap <leader>nr :term sudo nixos-rebuild switch<CR>
 
       " run dhall format automatically on save
       autocmd bufwritepost *.dhall silent !${dhall}/bin/dhall format % 2> /dev/null
