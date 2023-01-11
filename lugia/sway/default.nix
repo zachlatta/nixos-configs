@@ -3,6 +3,10 @@
 let
   home-manager = builtins.fetchTarball
     "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  pkgs-nightly = (import (builtins.fetchTarball
+    "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {
+      config.allowUnfree = true;
+    });
 in {
   imports = [ (import "${home-manager}/nixos") ];
 
@@ -11,6 +15,9 @@ in {
     enable = true;
     wayland = true;
   };
+
+  # encourage electron-based apps to use wayland support where available
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs.sway = {
     enable = true;
@@ -49,6 +56,9 @@ in {
     pcmanfm
 
     zoom-us
+
+    # get the nightly version of obsidian, which has wayland support, because the version in 22.11 doesn't as of 2023-01-11
+    pkgs-nightly.obsidian
 
     (chromium.override { commandLineArgs = chromiumArgs; })
   ];
