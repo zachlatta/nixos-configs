@@ -22,7 +22,6 @@ in {
     /home/zrl/dev/nixos-configs/common/shortlinks.nix
 
     ./gpu-passthrough-vm
-    #../common/de/plasma.nix
     ./sway
 
     (import "${home-manager}/nixos")
