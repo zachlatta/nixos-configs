@@ -89,7 +89,7 @@ in {
 
       bemenu = "${pkgs.bemenu}/bin/bemenu";
       grim = "${pkgs.grim}/bin/grim";
-      gtk-launch = "${pkgs.gtk4}/bin/gtk-launch";
+      gtk-launch = "${pkgs.gtk4.dev}/bin/gtk4-launch";
       j4-dmenu-desktop = "${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop";
       slurp = "${pkgs.slurp}/bin/slurp";
       wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
@@ -159,8 +159,7 @@ in {
         keybindings =
           let mod = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
-            "${mod}+Shift+Return" =
-              "exec '${gtk-launch} chromium-browser.desktop'";
+            "${mod}+Shift+Return" = "exec '${gtk-launch} firefox.desktop'";
             "${mod}+Shift+f" = "exec ${dolphin}";
 
             "${mod}+Shift+4" = ''
