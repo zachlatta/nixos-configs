@@ -6,6 +6,10 @@ Branches in this repository are timestamped "logs" of when I last reset my dotfi
 
 ## `hosts/` breakdown
 
+### shinx
+
+MacBook Air 15". Managed using `chezmoi`, instead of Nix.
+
 ### lugia
 
 Desktop machine at home. Like Xe's sachi, this is an apex predator. Ryzen 9 3950x with 32 GB of RAM, a Radeon RX 5700 GPU, and a RTX 3080 Ti.
