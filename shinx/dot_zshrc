@@ -1,1 +1,3 @@
+# antidote plugin manager
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
