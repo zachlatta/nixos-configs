@@ -3,3 +3,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
   # Python
 export PATH="$PATH:/opt/homebrew/opt/python@3.12/libexec/bin"
+
+# neovim
+
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="vim"
