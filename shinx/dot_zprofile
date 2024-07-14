@@ -9,3 +9,7 @@ export PATH="$PATH:/opt/homebrew/opt/python@3.12/libexec/bin"
 alias vim="nvim"
 alias vi="nvim"
 alias oldvim="vim"
+
+# antidote plugin manager
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
