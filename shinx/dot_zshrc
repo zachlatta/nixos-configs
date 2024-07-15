@@ -10,9 +10,11 @@ alias vim="nvim"
 alias vi="nvim"
 alias oldvim="vim"
 
+# needed for asdf, which is managed by antidote
+autoload -Uz compinit
+compinit
+
 # antidote plugin manager
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh

@@ -5,3 +5,6 @@ sindresorhus/pure
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
+
+# asdf
+ohmyzsh/ohmyzsh path:plugins/asdf
