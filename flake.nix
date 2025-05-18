@@ -2,7 +2,8 @@
   description = "Zach Latta • NixOS configs (flake-style)";
 
   inputs = {
-    nixpkgs.url          = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url          = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url     = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -31,7 +32,7 @@
           home-manager.nixosModules.home-manager
         ];
         # Pass flake inputs to your modules (optional but handy)
-        specialArgs = { inherit self; };
+        specialArgs = { inherit (self) inputs; };
       };
     };
 } 

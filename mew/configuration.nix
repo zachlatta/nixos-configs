@@ -2,9 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
-{
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -15,12 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-2cefa249-799d-4838-8b3b-59a12fd82445".device = "/dev/disk/by-uuid/2cefa249-799d-4838-8b3b-59a12fd82445";
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "mew";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -45,6 +45,9 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # Add NVIDIA video driver
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -103,8 +106,13 @@
     code2prompt
 
     vscode
-    code-cursor
+    unstable.code-cursor
     google-chrome
+    
+    # NVIDIA related packages
+    nvidia-vaapi-driver   # HW video decode
+    vulkan-tools          # `vulkaninfo`, `vkcube`
+    glxinfo               # sanity check OpenGL
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -139,4 +147,16 @@
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
+
+  # NVIDIA specific configuration
+  hardware.nvidia = {
+    modesetting.enable = true;          # lets Xorg & Wayland share the GPU
+    powerManagement.enable = true;      # automatic clock & fan control
+    nvidiaSettings = true;              # installs the nvidia-settings GUI
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  # Enable DRM kernel modesetting
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 }
