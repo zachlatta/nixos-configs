@@ -63,12 +63,11 @@ in {
   # 2️⃣  **Enable Hyprland system-wide**
   programs.hyprland = {
     enable = true;
-    package = hyprDrv;      # ← pulls the unstable build
     xwayland.enable = true;         # X11 apps
   };
 
   # 3️⃣  **Pick a Wayland-native login manager**
-  services.displayManager.greetd = {
+  services.greetd = {
     enable = true;
     settings = {
       default_session = {
@@ -128,7 +127,7 @@ in {
   # 4️⃣  **GPU / NVIDIA tweaks for wlroots compositors**
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";       # fixes disappearing cursor on NVIDIA
-    GBM_BACKENDS_PATH = "${pkgs.mesa_drivers}/lib/gbm";
+    GBM_BACKENDS_PATH = "${pkgs.mesa.drivers}/lib/gbm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";
     # keep your HiDPI overrides
@@ -161,14 +160,10 @@ in {
     wl-clipboard          # Wayland clipboard utilities
     xclip                 # X11 clipboard tool
 
-    # Hyprland packages
-    hyprDrv                # compositor & binaries
-    unstable.hyprpicker    # color picker
-    unstable.waybar        # status bar
-    unstable.swww          # animated wallpapers
-    wl-clipboard           # wl-copy / wl-paste
-    unstable.grim unstable.slurp  # screenshots
-    unstable.wofi          # application launcher
+    # needed for hyprland
+    kitty
+    wofi                  # Application launcher for Wayland
+    dolphin               # KDE file manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

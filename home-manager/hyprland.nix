@@ -1,6 +1,9 @@
 { ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    # use the ones from the nixos module, per hyprland docs
+    package = null;
+    portalPackage = null;
     settings = {
       monitor          = ",preferred,auto,1.5";     # global 150 % scale
       exec-once        = [
