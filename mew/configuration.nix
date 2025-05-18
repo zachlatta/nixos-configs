@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 let
   unstable = import inputs.nixpkgs-unstable {
@@ -18,6 +18,9 @@ let
       --force-device-scale-factor=1.5 \
       "$@"
   '';
+  
+  # NEW ────────────────────────────────────────────────────────────────────
+  hyprDrv = unstable.hyprland;      # freshest Hyprland build
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -52,25 +55,31 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # 1️⃣  **Drop GNOME**
+  services.xserver.enable = false;   # turn off X11 desktop stack
+  services.xserver.desktopManager.gnome.enable = lib.mkForce false;
+  services.xserver.displayManager.gdm.enable = lib.mkForce false;
+
+  # 2️⃣  **Enable Hyprland system-wide**
+  programs.hyprland = {
+    enable = true;
+    package = hyprDrv;      # ← pulls the unstable build
+    xwayland.enable = true;         # X11 apps
+  };
+
+  # 3️⃣  **Pick a Wayland-native login manager**
+  services.displayManager.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "Hyprland";
+        user = "zrl";
+      };
+    };
+  };
 
   # Add NVIDIA video driver
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-  services.xserver.desktopManager.gnome = {
-    enable = true;
-    extraGSettingsOverridePackages = [ pkgs.mutter ];
-    extraGSettingsOverrides = ''
-      [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer']
-    '';
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -116,22 +125,24 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # force GTK3/4 X apps to scale 1× UI + 1.5× text
-  environment.sessionVariables.GDK_SCALE = "1";
-  environment.sessionVariables.GDK_DPI_SCALE = "1.5";
+  # 4️⃣  **GPU / NVIDIA tweaks for wlroots compositors**
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";       # fixes disappearing cursor on NVIDIA
+    GBM_BACKENDS_PATH = "${pkgs.mesa_drivers}/lib/gbm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+    # keep your HiDPI overrides
+    GDK_SCALE = "1";
+    GDK_DPI_SCALE = "1.5";
+    QT_SCALE_FACTOR = "1.5";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "0";
+    QT_SCREEN_SCALE_FACTORS = "";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    ELECTRON_ENABLE_WAYLAND = "1";
+    ELECTRON_USE_OZONE = "1";
+  };
 
-  # force Qt apps to use 1.5× scale
-  environment.sessionVariables.QT_SCALE_FACTOR = "1.5";
-  environment.sessionVariables.QT_AUTO_SCREEN_SCALE_FACTOR = "0";
-  environment.sessionVariables.QT_SCREEN_SCALE_FACTORS = "";
-
-  # tell Electron (VSCode, Discord, etc.) to go native Wayland
-  environment.sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  environment.sessionVariables.ELECTRON_ENABLE_WAYLAND = "1";
-  environment.sessionVariables.ELECTRON_USE_OZONE = "1";
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # 5️⃣  **System packages**
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
@@ -149,6 +160,15 @@ in {
     glxinfo               # sanity check OpenGL
     wl-clipboard          # Wayland clipboard utilities
     xclip                 # X11 clipboard tool
+
+    # Hyprland packages
+    hyprDrv                # compositor & binaries
+    unstable.hyprpicker    # color picker
+    unstable.waybar        # status bar
+    unstable.swww          # animated wallpapers
+    wl-clipboard           # wl-copy / wl-paste
+    unstable.grim unstable.slurp  # screenshots
+    unstable.wofi          # application launcher
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

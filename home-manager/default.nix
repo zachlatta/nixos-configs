@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./common.nix
+    ./hyprland.nix
 
     #./fish.nix
     ./vscode-server.nix
