@@ -9,6 +9,15 @@ let
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
+  
+  # Create a script that wraps Chrome with HiDPI flags
+  chrome-hidpi = pkgs.writeShellScriptBin "chrome-hidpi" ''
+    exec ${pkgs.google-chrome}/bin/google-chrome-stable \
+      --enable-features=UseOzonePlatform \
+      --ozone-platform-hint=wayland \
+      --force-device-scale-factor=1.5 \
+      "$@"
+  '';
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -50,8 +59,18 @@ in {
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+  services.xserver.desktopManager.gnome = {
+    enable = true;
+    extraGSettingsOverridePackages = [ pkgs.mutter ];
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -97,6 +116,20 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # force GTK3/4 X apps to scale 1× UI + 1.5× text
+  environment.sessionVariables.GDK_SCALE = "1";
+  environment.sessionVariables.GDK_DPI_SCALE = "1.5";
+
+  # force Qt apps to use 1.5× scale
+  environment.sessionVariables.QT_SCALE_FACTOR = "1.5";
+  environment.sessionVariables.QT_AUTO_SCREEN_SCALE_FACTOR = "0";
+  environment.sessionVariables.QT_SCREEN_SCALE_FACTORS = "";
+
+  # tell Electron (VSCode, Discord, etc.) to go native Wayland
+  environment.sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  environment.sessionVariables.ELECTRON_ENABLE_WAYLAND = "1";
+  environment.sessionVariables.ELECTRON_USE_OZONE = "1";
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -107,12 +140,15 @@ in {
 
     vscode
     unstable.code-cursor
-    google-chrome
+    google-chrome      # Keep the original for compatibility
+    chrome-hidpi       # Our HiDPI wrapper
     
     # NVIDIA related packages
     nvidia-vaapi-driver   # HW video decode
     vulkan-tools          # `vulkaninfo`, `vkcube`
     glxinfo               # sanity check OpenGL
+    wl-clipboard          # Wayland clipboard utilities
+    xclip                 # X11 clipboard tool
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -159,4 +195,18 @@ in {
 
   # Enable DRM kernel modesetting
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+
+  # Create a desktop file for our HiDPI Chrome wrapper
+  environment.etc."xdg/applications/chrome-hidpi.desktop".text = ''
+    [Desktop Entry]
+    Version=1.0
+    Name=Google Chrome (HiDPI)
+    Exec=chrome-hidpi %U
+    Terminal=false
+    Icon=google-chrome
+    Type=Application
+    Categories=Network;WebBrowser;
+    MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/pdf;x-scheme-handler/http;x-scheme-handler/https;
+    StartupWMClass=Google-chrome-stable
+  '';
 }
