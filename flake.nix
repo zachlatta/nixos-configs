@@ -4,13 +4,10 @@
   inputs = {
     nixpkgs.url          = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url     = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     flake-utils.url      = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, ... }:
+  outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -29,7 +26,6 @@
         system  = "x86_64-linux";
         modules = [
           ./mew/configuration.nix          # the host config you already have
-          home-manager.nixosModules.home-manager
         ];
         # Pass flake inputs to your modules (optional but handy)
         specialArgs = { inherit (self) inputs; };

@@ -19,8 +19,7 @@ let
       "$@"
   '';
   
-  # NEW ────────────────────────────────────────────────────────────────────
-  hyprDrv = unstable.hyprland;      # freshest Hyprland build
+  hyprDrv = unstable.hyprland; # freshest Hyprland build
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -55,6 +54,12 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Enable Tailscale
+  services.tailscale.enable = true;
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+  networking.firewall.checkReversePath = "loose";
+
   # 1️⃣  **Drop GNOME**
   services.xserver.enable = false;   # turn off X11 desktop stack
   services.xserver.desktopManager.gnome.enable = lib.mkForce false;
@@ -64,6 +69,7 @@ in {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;         # X11 apps
+    package = hyprDrv;              # Use the freshest Hyprland build
   };
 
   # 3️⃣  **Pick a Wayland-native login manager**
@@ -71,16 +77,16 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "Hyprland";
+        command = "Hyprland"; 
         user = "zrl";
       };
     };
   };
 
-  # Add NVIDIA video driver
+  # Add NVIDIA video driver (for Xwayland and potentially TTY)
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Configure keymap in X11
+  # Configure keymap in X11 (for Xwayland and potentially TTY)
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -97,26 +103,29 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with 'passwd'.
+  # User settings
   users.users.zrl = {
     isNormalUser = true;
     description = "Zach Latta";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "docker" ];
+    openssh.authorizedKeys.keys = [];
   };
+
+  # Nix settings
+  nix.settings = {
+    auto-optimise-store = true;
+    trusted-users = [ "root" "zrl" ];
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # Clean /tmp on boot
+  boot.tmp.cleanOnBoot = true;
+
+  # SSD optimizations
+  boot.kernel.sysctl = { "vm-swappiness" = 1; };
+  services.fstrim.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -130,12 +139,14 @@ in {
     GBM_BACKENDS_PATH = "${pkgs.mesa.drivers}/lib/gbm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";
-    # keep your HiDPI overrides
-    GDK_SCALE = "1";
-    GDK_DPI_SCALE = "1.5";
-    QT_SCALE_FACTOR = "1.5";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "0";
-    QT_SCREEN_SCALE_FACTORS = "";
+    # HiDPI environment variables for GDK/QT.
+    # These might conflict with Hyprland's own scaling mechanisms (e.g., monitor=,preferred,auto,1.5 in hyprland.conf).
+    # It's often better to let Hyprland manage scaling. Test and uncomment/adjust if needed for specific apps.
+    # GDK_SCALE = "1";
+    # GDK_DPI_SCALE = "1.5";
+    # QT_SCALE_FACTOR = "1.5";
+    # QT_AUTO_SCREEN_SCALE_FACTOR = "0";
+    # QT_SCREEN_SCALE_FACTORS = "";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     ELECTRON_ENABLE_WAYLAND = "1";
     ELECTRON_USE_OZONE = "1";
@@ -156,10 +167,9 @@ in {
 
   # 5️⃣  **System packages**
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
-
     # Development tools from unstable
     unstable.rustc
     unstable.cargo
@@ -191,49 +201,18 @@ in {
     dolphin               # KDE file manager
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-    };
-  };
 
   # NVIDIA specific configuration
   hardware.nvidia = {
     modesetting.enable = true;          # lets Xorg & Wayland share the GPU
     powerManagement.enable = true;      # automatic clock & fan control
     nvidiaSettings = true;              # installs the nvidia-settings GUI
-    open = false;
+    open = false;                       # Prefer proprietary drivers
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # Enable DRM kernel modesetting
+  # Enable DRM kernel modesetting (essential for NVIDIA on Wayland)
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
   # Create a desktop file for our HiDPI Chrome wrapper
