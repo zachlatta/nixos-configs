@@ -141,12 +141,32 @@ in {
     ELECTRON_USE_OZONE = "1";
   };
 
+  environment.etc."profile.d/z-cargo-path.sh" = {
+    text = ''
+      # Prepend $HOME/.cargo/bin to PATH if it exists and is not already in PATH
+      if [ -d "$HOME/.cargo/bin" ]; then
+        case ":$PATH:" in
+          *":$HOME/.cargo/bin:"*) :;; # Already in PATH
+          *) export PATH="$HOME/.cargo/bin:$PATH" ;;
+        esac
+      fi
+    '';
+    mode = "0644";
+  };
+
   # 5️⃣  **System packages**
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    code2prompt
+
+    # Development tools from unstable
+    unstable.rustc
+    unstable.cargo
+    unstable.gcc
+    unstable.gnumake
+    unstable.pkg-config
+    unstable.stdenv.cc.cc.lib
 
     vscode
     unstable.code-cursor
@@ -159,6 +179,11 @@ in {
     glxinfo               # sanity check OpenGL
     wl-clipboard          # Wayland clipboard utilities
     xclip                 # X11 clipboard tool
+
+    # System monitoring tools
+    btop
+    htop
+    tmux
 
     # needed for hyprland
     kitty
