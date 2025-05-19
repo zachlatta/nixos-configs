@@ -1,0 +1,134 @@
+/* Waybar CSS */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono Nerd Font, FontAwesome, sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.85); /* Catppuccin Macchiato Base */
+    color: #cad3f5; /* Catppuccin Macchiato Text */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #cad3f5; /* Text */
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #f5bde6; /* Pink */
+}
+
+#workspaces button.focused {
+    background-color: #a6da95; /* Green */
+    color: #1e1e2e; /* Base (darker for contrast) */
+    border-bottom: 3px solid #a6da95;
+}
+
+#workspaces button.urgent {
+    background-color: #ed8796; /* Red */
+    color: #1e1e2e;
+}
+
+#mode {
+    padding: 0 10px;
+    margin: 0 4px;
+    color: #1e1e2e;
+    background-color: #eed49f; /* Yellow */
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#backlight,
+#custom-power,
+#window {
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #cad3f5; /* Text */
+}
+
+#window {
+    font-weight: bold;
+}
+
+/* Fallback for other modules */
+#bluetooth,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#language,
+#mpd,
+#taskbar,
+#temperature,
+#user,
+#custom-pacman,
+#custom-weather {
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #cad3f5; /* Text */
+}
+
+#pulseaudio {
+    color: #8aadf4; /* Blue */
+}
+#pulseaudio.muted {
+    color: #ed8796; /* Red */
+}
+
+#network {
+    color: #a6da95; /* Green */
+}
+#network.disconnected {
+    color: #ed8796; /* Red */
+}
+
+#cpu {
+    color: #eed49f; /* Yellow */
+}
+#memory {
+    color: #f5bde6; /* Pink */
+}
+#battery {
+    color: #b7bdf8; /* Lavender */
+}
+#battery.charging, #battery.plugged {
+    color: #a6da95; /* Green */
+}
+#battery.critical:not(.charging) {
+    background-color: #ed8796; /* Red */
+    color: #1e1e2e;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#backlight {
+    color: #f5a97f; /* Peach */
+}
+
+#custom-power {
+    color: #ed8796; /* Red */
+    background-color: transparent;
+    padding: 0 8px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ee99a0;
+        color: #1e1e2e;
+    }
+} 

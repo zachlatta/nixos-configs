@@ -19,10 +19,13 @@ let
       "$@"
   '';
   
+  hyprDrv = unstable.hyprland; # freshest Hyprland build
 in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Add the Home Manager NixOS module
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Bootloader.
@@ -68,6 +71,7 @@ in {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;         # X11 apps
+    package = hyprDrv;
   };
 
   # 3️⃣  **Pick a Wayland-native login manager**
@@ -75,7 +79,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "Hyprland"; 
+        command = "${hyprDrv}/bin/Hyprland"; 
         user = "zrl";
       };
     };
@@ -109,6 +113,15 @@ in {
     description = "Zach Latta";
     extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "docker" ];
     openssh.authorizedKeys.keys = [];
+    shell = pkgs.zsh;
+  };
+
+  # Home Manager configuration for the user 'zrl'
+  home-manager = {
+    extraSpecialArgs = { inherit inputs unstable; }; # Pass inputs to home-manager modules
+    users.zrl = import ./home-manager/home.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   # Nix settings

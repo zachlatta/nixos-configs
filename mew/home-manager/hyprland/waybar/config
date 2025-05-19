@@ -1,0 +1,101 @@
+// Waybar Config for Hyprland
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top, bottom, left, right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules
+
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "battery", "backlight", "custom/power"],
+
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5 // Show at least 5 workspaces
+        }
+    },
+    "hyprland/mode": {
+        "format": "<span style='italic'>{}</span>"
+    },
+    "hyprland/window": {
+        "format": "{}" // Shows current app title
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        "format": " {:%H:%M  %d/%m}", // Icon, Time, Icon, Date
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Band: {bandwidthUp} {bandwidthDown}",
+        "on-click": "nm-connection-editor" // or your preferred network manager GUI
+    },
+    "cpu": {
+        "format": "CPU: {usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "MEM: {}% "
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "backlight": {
+        "device": "intel_backlight", // Check your device with `ls /sys/class/backlight/`
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Power Menu",
+        "on-click": "wlogout -p layer-shell" // Requires wlogout
+    }
+} 
