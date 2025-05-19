@@ -1,5 +1,4 @@
-#!/bin/bash
 TMP_FILE=$(mktemp)
-code2prompt --output="$TMP_FILE" .
+code2prompt --output-file="$TMP_FILE" .
 cat "$TMP_FILE" | wl-copy
 rm "$TMP_FILE"
