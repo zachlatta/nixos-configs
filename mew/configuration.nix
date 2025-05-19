@@ -19,7 +19,6 @@ let
       "$@"
   '';
   
-  hyprDrv = unstable.hyprland; # freshest Hyprland build
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -69,7 +68,6 @@ in {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;         # X11 apps
-    package = hyprDrv;              # Use the freshest Hyprland build
   };
 
   # 3️⃣  **Pick a Wayland-native login manager**
