@@ -2,7 +2,7 @@
 { pkgs, config, lib, inputs, unstable, ... }:
 
 let
-  # Use separate location for hyprland configuration
+  hyprland-config-path = ./hyprland/hyprland.conf;
   hyprlock-config-path = ./hyprland/hyprlock.conf;
   waybar-config-path = ./hyprland/waybar/config;
   waybar-style-path = ./hyprland/waybar/style.css;
@@ -17,7 +17,7 @@ in
   home.homeDirectory = "/home/zrl";
 
   # Symlink dotfiles managed by home-manager
-  # Removed hyprland.conf which was causing conflict
+  home.file.".config/hypr/hyprland.conf".source = hyprland-config-path;
   home.file.".config/hypr/hyprlock.conf".source = hyprlock-config-path;
   home.file.".config/hypr/hyprpaper.conf".source = hyprpaper-config-path;
   home.file.".config/waybar/config".source = waybar-config-path;
@@ -47,9 +47,6 @@ in
     jq # for cliphist script
     wlogout # logout menu
     swaynotificationcenter # if mako is not preferred for some reason
-    waybar  # Include waybar as a package instead of a service
-    mako    # Include mako as a package instead of a service
-    libnotify # For notify-send
     
     # General utilities
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -62,9 +59,10 @@ in
 
     # Themeing
     nwg-look # GTK theme configuration
-    libsForQt5.qt5ct # Fixed package name
+    qt5ct
+    qt6ct
     kdePackages.breeze-gtk # Breeze GTK theme
-    kdePackages.breeze # Breeze Qt theme + cursors
+    kdePackages.breezeskin # Breeze Qt theme + cursors
     # gnome.adwaita-icon-theme # Already in sway for lugia, good fallback
 
     # Fonts (some already in systemPackages, add more specific ones here if needed)
@@ -76,11 +74,60 @@ in
     enable = true;
     package = unstable.hyprland; # Ensure consistency with system if preferred
     xwayland.enable = true;
-    systemd.enable = true; # Enable systemd integration
-    
-    # Let Home Manager manage hyprland.conf directly
-    # We'll read our file and use it as extraConfig
-    extraConfig = builtins.readFile ./hyprland/hyprland.conf;
+    # We use home.file to link hyprland.conf, so no need for settings or extraConfig here
+    # unless you want to define some parts directly in Nix.
+    # For a fully declarative setup with hyprland.conf, linking is good.
+  };
+
+  # Enable services
+  services.mako = {
+    enable = true;
+    # Config is managed by home.file link
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    # Config is managed by home.file link
+  };
+
+  # Example: Autostart Waybar (alternative to hyprland.conf exec-once)
+  services.waybar = {
+    enable = true;
+    package = pkgs.waybar; # or unstable.waybar
+    # Config and style are managed by home.file links
+  };
+
+  # Idle daemon for screen locking etc.
+  services.hypridle = {
+    enable = true;
+    package = unstable.hypridle; # Or pkgs.hypridle
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";       # Safe execution
+        before_sleep_cmd = "loginctl lock-session"; # Lock before suspend
+        after_sleep_cmd = "hyprctl dispatch dpms on"; # Resume monitors
+      };
+      listener = [
+        {
+          timeout = 150; # 2.5 minutes
+          on_timeout = "brightnessctl set 10%";
+          on_resume = "brightnessctl -r";
+        }
+        {
+          timeout = 300; # 5 minutes
+          on_timeout = "hyprctl dispatch dpms off";    # Screen off
+          on_resume = "hyprctl dispatch dpms on";     # Screen on
+        }
+        {
+          timeout = 330; # 5.5 minutes
+          on_timeout = "pidof hyprlock || hyprlock";   # Lock screen
+        }
+        {
+          timeout = 600; # 10 minutes
+          on_timeout = "loginctl suspend";            # Suspend
+        }
+      ];
+    };
   };
 
   # GTK Themeing
@@ -100,7 +147,7 @@ in
     };
     cursorTheme = {
       name = "Breeze_Snow"; # Or Breeze_Light, Breeze_Dark
-      package = pkgs.kdePackages.breeze; # Changed from breezeskin to breeze
+      package = pkgs.kdePackages.breezeskin; # Breeze cursors are often in breeze or breezeskin
       size = 24;
     };
   };
@@ -108,18 +155,24 @@ in
   # Qt Themeing (optional, if you use Qt apps)
   qt = {
     enable = true;
-    platformTheme = "qtct"; # Changed from qt5ct to qtct
+    platformTheme = "qt5ct"; # or "gtk" for gtk2 style
     style = {
       name = "Breeze"; # Match GTK
-      package = pkgs.kdePackages.breeze; # Changed from breezeskin to breeze
+      package = pkgs.kdePackages.breezeskin; # Provides Breeze Qt style
     };
   };
 
-  # Home variables (environment variables for the user)
+  # Environment variables
   home.sessionVariables = {
     EDITOR = "nvim"; # Or your preferred editor
     BROWSER = "firefox";
     TERMINAL = "kitty"; # Already in systemPackages
+
+    # These are also in your system NixOS config, ensure no conflicts or decide where to manage them.
+    # WLR_NO_HARDWARE_CURSORS = "1";
+    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # LIBVA_DRIVER_NAME = "nvidia";
+    # NVD_BACKEND = "direct"; # For some newer NVIDIA features with NVK
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";

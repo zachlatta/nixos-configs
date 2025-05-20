@@ -74,9 +74,6 @@ in {
     package = hyprDrv;
   };
 
-  # Enable zsh system-wide since we're using it as a user shell
-  programs.zsh.enable = true;
-
   # 3️⃣  **Pick a Wayland-native login manager**
   services.greetd = {
     enable = true;
