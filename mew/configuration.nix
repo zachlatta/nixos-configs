@@ -63,6 +63,18 @@ in {
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
   networking.firewall.checkReversePath = "loose";
 
+  # Enable Docker
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+    # Use the newer cgroup v2 for better resource management
+    daemon.settings = {
+      features = {
+        cgroup-v2 = true;
+      };
+    };
+  };
+
   # 1️⃣  **Drop GNOME**
   services.xserver.enable = false;   # turn off X11 desktop stack
   services.xserver.desktopManager.gnome.enable = lib.mkForce false;
@@ -180,6 +192,9 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # fixes vs code server
+  programs.nix-ld.enable = true;
 
   # 4️⃣  **GPU / NVIDIA tweaks for wlroots compositors**
   environment.sessionVariables = {
