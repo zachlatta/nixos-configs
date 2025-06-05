@@ -1,6 +1,6 @@
 # `nixos-configs` / dotfiles
 
-As I try out NixOS as my main OS, I'm having my NixOS configs take over my dotfiles. Format of repository inspired by https://github.com/Xe/nixos-configs.
+As I try out NixOS as my main OS, I'm having my NixOS configs take over my dotfiles. Format of repository inspired by <https://github.com/Xe/nixos-configs>.
 
 Branches in this repository are timestamped "logs" of when I last reset my dotfiles. For example, if you go to the branch `2020-01-09`, you can see my dotfiles shortly before I reset them.
 
@@ -8,7 +8,7 @@ Branches in this repository are timestamped "logs" of when I last reset my dotfi
 
 ### shinx
 
-MacBook Air 15". Managed using `chezmoi`, instead of Nix.
+MacBook Air 15". Not using Nix for this, just normal dotfiles.
 
 ### lugia
 
